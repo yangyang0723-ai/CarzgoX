@@ -13,10 +13,10 @@ import {
 
 const modules = [
   {
-    href: "/overseas#overview",
+    href: "/overseas#data",
     label: "模块 01",
-    title: overseasOverview.title,
-    brief: overseasOverview.brief,
+    title: "核心数据",
+    brief: "年均发运量近300万台，自有轿运车超2000辆，可控船只10艘。",
     image: "/images/logistics.png",
     alt: "轿运车队运输新车",
   },
@@ -123,11 +123,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 核心数据 */}
+      {/* 海外业务优势 */}
       <section className="bg-primary">
         <div className="mx-auto max-w-6xl px-5 py-16 lg:px-8">
           <h2 className="text-xl font-bold tracking-tight text-primary-foreground lg:text-2xl">
-            核心数据
+            海外业务优势
           </h2>
           <div className="mt-8 grid gap-4 lg:grid-cols-3">
             {overseasOverview.cards.map((card, index) => (

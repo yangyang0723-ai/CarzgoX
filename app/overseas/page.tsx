@@ -31,35 +31,81 @@ export default function OverseasPage() {
         </div>
       </section>
 
-      {/* 模块1 业务概况 */}
+      {/* 业务概况 */}
       <section
         id="overview"
         className="mx-auto max-w-6xl scroll-mt-20 px-5 py-20 lg:px-8"
       >
         <SectionHeading
-          eyebrow="模块 01"
+          eyebrow="BUSINESS OVERVIEW"
           title={overseasOverview.title}
-          desc={overseasOverview.summary}
+          desc={overseasOverview.brief}
         />
-        <div className="mt-10 grid gap-px bg-border md:grid-cols-3">
-          {overseasOverview.cards.map((c) => (
-            <div key={c.title} className="bg-card p-7">
-              <h3 className="text-base font-bold tracking-tight text-card-foreground">
-                {c.title}
-              </h3>
-              <div className="mt-3 h-0.5 w-8 bg-primary" />
-              <ul className="mt-4 flex flex-col gap-2">
-                {c.items.map((i) => (
-                  <li
-                    key={i}
-                    className="text-sm leading-relaxed text-muted-foreground"
-                  >
-                    {i}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+
+        <div className="mt-14 border-l-2 border-primary bg-secondary p-7 lg:p-9">
+          <h2 className="text-xl font-bold tracking-tight text-foreground">
+            {overseasOverview.overviewTitle}
+          </h2>
+          <p className="mt-4 max-w-4xl text-sm leading-relaxed text-muted-foreground text-pretty">
+            {overseasOverview.summary}
+          </p>
+        </div>
+
+        <div className="mt-14">
+          <h2 className="text-xl font-bold tracking-tight text-foreground">
+            {overseasOverview.advantagesTitle}
+          </h2>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {overseasOverview.cards.map((c, index) => (
+              <article key={c.title} className="border border-border bg-card p-7">
+                <p className="text-xs font-medium tracking-[0.16em] text-primary/65">
+                  {String(index + 1).padStart(2, "0")}
+                </p>
+                <h3 className="mt-4 text-lg font-bold tracking-tight text-primary">
+                  {c.title}
+                </h3>
+                <div className="mt-4 h-px bg-border" />
+                <ul className="mt-5 flex flex-col gap-3">
+                  {c.items.map((i) => (
+                    <li
+                      key={i}
+                      className="flex gap-3 text-sm leading-relaxed text-muted-foreground"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="mt-2 h-1.5 w-1.5 shrink-0 bg-primary"
+                      />
+                      <span>{i}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 核心数据 */}
+      <section id="data" className="scroll-mt-20 bg-primary">
+        <div className="mx-auto max-w-6xl px-5 py-16 lg:px-8">
+          <h2 className="text-xl font-bold tracking-tight text-primary-foreground lg:text-2xl">
+            核心数据
+          </h2>
+          <div className="mt-8 grid grid-cols-1 gap-px bg-primary-foreground/20 sm:grid-cols-2 lg:grid-cols-3">
+            {achievements.stats.map((s) => (
+              <div key={s.label} className="bg-primary p-7">
+                <p className="flex items-baseline gap-1 text-primary-foreground">
+                  <span className="text-3xl font-bold tracking-tight">
+                    {s.value}
+                  </span>
+                  <span className="text-sm">{s.unit}</span>
+                </p>
+                <p className="mt-2 text-sm text-primary-foreground/75">
+                  {s.label}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -140,24 +186,6 @@ export default function OverseasPage() {
           ))}
         </div>
 
-        <div className="mt-14">
-          <h3 className="text-lg font-bold tracking-tight text-foreground">
-            核心数据
-          </h3>
-          <div className="mt-6 grid grid-cols-1 gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
-            {achievements.stats.map((s) => (
-              <div key={s.label} className="bg-secondary p-7">
-                <p className="flex items-baseline gap-1 text-primary">
-                  <span className="text-3xl font-bold tracking-tight">
-                    {s.value}
-                  </span>
-                  <span className="text-sm">{s.unit}</span>
-                </p>
-                <p className="mt-2 text-sm text-muted-foreground">{s.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
     </>
   )
