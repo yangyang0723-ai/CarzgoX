@@ -52,30 +52,12 @@ export default function HomePage() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/25" />
 
         <div className="mx-auto w-full max-w-6xl px-5 py-20 lg:px-8">
-          <p className="text-xs font-medium tracking-[0.24em] text-primary-foreground/80">
-            久车GO · 海外业务
-          </p>
           <h1 className="mt-5 text-4xl font-bold leading-tight tracking-tight text-primary-foreground text-balance lg:text-6xl">
             {hero.tagline}
           </h1>
           <p className="mt-5 max-w-xl text-sm leading-relaxed text-primary-foreground/85 text-pretty lg:text-base">
             {hero.sub}
           </p>
-          <div className="mt-9 flex flex-wrap gap-3">
-            <Link
-              href="/overseas"
-              className="flex items-center gap-2 bg-background px-6 py-3 text-sm font-medium text-primary transition-opacity hover:opacity-90"
-            >
-              海外业务
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              href="/vehicles"
-              className="flex items-center gap-2 border border-primary-foreground/45 px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10"
-            >
-              车型目录
-            </Link>
-          </div>
         </div>
       </section>
 
