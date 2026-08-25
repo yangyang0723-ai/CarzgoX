@@ -123,25 +123,40 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 核心数据 九宫格 */}
+      {/* 核心数据 */}
       <section className="bg-primary">
         <div className="mx-auto max-w-6xl px-5 py-16 lg:px-8">
           <h2 className="text-xl font-bold tracking-tight text-primary-foreground lg:text-2xl">
             核心数据
           </h2>
-          <div className="mt-8 grid grid-cols-1 gap-px bg-primary-foreground/20 sm:grid-cols-2 lg:grid-cols-3">
-            {achievements.stats.map((s) => (
-              <div key={s.label} className="bg-primary p-7">
-                <p className="flex items-baseline gap-1 text-primary-foreground">
-                  <span className="text-3xl font-bold tracking-tight lg:text-4xl">
-                    {s.value}
-                  </span>
-                  <span className="text-sm">{s.unit}</span>
+          <div className="mt-8 grid gap-4 lg:grid-cols-3">
+            {overseasOverview.cards.map((card, index) => (
+              <article
+                key={card.title}
+                className="flex flex-col border border-primary-foreground/25 bg-primary-foreground p-7"
+              >
+                <p className="text-xs font-medium tracking-[0.16em] text-primary/65">
+                  {String(index + 1).padStart(2, "0")}
                 </p>
-                <p className="mt-2 text-sm text-primary-foreground/75">
-                  {s.label}
-                </p>
-              </div>
+                <h3 className="mt-4 text-xl font-bold tracking-tight text-primary">
+                  {card.title}
+                </h3>
+                <div className="mt-5 h-px bg-border" />
+                <ul className="mt-5 flex flex-col gap-3">
+                  {card.items.map((item) => (
+                    <li
+                      key={item}
+                      className="flex gap-3 text-sm leading-relaxed text-foreground"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="mt-2 h-1.5 w-1.5 shrink-0 bg-primary"
+                      />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
             ))}
           </div>
         </div>
