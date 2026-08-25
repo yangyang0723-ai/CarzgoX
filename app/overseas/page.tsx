@@ -39,13 +39,9 @@ export default function OverseasPage() {
         <SectionHeading
           eyebrow="BUSINESS OVERVIEW"
           title={overseasOverview.title}
-          desc={overseasOverview.brief}
         />
 
         <div className="mt-14 border-l-2 border-primary bg-secondary p-7 lg:p-9">
-          <h2 className="text-xl font-bold tracking-tight text-foreground">
-            {overseasOverview.overviewTitle}
-          </h2>
           <p className="mt-4 max-w-4xl text-sm leading-relaxed text-muted-foreground text-pretty">
             {overseasOverview.summary}
           </p>
@@ -116,7 +112,6 @@ export default function OverseasPage() {
       >
         <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
           <SectionHeading
-            eyebrow="模块 02"
             title={brandsSection.title}
             desc={brandsSection.summary}
           />
@@ -169,7 +164,6 @@ export default function OverseasPage() {
         className="mx-auto max-w-6xl scroll-mt-20 px-5 py-20 lg:px-8"
       >
         <SectionHeading
-          eyebrow="模块 03"
           title={achievements.title}
           desc={achievements.summary}
         />
