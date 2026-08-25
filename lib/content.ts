@@ -251,6 +251,46 @@ export const about = {
     },
   ],
   logisticsTitle: "国际物流布局",
+  logisticsSummary:
+    "积极响应国家“一带一路”倡议，于 2014 年开展国际化战略布局，力争成为面向全球汽车品牌的汽车供应链服务先行者，业务范围覆盖美洲、欧洲、中亚、东南亚、东亚、中东、非洲等。",
+  logisticsCapabilities: [
+    {
+      name: "国际铁路",
+      english: "CR Express · Oversea Resources",
+      description: "中欧班列资源 · 境外段优质资源",
+      icon: "rail",
+    },
+    {
+      name: "国际海运",
+      english: "Self-operated · Cooperated Ro-Ro",
+      description: "自营国际滚装船 · 大型船公司",
+      icon: "ship",
+    },
+    {
+      name: "国际空运",
+      english: "Rich experience and resources",
+      description: "丰富货代经验及资源",
+      icon: "air",
+    },
+    {
+      name: "国际公路",
+      english: "TIR · Cross-border model",
+      description: "TIR 一站直达 · 跨境公路运输",
+      icon: "road",
+    },
+    {
+      name: "海外服务体系",
+      english: "Overseas bases · Distribution",
+      description: "海外基地 · 境外落地分拨",
+      icon: "network",
+    },
+    {
+      name: "KD 运包 · 商贸物流",
+      english: "Export Packaging and Trade Business",
+      description: "国际出口包装贸易业务",
+      icon: "package",
+    },
+  ],
 }
 
 export const contact = {
