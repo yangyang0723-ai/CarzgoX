@@ -212,6 +212,7 @@ export const about = {
     {
       name: "长久物流",
       english: "LOGISTICS",
+      image: "/images/business/logistics.png",
       position: "中国首家A股上市的第三方汽车物流企业",
       description:
         "领先的汽车产业服务商，为汽车价值链各环节提供专业服务。年均发运量近300万台，自有轿运车2,400余台，可用仓储面积近230万㎡；可控船只9艘，覆盖全球主要航线，提供国内及国际公铁水多式联运服务方案。",
@@ -219,6 +220,7 @@ export const about = {
     {
       name: "长久股份",
       english: "MATHEMATICS",
+      image: "/images/business/technology.png",
       position: "中国汽车流通领域最大的质押车辆监控服务提供商",
       description:
         "提供质押车辆监控、新汽车流通及经销商运营管理服务。向超160家金融机构及18,000余家汽车经销商提供服务，覆盖中国31个省份500多个城市，累计监测超过800万台质押车辆。",
@@ -226,6 +228,7 @@ export const about = {
     {
       name: "长久汽车销售",
       english: "CAR SALES",
+      image: "/images/business/car-sales.png",
       position: "中国汽车经销商百强集团常年排名前14位",
       description:
         "拥有近70家4S店，覆盖高中低档及新能源车企，经销捷豹路虎、奥迪、大众、奔驰、丰田、沃尔沃、现代、马自达、别克、东本、捷尼赛思、智己、小鹏、深蓝、起亚、解放等品牌。",
@@ -233,6 +236,7 @@ export const about = {
     {
       name: "长久汽车制造",
       english: "AUTOMOBILE MAKING",
+      image: "/images/business/manufacturing.png",
       position: "中国领先的轿运车生产基地",
       description:
         "专业从事轿运车改造生产，配备先进的改装设备及生产线，拥有滁州、吉林两大生产改装基地。总占地面积35万㎡，年设计产能6,000台，已获授权发明及实用新型专利30项。",
@@ -240,6 +244,7 @@ export const about = {
     {
       name: "千品猫",
       english: "E-COMMERCE",
+      image: "/images/business/ecommerce.png",
       position: "以B/C端双生态驱动全链路一体化数字赋能体系",
       description:
         "专注为用户提供汽车零配件、轻改装饰、清洁及养护类产品的全链路一体化服务。",
