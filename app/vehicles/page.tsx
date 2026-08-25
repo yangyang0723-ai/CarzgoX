@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { vehicleCatalog } from "@/lib/content"
 
 export const metadata = {
@@ -40,14 +41,25 @@ export default function VehiclesPage() {
                       {b.brand}
                     </h3>
                     <div className="mt-3 h-0.5 w-8 bg-primary" />
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {b.models.map((m) => (
-                        <span
-                          key={m}
-                          className="bg-secondary px-3 py-1.5 text-sm text-secondary-foreground"
+                    <div className="mt-5 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                      {b.models.map((model) => (
+                        <figure
+                          key={model.name}
+                          className="overflow-hidden border border-border bg-secondary"
                         >
-                          {m}
-                        </span>
+                          <figcaption className="px-3 py-2.5 text-sm font-medium text-secondary-foreground">
+                            {model.name}
+                          </figcaption>
+                          <div className="relative aspect-[4/3] overflow-hidden bg-background">
+                            <Image
+                              src={model.image}
+                              alt={`${b.brand} ${model.name} 车型`}
+                              fill
+                              sizes="(min-width: 1280px) 18vw, (min-width: 640px) 40vw, 90vw"
+                              className="object-cover transition-transform duration-500 hover:scale-105"
+                            />
+                          </div>
+                        </figure>
                       ))}
                     </div>
                   </div>

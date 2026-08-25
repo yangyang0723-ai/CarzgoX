@@ -145,7 +145,15 @@ export const vehicleCatalog = [
   {
     module: "新车直出",
     brands: [
-      { brand: "北京现代", models: ["ELANTRA", "SANTA", "TUCSON", "SONATA"] },
+      {
+        brand: "北京现代",
+        models: [
+          { name: "ELANTRA", image: "/images/vehicles/elantra.jpg" },
+          { name: "SANTA", image: "/images/vehicles/santa.jpg" },
+          { name: "TUCSON", image: "/images/vehicles/tucson.jpg" },
+          { name: "SONATA", image: "/images/vehicles/sonata.jpg" },
+        ],
+      },
     ],
   },
   {
@@ -153,16 +161,35 @@ export const vehicleCatalog = [
     brands: [
       {
         brand: "一汽奔腾",
-        models: ["JOYEE S04", "JOYEE S08", "T90", "T77", "Xiaoma"],
+        models: [
+          { name: "JOYEE S04", image: "/images/vehicles/joyee-s04.png" },
+          { name: "JOYEE S08", image: "/images/vehicles/joyee-s08.png" },
+          { name: "T90", image: "/images/vehicles/t90.png" },
+          { name: "T77", image: "/images/vehicles/t77.png" },
+          { name: "Xiaoma", image: "/images/vehicles/xiaoma.png" },
+        ],
       },
     ],
   },
   {
     module: "其他",
     brands: [
-      { brand: "一汽丰田", models: ["卡罗拉 1.2T"] },
-      { brand: "吉利", models: ["银河 E8"] },
-      { brand: "东风岚图", models: ["梦想家", "FREE", "泰山"] },
+      {
+        brand: "一汽丰田",
+        models: [{ name: "卡罗拉 1.2T", image: "/images/vehicles/corolla.png" }],
+      },
+      {
+        brand: "吉利",
+        models: [{ name: "银河 E8", image: "/images/vehicles/galaxy-e8.png" }],
+      },
+      {
+        brand: "东风岚图",
+        models: [
+          { name: "梦想家", image: "/images/vehicles/dreamer.png" },
+          { name: "FREE", image: "/images/vehicles/free.png" },
+          { name: "泰山", image: "/images/vehicles/taishan.png" },
+        ],
+      },
     ],
   },
 ]
