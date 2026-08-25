@@ -129,17 +129,7 @@ export default function HomePage() {
                     <h3 className="pt-1 text-base font-bold tracking-tight text-card-foreground">
                       {brand.brand}
                     </h3>
-                    <div
-                      className={`grid grid-cols-2 gap-3 sm:grid-cols-3 ${
-                        brand.models.length === 5
-                          ? "md:grid-cols-5"
-                          : brand.models.length === 4
-                            ? "md:grid-cols-4"
-                            : brand.models.length === 3
-                              ? "md:grid-cols-3"
-                              : "md:grid-cols-2"
-                      }`}
-                    >
+                    <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
                       {brand.models.map((model) => (
                         <figure
                           key={model.name}
@@ -151,7 +141,9 @@ export default function HomePage() {
                               alt={`${brand.brand} ${model.name} 车型`}
                               fill
                               sizes="(min-width: 1024px) 16vw, (min-width: 640px) 28vw, 45vw"
-                              className="object-cover transition-transform duration-500 group-hover:scale-105"
+                              className={`object-cover transition-transform duration-500 group-hover:scale-105 ${
+                                model.name === "SONATA" ? "scale-[2.8] group-hover:scale-[2.9]" : ""
+                              }`}
                             />
                           </div>
                           <figcaption className="border-t border-border px-3 py-2.5 text-sm font-medium text-card-foreground">
