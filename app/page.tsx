@@ -15,8 +15,7 @@ import {
 const modules = [
   {
     href: "/overseas#overview",
-    label: "模块 01",
-    title: overseasOverview.title,
+    title: "业务介绍",
     brief: overseasOverview.brief,
     image: "/images/logistics.png",
     alt: "轿运车队运输新车",
@@ -102,9 +101,6 @@ export default function HomePage() {
                 />
               </div>
               <div className="flex flex-1 flex-col gap-3 p-6">
-                <span className="text-xs font-medium tracking-[0.16em] text-primary">
-                  {m.label}
-                </span>
                 <h3 className="text-lg font-bold tracking-tight text-card-foreground">
                   {m.title}
                 </h3>
@@ -127,7 +123,7 @@ export default function HomePage() {
       {/* 车型目录 */}
       <section className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
         <div className="flex flex-wrap items-end justify-between gap-4">
-          <SectionHeading eyebrow="VEHICLE CATALOG" title="车型目录" />
+          <SectionHeading eyebrow="VEHICLE CATALOG" title="销售车型" />
           <Link
             href="/vehicles"
             className="flex items-center gap-1.5 text-sm font-medium text-primary"
