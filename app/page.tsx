@@ -22,7 +22,6 @@ const modules = [
   },
   {
     href: "/overseas#brands",
-    label: "模块 02",
     title: brandsSection.title,
     brief: brandsSection.brief,
     image: "/images/kd-plant.png",
@@ -30,7 +29,6 @@ const modules = [
   },
   {
     href: "/overseas#achievements",
-    label: "模块 03",
     title: achievements.title,
     brief: achievements.brief,
     image: "/images/port-store.png",
