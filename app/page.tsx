@@ -7,16 +7,17 @@ import {
   brandsSection,
   contact,
   hero,
+  overseasOverview,
   portStores,
   vehicleCatalog,
 } from "@/lib/content"
 
 const modules = [
   {
-    href: "/overseas#data",
+    href: "/overseas#overview",
     label: "模块 01",
-    title: "核心数据",
-    brief: "年均发运量近300万台，自有轿运车超2000辆，可控船只10艘。",
+    title: overseasOverview.title,
+    brief: overseasOverview.brief,
     image: "/images/logistics.png",
     alt: "轿运车队运输新车",
   },
