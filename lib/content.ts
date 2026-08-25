@@ -1,4 +1,5 @@
 export const nav = [
+  { label: "首页", href: "/" },
   { label: "关于我们", href: "/about" },
   { label: "海外业务", href: "/overseas" },
   { label: "车型目录", href: "/vehicles" },

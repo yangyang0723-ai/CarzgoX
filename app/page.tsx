@@ -7,7 +7,7 @@ import {
   brandsSection,
   contact,
   hero,
-  overseasOverview,
+  portStores,
   vehicleCatalog,
 } from "@/lib/content"
 
@@ -123,49 +123,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 海外业务优势 */}
-      <section className="bg-primary">
-        <div className="mx-auto max-w-6xl px-5 py-16 lg:px-8">
-          <h2 className="text-xl font-bold tracking-tight text-primary-foreground lg:text-2xl">
-            海外业务优势
-          </h2>
-          <div className="mt-8 grid gap-4 lg:grid-cols-3">
-            {overseasOverview.cards.map((card, index) => (
-              <article
-                key={card.title}
-                className="flex flex-col border border-primary-foreground/25 bg-primary-foreground p-7"
-              >
-                <p className="text-xs font-medium tracking-[0.16em] text-primary/65">
-                  {String(index + 1).padStart(2, "0")}
-                </p>
-                <h3 className="mt-4 text-xl font-bold tracking-tight text-primary">
-                  {card.title}
-                </h3>
-                <div className="mt-5 h-px bg-border" />
-                <ul className="mt-5 flex flex-col gap-3">
-                  {card.items.map((item) => (
-                    <li
-                      key={item}
-                      className="flex gap-3 text-sm leading-relaxed text-foreground"
-                    >
-                      <span
-                        aria-hidden="true"
-                        className="mt-2 h-1.5 w-1.5 shrink-0 bg-primary"
-                      />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 销售车型 */}
+      {/* 车型目录 */}
       <section className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
         <div className="flex flex-wrap items-end justify-between gap-4">
-          <SectionHeading eyebrow="VEHICLE CATALOG" title="销售车型" />
+          <SectionHeading eyebrow="VEHICLE CATALOG" title="车型目录" />
           <Link
             href="/vehicles"
             className="flex items-center gap-1.5 text-sm font-medium text-primary"
@@ -202,6 +163,52 @@ export default function HomePage() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* 口岸店 */}
+      <section className="border-t border-border bg-primary">
+        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-20 lg:grid-cols-2 lg:items-center lg:px-8">
+          <div className="relative aspect-[4/3] overflow-hidden border border-primary-foreground/20">
+            <Image
+              src="/images/port-store.png"
+              alt="霍尔果斯口岸国际汽车市场"
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover"
+            />
+          </div>
+          <div>
+            <p className="text-xs font-medium tracking-[0.2em] text-primary-foreground/70">
+              PORT STORES
+            </p>
+            <h2 className="mt-3 text-2xl font-bold tracking-tight text-primary-foreground">
+              口岸店
+            </h2>
+            <div className="mt-8 border-t border-primary-foreground/20 pt-6">
+              <p className="text-xs tracking-[0.16em] text-primary-foreground/60">
+                现有口岸店
+              </p>
+              <p className="mt-2 text-base font-medium text-primary-foreground">
+                {portStores.current}
+              </p>
+            </div>
+            <div className="mt-6 border-t border-primary-foreground/20 pt-6">
+              <p className="text-xs tracking-[0.16em] text-primary-foreground/60">
+                战略规划
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-primary-foreground/80 text-pretty">
+                {portStores.plan}
+              </p>
+            </div>
+            <Link
+              href="/vehicles#port-stores"
+              className="mt-8 flex w-fit items-center gap-1.5 text-sm font-medium text-primary-foreground"
+            >
+              查看更多
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
         </div>
       </section>
 

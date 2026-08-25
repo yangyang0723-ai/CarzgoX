@@ -62,7 +62,10 @@ export default function VehiclesPage() {
       </section>
 
       {/* 口岸店 */}
-      <section className="border-t border-border bg-secondary">
+      <section
+        id="port-stores"
+        className="scroll-mt-20 border-t border-border bg-secondary"
+      >
         <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
           <SectionHeading eyebrow="PORT STORES" title="口岸店" />
           <div className="mt-10 grid items-start gap-8 lg:grid-cols-2">
