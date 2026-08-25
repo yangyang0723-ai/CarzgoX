@@ -143,13 +143,13 @@ export const achievements = {
 
 export const vehicleCatalog = [
   {
-    module: "模块1 · 新车直出",
+    module: "新车直出",
     brands: [
       { brand: "北京现代", models: ["ELANTRA", "SANTA", "TUCSON", "SONATA"] },
     ],
   },
   {
-    module: "模块2 · 外贸",
+    module: " 外贸",
     brands: [
       {
         brand: "一汽奔腾",
@@ -158,7 +158,7 @@ export const vehicleCatalog = [
     ],
   },
   {
-    module: "模块3 · 其他",
+    module: "其他",
     brands: [
       { brand: "一汽丰田", models: ["卡罗拉 1.2T"] },
       { brand: "吉利", models: ["银河 E8"] },
