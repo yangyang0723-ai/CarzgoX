@@ -113,33 +113,50 @@ export default function HomePage() {
           </Link>
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
+        <div className="mt-10 flex flex-col gap-8">
           {vehicleCatalog.map((group) => (
-            <div key={group.module} className="border border-border bg-card p-6">
-              <p className="text-xs font-medium tracking-[0.16em] text-primary">
-                {group.module}
-              </p>
-              <div className="mt-5 flex flex-col gap-5">
-                {group.brands.map((b) => (
-                  <div key={b.brand}>
-                    <h3 className="text-base font-bold tracking-tight text-card-foreground">
-                      {b.brand}
+            <div key={group.module} className="border-t border-border pt-5">
+              <div className="flex items-center gap-4">
+                <p className="shrink-0 text-xs font-medium tracking-[0.16em] text-primary">
+                  {group.module}
+                </p>
+                <div className="h-px flex-1 bg-border" />
+              </div>
+
+              <div className="mt-5 flex flex-col gap-6">
+                {group.brands.map((brand) => (
+                  <div key={brand.brand} className="grid gap-4 md:grid-cols-[7rem_1fr]">
+                    <h3 className="pt-1 text-base font-bold tracking-tight text-card-foreground">
+                      {brand.brand}
                     </h3>
-                    <div className="mt-3 grid grid-cols-2 gap-3">
-                      {b.models.map((model) => (
-                        <figure key={model.name} className="overflow-hidden bg-secondary">
-                          <figcaption className="px-2.5 py-2 text-xs font-medium text-secondary-foreground">
-                            {model.name}
-                          </figcaption>
-                          <div className="relative aspect-[4/3] overflow-hidden">
+                    <div
+                      className={`grid grid-cols-2 gap-3 sm:grid-cols-3 ${
+                        brand.models.length === 5
+                          ? "md:grid-cols-5"
+                          : brand.models.length === 4
+                            ? "md:grid-cols-4"
+                            : brand.models.length === 3
+                              ? "md:grid-cols-3"
+                              : "md:grid-cols-2"
+                      }`}
+                    >
+                      {brand.models.map((model) => (
+                        <figure
+                          key={model.name}
+                          className="group overflow-hidden border border-border bg-card"
+                        >
+                          <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
                             <Image
                               src={model.image}
-                              alt={`${b.brand} ${model.name} 车型`}
+                              alt={`${brand.brand} ${model.name} 车型`}
                               fill
-                              sizes="(min-width: 768px) 14vw, 45vw"
-                              className="object-cover transition-transform duration-500 hover:scale-105"
+                              sizes="(min-width: 1024px) 16vw, (min-width: 640px) 28vw, 45vw"
+                              className="object-cover transition-transform duration-500 group-hover:scale-105"
                             />
                           </div>
+                          <figcaption className="border-t border-border px-3 py-2.5 text-sm font-medium text-card-foreground">
+                            {model.name}
+                          </figcaption>
                         </figure>
                       ))}
                     </div>
