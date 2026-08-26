@@ -1,7 +1,5 @@
 import Image from "next/image"
-import Link from "next/link"
 import {
-  ArrowRight,
   Globe2,
   Package,
   Plane,
@@ -26,11 +24,6 @@ const logisticsIcons = {
   package: Package,
 } as const
 
-const links = [
-  { label: "海外业务", href: "/overseas" },
-  { label: "销售车型", href: "/vehicles" },
-  { label: "联系我们", href: "/contact" },
-]
 
 export default function AboutPage() {
   return (
@@ -154,23 +147,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 快捷入口 */}
-      <section className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
-        <div className="grid gap-px bg-border md:grid-cols-3">
-          {links.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className="group flex items-center justify-between bg-card p-7 transition-colors hover:bg-secondary"
-            >
-              <span className="text-base font-bold tracking-tight text-card-foreground">
-                {l.label}
-              </span>
-              <ArrowRight className="h-4 w-4 text-primary transition-transform group-hover:translate-x-1" />
-            </Link>
-          ))}
-        </div>
-      </section>
     </>
   )
 }
