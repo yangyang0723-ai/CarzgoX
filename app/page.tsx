@@ -1,11 +1,10 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, Mail, MapPin, Phone } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { SectionHeading } from "@/components/section-heading"
 import {
   achievements,
   brandsSection,
-  contact,
   hero,
   overseasOverview,
   portStores,
@@ -206,29 +205,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 联系我们 */}
-      <section className="border-t border-border bg-secondary">
-        <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
-          <SectionHeading eyebrow="CONTACT US" title="联系我们" />
-          <div className="mt-10 grid gap-px bg-border md:grid-cols-3">
-            {[
-              { icon: Phone, label: "电话", value: contact.phone },
-              { icon: Mail, label: "邮箱", value: contact.email },
-              { icon: MapPin, label: "地址", value: contact.address },
-            ].map((c) => (
-              <div key={c.label} className="bg-card p-7">
-                <c.icon className="h-5 w-5 text-primary" />
-                <p className="mt-4 text-xs tracking-[0.16em] text-muted-foreground">
-                  {c.label}
-                </p>
-                <p className="mt-1.5 text-sm leading-relaxed text-card-foreground">
-                  {c.value}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
     </>
   )
 }
