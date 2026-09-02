@@ -82,6 +82,45 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* 长久股份介绍 */}
+      <section className="border-t border-border bg-background">
+        <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
+          <SectionHeading eyebrow={about.changjiuShares.eyebrow} title={about.changjiuShares.title} />
+
+          <div className="mt-12 grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+            <div>
+              <h2 className="text-xl font-bold tracking-tight text-foreground">{about.changjiuShares.overviewTitle}</h2>
+              <p className="mt-5 text-sm leading-relaxed text-muted-foreground text-pretty lg:text-base">
+                {about.changjiuShares.overview}
+              </p>
+            </div>
+            <div>
+              <h2 className="text-xl font-bold tracking-tight text-foreground">{about.changjiuShares.businessTitle}</h2>
+              <div className="mt-5 grid gap-px border border-border bg-border">
+                {about.changjiuShares.businesses.map(([title, description], index) => (
+                  <div key={title} className="bg-card p-5">
+                    <p className="font-mono text-xs text-primary">{String(index + 1).padStart(2, "0")}</p>
+                    <h3 className="mt-2 font-bold text-card-foreground">{title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground text-pretty">{description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-16">
+            <h2 className="text-xl font-bold tracking-tight text-foreground">{about.changjiuShares.valuesTitle}</h2>
+            <div className="mt-5 grid gap-px border border-border bg-border sm:grid-cols-2">
+              {about.changjiuShares.values.map(([title, description]) => (
+                <div key={title} className="bg-card p-6">
+                  <h3 className="font-bold text-card-foreground">{title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground text-pretty">{description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
     </>
   )
