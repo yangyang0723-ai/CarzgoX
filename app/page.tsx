@@ -60,9 +60,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 海外业务三大模块 */}
+      {/* 平台业务三大模块 */}
       <section className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
-        <SectionHeading eyebrow="OVERSEAS BUSINESS" title="海外业务" />
+        <SectionHeading eyebrow="PLATFORM BUSINESS" title="平台业务" />
 
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {modules.map((m) => (
