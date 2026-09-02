@@ -55,7 +55,7 @@ export const overseasOverview = {
 }
 
 export const brandsSection = {
-  title: "合作品牌及模式",
+  title: "合作模式",
   brief:
     "拥有多元化整车出海业务模式，覆盖多家主流汽车品牌，服务辐射俄罗斯、中亚、中东、非洲等海外市场。",
   summary:
@@ -103,7 +103,7 @@ export const brandsSection = {
 }
 
 export const achievements = {
-  title: "出口业务成果",
+  title: "出口成果",
   brief:
     "多年深耕整车出海，沉淀完善渠道与直客服务能力，擅长应对复杂海外市场，具备可靠的项目执行与交付能力。",
   summary:
