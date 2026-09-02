@@ -61,7 +61,7 @@ export default function VehiclesPage() {
                               fill
                               sizes="(min-width: 1280px) 18vw, (min-width: 640px) 40vw, 90vw"
                               className={`object-cover transition-transform duration-500 hover:scale-105 ${
-                                model.name === "SONATA" ? "scale-[3] hover:scale-[3.1]" : ""
+                                model.name === "SONATA" || model.name === "VS8" ? "scale-[3] hover:scale-[3.1]" : ""
                               }`}
                             />
                           </div>

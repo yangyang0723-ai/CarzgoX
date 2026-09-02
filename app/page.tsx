@@ -160,7 +160,7 @@ export default function HomePage() {
                               fill
                               sizes="(min-width: 1024px) 16vw, (min-width: 640px) 28vw, 45vw"
                               className={`object-cover transition-transform duration-500 group-hover:scale-105 ${
-                                model.name === "SONATA" ? "scale-[3] group-hover:scale-[3.1]" : ""
+                                model.name === "SONATA" || model.name === "VS8" ? "scale-[3] group-hover:scale-[3.1]" : ""
                               }`}
                             />
                           </div>
