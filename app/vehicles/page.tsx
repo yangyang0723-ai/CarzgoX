@@ -1,5 +1,8 @@
 import Image from "next/image"
+import Link from "next/link"
 import { vehicleCatalog } from "@/lib/content"
+
+const vehicleSlug = (name: string) => encodeURIComponent(name.toLowerCase().replace(/\s+/g, "-"))
 
 export const metadata = {
   title: "销售车型 | 久车GO",
@@ -43,10 +46,11 @@ export default function VehiclesPage() {
                     <div className="mt-3 h-0.5 w-8 bg-primary" />
                     <div className="mt-5 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
                       {b.models.map((model) => (
-                        <figure
-                          key={model.name}
-                          className="overflow-hidden border border-border bg-secondary"
-                        >
+                  <Link
+                    key={model.name}
+                    href={`/vehicles/${vehicleSlug(model.name)}`}
+                    className="group overflow-hidden border border-border bg-secondary"
+                  >
                           <figcaption className="px-3 py-2.5 text-sm font-medium text-secondary-foreground">
                             {model.name}
                           </figcaption>
@@ -61,8 +65,8 @@ export default function VehiclesPage() {
                               }`}
                             />
                           </div>
-                        </figure>
-                      ))}
+                  </Link>
+                ))}
                     </div>
                   </div>
                 ))}

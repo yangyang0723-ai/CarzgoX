@@ -2,6 +2,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { SectionHeading } from "@/components/section-heading"
+
+const vehicleSlug = (name: string) => encodeURIComponent(name.toLowerCase().replace(/\s+/g, "-"))
 import {
   achievements,
   brandsSection,
@@ -133,10 +135,11 @@ export default function HomePage() {
                     </h3>
                     <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
                       {brand.models.map((model) => (
-                        <figure
-                          key={model.name}
-                          className="group overflow-hidden border border-border bg-card"
-                        >
+                  <Link
+                    key={model.name}
+                    href={`/vehicles/${vehicleSlug(model.name)}`}
+                    className="group overflow-hidden border border-border bg-card"
+                  >
                           <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
                             <Image
                               src={model.image}
@@ -151,8 +154,8 @@ export default function HomePage() {
                           <figcaption className="border-t border-border px-3 py-2.5 text-sm font-medium text-card-foreground">
                             {model.name}
                           </figcaption>
-                        </figure>
-                      ))}
+                  </Link>
+                ))}
                     </div>
                   </div>
                 ))}
