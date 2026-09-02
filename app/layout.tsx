@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import { Noto_Sans_SC } from 'next/font/google'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
+import { ContactFloat } from '@/components/contact-float'
 import './globals.css'
 
 const _notoSansSC = Noto_Sans_SC({
@@ -53,6 +54,7 @@ export default function RootLayout({
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />
+        <ContactFloat />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
