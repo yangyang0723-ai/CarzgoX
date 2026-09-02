@@ -40,14 +40,17 @@ export default function HomePage() {
     <>
       {/* 轮播图 / 视频位 */}
       <section className="relative isolate flex min-h-[520px] items-center overflow-hidden lg:min-h-[620px]">
-        <Image
-          src="/images/hero-port.png"
-          alt="港口整车出口滚装码头"
-          fill
-          priority
-          sizes="100vw"
-          className="-z-10 object-cover"
-        />
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/images/banner-sample.png"
+          aria-label="汽车物流港口运输视频"
+          className="absolute inset-0 -z-10 h-full w-full object-cover"
+        >
+          <source src="/videos/home-banner-sample.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/25" />
 
         <div className="mx-auto w-full max-w-6xl px-5 py-20 lg:px-8">
