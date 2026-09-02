@@ -1,13 +1,13 @@
 "use client"
 
 import { useState } from "react"
-import { Mail, Phone, Send, MessageCircle, X } from "lucide-react"
+import { Mail, Phone, MessageCircle, X } from "lucide-react"
 import { contact } from "@/lib/content"
 
 const items = [
   { icon: Phone, label: "电话", value: contact.phone, href: `tel:${contact.phone}` },
   { icon: Mail, label: "邮箱", value: contact.email, href: `mailto:${contact.email}` },
-  { icon: Send, label: "WhatsApp", value: "+86 138 0000 0000", href: "https://wa.me/8613800000000" },
+  { icon: MessageCircle, label: "WhatsApp", value: "+86 138 0000 0000", href: "https://wa.me/8613800000000" },
   { icon: MessageCircle, label: "VK", value: "vk.com/changjiu_demo", href: "https://vk.com/changjiu_demo" },
 ]
 
