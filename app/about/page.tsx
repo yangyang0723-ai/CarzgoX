@@ -1,12 +1,4 @@
 import Image from "next/image"
-import {
-  Globe2,
-  Package,
-  Plane,
-  Ship,
-  Train,
-  Truck,
-} from "lucide-react"
 import { SectionHeading } from "@/components/section-heading"
 import { about } from "@/lib/content"
 
@@ -14,15 +6,6 @@ export const metadata = {
   title: "关于我们 | 久车GO",
   description: about.paragraphs[0],
 }
-
-const logisticsIcons = {
-  rail: Train,
-  ship: Ship,
-  air: Plane,
-  road: Truck,
-  network: Globe2,
-  package: Package,
-} as const
 
 
 export default function AboutPage() {
@@ -99,53 +82,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 国际物流布局 */}
-      <section className="border-y border-border bg-secondary">
-        <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
-          <SectionHeading
-            eyebrow="GLOBAL LOGISTICS"
-            title={about.logisticsTitle}
-          />
-          <p className="mt-6 max-w-4xl text-base leading-relaxed text-muted-foreground text-pretty">
-            {about.logisticsSummary}
-          </p>
-
-          <div className="relative mt-10 aspect-[16/7] overflow-hidden border border-border">
-            <Image
-              src="/images/hero-port.png"
-              alt="国际物流港口整车滚装出口"
-              fill
-              sizes="100vw"
-              className="object-cover"
-            />
-          </div>
-
-          <div className="mt-6 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
-            {about.logisticsCapabilities.map((item) => {
-              const Icon = logisticsIcons[item.icon as keyof typeof logisticsIcons]
-              return (
-                <div key={item.name} className="flex gap-4 bg-card p-6">
-                  <Icon
-                    className="mt-0.5 h-5 w-5 shrink-0 text-primary"
-                    aria-hidden="true"
-                  />
-                  <div>
-                    <h3 className="text-base font-bold tracking-tight text-card-foreground">
-                      {item.name}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-foreground text-pretty">
-                      {item.description}
-                    </p>
-                    <p className="mt-1.5 font-mono text-xs leading-relaxed text-muted-foreground">
-                      {item.english}
-                    </p>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
 
     </>
   )

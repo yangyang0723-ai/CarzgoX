@@ -81,6 +81,40 @@ export default function OverseasPage() {
         </div>
       </section>
 
+      {/* 国际物流布局 */}
+      <section className="border-y border-border bg-secondary">
+        <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
+          <SectionHeading eyebrow="GLOBAL LOGISTICS" title="国际物流布局" />
+          <p className="mt-6 max-w-4xl text-base leading-relaxed text-muted-foreground text-pretty">
+            积极响应国家“一带一路”倡议，于 2014 年开展国际化战略布局，力争成为面向全球汽车品牌的汽车供应链服务先行者，业务范围覆盖美洲、欧洲、中亚、东南亚、东亚、中东、非洲等。
+          </p>
+          <div className="relative mt-10 aspect-[16/7] overflow-hidden border border-border">
+            <Image
+              src="/images/hero-port.png"
+              alt="国际物流港口整车滚装出口"
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="mt-6 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              ["国际铁路", "中欧班列资源 · 境外段优质资源"],
+              ["国际海运", "自营国际滚装船 · 大型船公司"],
+              ["国际空运", "丰富货代经验及资源"],
+              ["国际公路", "TIR 一站直达 · 跨境公路运输"],
+              ["海外服务体系", "海外基地 · 境外落地分拨"],
+              ["KD 运包 · 商贸物流", "国际出口包装贸易业务"],
+            ].map(([name, description]) => (
+              <div key={name} className="bg-card p-6">
+                <h3 className="text-base font-bold tracking-tight text-card-foreground">{name}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 核心数据 */}
       <section id="data" className="scroll-mt-20 bg-primary">
         <div className="mx-auto max-w-6xl px-5 py-16 lg:px-8">
