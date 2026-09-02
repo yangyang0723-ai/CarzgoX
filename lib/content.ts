@@ -184,6 +184,7 @@ export const vehicleCatalog = [
           { name: "JOYEE S08", image: "/images/vehicles/joyee-s08.png" },
           { name: "T90", image: "/images/vehicles/t90.png" },
           { name: "T77", image: "/images/vehicles/t77.png" },
+          { name: "B70", image: "/images/vehicles/t77.png" },
           { name: "Xiaoma", image: "/images/vehicles/xiaoma.png" },
         ],
       },
