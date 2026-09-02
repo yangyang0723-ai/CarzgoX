@@ -199,6 +199,15 @@ export const vehicleCatalog = [
           { name: "泰山", image: "/images/vehicles/taishan.png" },
         ],
       },
+      {
+        brand: "一汽大众捷达",
+        models: [
+          { name: "VA3", image: "/images/vehicles/elantra.jpg" },
+          { name: "VS5", image: "/images/vehicles/tucson.jpg" },
+          { name: "VS7", image: "/images/vehicles/santa.jpg" },
+          { name: "VS8", image: "/images/vehicles/sonata.jpg" },
+        ],
+      },
     ],
   },
 ]
