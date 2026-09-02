@@ -163,6 +163,15 @@ export const vehicleCatalog = [
           { name: "SONATA", image: "/images/vehicles/sonata.jpg" },
         ],
       },
+      {
+        brand: "一汽大众捷达",
+        models: [
+          { name: "VA3", image: "/images/vehicles/elantra.jpg" },
+          { name: "VS5", image: "/images/vehicles/tucson.jpg" },
+          { name: "VS7", image: "/images/vehicles/santa.jpg" },
+          { name: "VS8", image: "/images/vehicles/sonata.jpg" },
+        ],
+      },
     ],
   },
   {
@@ -197,15 +206,6 @@ export const vehicleCatalog = [
           { name: "梦想家", image: "/images/vehicles/dreamer.png" },
           { name: "FREE", image: "/images/vehicles/free.png" },
           { name: "泰山", image: "/images/vehicles/taishan.png" },
-        ],
-      },
-      {
-        brand: "一汽大众捷达",
-        models: [
-          { name: "VA3", image: "/images/vehicles/elantra.jpg" },
-          { name: "VS5", image: "/images/vehicles/tucson.jpg" },
-          { name: "VS7", image: "/images/vehicles/santa.jpg" },
-          { name: "VS8", image: "/images/vehicles/sonata.jpg" },
         ],
       },
     ],
