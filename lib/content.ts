@@ -1,7 +1,7 @@
 export const nav = [
   { label: "首页", href: "/" },
-  { label: "关于我们", href: "/about" },
-  { label: "海外业务", href: "/overseas" },
+  { label: "企业背景", href: "/about" },
+  { label: "平台业务", href: "/overseas" },
   { label: "销售车型", href: "/vehicles" },
   { label: "联系我们", href: "/contact" },
 ]
