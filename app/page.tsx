@@ -13,6 +13,19 @@ import {
   vehicleCatalog,
 } from "@/lib/content"
 
+const partnerBrands = [
+  { name: "北京现代", slug: "hyundai", svg: "default" },
+  { name: "一汽奔腾", slug: "bestune" },
+  { name: "岚图汽车", slug: "voyah" },
+  { name: "吉利汽车", slug: "geely" },
+  { name: "一汽丰田", slug: "toyota" },
+  { name: "一汽大众", slug: "volkswagen", svg: "default" },
+  { name: "一汽奥迪", slug: "audi", svg: "default" },
+  { name: "捷达", slug: "jetta" },
+  { name: "东风汽车", slug: "dongfeng" },
+  { name: "起亚", slug: "kia", svg: "default" },
+]
+
 const modules = [
   {
     href: "/overseas#overview",
@@ -207,6 +220,33 @@ export default function HomePage() {
               查看更多
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 合作品牌 */}
+      <section className="border-t border-border bg-secondary">
+        <div className="mx-auto max-w-6xl px-5 py-16 lg:px-8">
+          <SectionHeading eyebrow="PARTNER BRANDS" title="合作品牌" />
+          <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5">
+            {partnerBrands.map((brand) => (
+              <div
+                key={brand.name}
+                className="flex h-24 items-center justify-center border border-border bg-card px-5 py-4"
+              >
+                {brand.svg ? (
+                  <img
+                    src={`https://thesvg.org/icons/${brand.slug}/${brand.svg}.svg`}
+                    alt={`${brand.name} Logo`}
+                    className="h-10 w-full max-w-[9rem] object-contain"
+                  />
+                ) : (
+                  <span className="text-base font-bold tracking-tight text-card-foreground">
+                    {brand.name}
+                  </span>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
