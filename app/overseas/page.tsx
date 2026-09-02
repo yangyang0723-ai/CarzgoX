@@ -51,7 +51,7 @@ export default function OverseasPage() {
           <h2 className="text-xl font-bold tracking-tight text-foreground">
             {overseasOverview.advantagesTitle}
           </h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-3">
+          <div className="mt-6 grid gap-4 md:grid-cols-4">
             {overseasOverview.cards.map((c, index) => (
               <article key={c.title} className="border border-border bg-card p-7">
                 <p className="text-xs font-medium tracking-[0.16em] text-primary/65">
