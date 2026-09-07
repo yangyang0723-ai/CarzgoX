@@ -188,6 +188,19 @@ export default function OverseasPage() {
             </div>
           ))}
         </div>
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {achievements.highlights.map((item) => (
+            <article key={item.label} className="flex min-h-52 flex-col justify-between rounded-2xl border border-primary/20 bg-primary p-6 text-primary-foreground">
+              <div>
+                <p className="font-serif text-4xl leading-none text-accent">
+                  {item.value}<span className="ml-1 text-xl text-primary-foreground">{item.unit}</span>
+                </p>
+                <h3 className="mt-6 text-base font-bold">{item.label}</h3>
+              </div>
+              <p className="mt-8 text-sm leading-relaxed text-primary-foreground/80 text-pretty">{item.detail}</p>
+            </article>
+          ))}
+        </div>
       </section>
     </>
   )
