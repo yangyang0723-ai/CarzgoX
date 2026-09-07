@@ -6,6 +6,13 @@ import { about } from "@/lib/content"
 const changjiuBusinessIcons = [ShieldCheck, Car, Gauge]
 const changjiuValueIcons = [Users, HeartHandshake, Lightbulb, Flame]
 
+const groupHighlights = [
+  { value: "34", unit: "年", label: "创建于1992年", description: "深耕汽车行业30余年，中国领先的综合性汽车产业服务商" },
+  { value: "1.5", unit: "万+", label: "长久员工", description: "全球员工1.5万余人，支撑各业务板块发展" },
+  { value: "400", unit: "亿", label: "年营业额", description: "年度营业额近400亿元，业务持续稳定发展" },
+  { value: "170", unit: "家+", label: "下属分子公司", description: "网络布局涉及全国及部分海外公司（德国、波兰、俄罗斯）" },
+]
+
 export const metadata = {
   title: "关于我们 | 久车GO",
   description: about.paragraphs[0],
@@ -38,6 +45,26 @@ export default function AboutPage() {
               {p}
             </p>
           ))}
+          <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {groupHighlights.map((item) => (
+              <article
+                key={item.label}
+                className="relative flex min-h-56 flex-col justify-between overflow-hidden rounded-[2rem] border border-primary/20 bg-primary p-7 text-primary-foreground shadow-sm"
+              >
+                <div className="absolute -right-8 -top-10 h-32 w-32 rounded-full border border-primary-foreground/10" aria-hidden="true" />
+                <div className="relative">
+                  <p className="font-serif text-4xl leading-none tracking-tight text-accent">
+                    {item.value}<span className="ml-1 text-xl text-primary-foreground">{item.unit}</span>
+                  </p>
+                  <div className="mt-4 h-px w-10 bg-accent" aria-hidden="true" />
+                  <h3 className="mt-4 text-base font-bold tracking-tight">{item.label}</h3>
+                </div>
+                <p className="relative mt-8 text-sm leading-relaxed text-primary-foreground/75 text-pretty">
+                  {item.description}
+                </p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
