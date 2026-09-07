@@ -116,28 +116,7 @@ export default function OverseasPage() {
       </section>
 
       {/* 核心数据 */}
-      <section id="data" className="scroll-mt-20 bg-primary">
-        <div className="mx-auto max-w-6xl px-5 py-16 lg:px-8">
-          <h2 className="text-xl font-bold tracking-tight text-primary-foreground lg:text-2xl">
-            核心数据
-          </h2>
-          <div className="mt-8 grid grid-cols-1 gap-px bg-primary-foreground/20 sm:grid-cols-2 lg:grid-cols-3">
-            {achievements.stats.map((s) => (
-              <div key={s.label} className="bg-primary p-7">
-                <p className="flex items-baseline gap-1 text-primary-foreground">
-                  <span className="text-3xl font-bold tracking-tight">
-                    {s.value}
-                  </span>
-                  <span className="text-sm">{s.unit}</span>
-                </p>
-                <p className="mt-2 text-sm text-primary-foreground/75">
-                  {s.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <section id="data" className="scroll-mt-20 bg-primary" />
 
       {/* 模块2 合作品牌及模式 */}
       <section
