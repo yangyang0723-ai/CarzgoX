@@ -104,7 +104,6 @@ export default function OverseasPage() {
               ["国际空运", "丰富货代经验及资源"],
               ["国际公路", "TIR 一站直达 · 跨境公路运输"],
               ["海外服务体系", "海外基地 · 境外落地分拨"],
-              ["KD 运包 · 商贸物流", "国际出口包装贸易业务"],
             ].map(([name, description]) => (
               <div key={name} className="bg-card p-6">
                 <h3 className="text-base font-bold tracking-tight text-card-foreground">{name}</h3>
