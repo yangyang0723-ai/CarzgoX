@@ -51,9 +51,9 @@ export default function OverseasPage() {
           <h2 className="text-xl font-bold tracking-tight text-foreground">
             {overseasOverview.advantagesTitle}
           </h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-4">
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
             {overseasOverview.cards.map((c, index) => (
-              <article key={c.title} className="border border-border bg-card p-7">
+              <article key={c.title} className="flex h-full flex-col border border-border bg-card p-7">
                 <p className="text-xs font-medium tracking-[0.16em] text-primary/65">
                   {String(index + 1).padStart(2, "0")}
                 </p>
@@ -128,11 +128,11 @@ export default function OverseasPage() {
             title={brandsSection.title}
             desc={brandsSection.summary}
           />
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
             {brandsSection.models.map((m) => (
               <div
                 key={m.no}
-                className="flex flex-col border border-border bg-card p-7"
+                className="flex h-full flex-col border border-border bg-card p-7"
               >
                 <div className="flex items-baseline gap-3">
                   <span className="text-2xl font-bold tracking-tight text-primary">
