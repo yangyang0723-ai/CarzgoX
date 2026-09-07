@@ -188,14 +188,6 @@ export default function OverseasPage() {
             </div>
           ))}
         </div>
-        <div className="mt-10 flex justify-center">
-          <img
-            src="/images/achievements-summary.png"
-            alt="出口成果数据：稳定海外商户、下单商户、稳定车源及出口国家"
-            className="h-auto w-full max-w-3xl rounded-2xl"
-          />
-        </div>
-
       </section>
     </>
   )
