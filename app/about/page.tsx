@@ -34,7 +34,7 @@ export default function AboutPage() {
       </section>
 
       {/* 集团介绍 */}
-      <section className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
+      <section id="group-profile" className="scroll-mt-24 mx-auto max-w-6xl px-5 py-20 lg:px-8">
         <SectionHeading eyebrow="GROUP PROFILE" title={about.title} />
         <div className="mt-8 flex max-w-3xl flex-col gap-5">
           {about.paragraphs.map((p) => (
@@ -114,7 +114,7 @@ export default function AboutPage() {
       </section>
 
       {/* 长久股份介绍 */}
-      <section className="border-t border-border bg-primary text-primary-foreground">
+      <section id="changjiu-shares" className="scroll-mt-24 border-t border-border bg-primary text-primary-foreground">
         <div className="mx-auto max-w-6xl px-5 py-24 lg:px-8">
           {/* 标题区：以股票代码作为视觉主体 */}
           <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">

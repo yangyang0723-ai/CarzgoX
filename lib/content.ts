@@ -1,6 +1,13 @@
 export const nav = [
   { label: "首页", href: "/" },
-  { label: "企业背景", href: "/about" },
+  {
+    label: "企业背景",
+    href: "/about",
+    children: [
+      { label: "长久集团介绍", href: "/about#group-profile" },
+      { label: "长久股份介绍", href: "/about#changjiu-shares" },
+    ],
+  },
   { label: "平台业务", href: "/overseas" },
   { label: "销售车型", href: "/vehicles" },
   { label: "联系我们", href: "/contact" },
