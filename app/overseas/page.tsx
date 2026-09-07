@@ -114,9 +114,6 @@ export default function OverseasPage() {
         </div>
       </section>
 
-      {/* 核心数据 */}
-      <section id="data" className="scroll-mt-20 bg-primary" />
-
       {/* 模块2 合作品牌及模式 */}
       <section
         id="brands"
