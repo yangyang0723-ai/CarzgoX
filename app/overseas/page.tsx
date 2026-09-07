@@ -97,18 +97,24 @@ export default function OverseasPage() {
               className="object-cover"
             />
           </div>
-          <div className="mt-6 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
             {[
               ["国际铁路", "中欧班列资源 · 境外段优质资源"],
               ["国际海运", "自营国际滚装船 · 大型船公司"],
               ["国际空运", "丰富货代经验及资源"],
               ["国际公路", "TIR 一站直达 · 跨境公路运输"],
               ["海外服务体系", "海外基地 · 境外落地分拨"],
-            ].map(([name, description]) => (
-              <div key={name} className="bg-card p-6">
-                <h3 className="text-base font-bold tracking-tight text-card-foreground">{name}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{description}</p>
-              </div>
+            ].map(([name, description], index) => (
+              <article
+                key={name}
+                className={`group flex min-h-36 flex-col justify-between border border-border bg-card p-6 transition-colors hover:border-primary/40 hover:bg-background ${index < 3 ? "lg:col-span-2" : "lg:col-span-3"}`}
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <h3 className="text-base font-bold tracking-tight text-card-foreground">{name}</h3>
+                  <span className="h-2 w-2 shrink-0 bg-accent transition-transform group-hover:scale-125" aria-hidden="true" />
+                </div>
+                <p className="mt-8 text-sm leading-relaxed text-muted-foreground">{description}</p>
+              </article>
             ))}
           </div>
         </div>
