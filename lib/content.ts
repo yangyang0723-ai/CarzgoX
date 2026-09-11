@@ -16,8 +16,8 @@ export const nav = [
 export const languages = ["中文", "Русский", "English"]
 
 export const hero = {
-  tagline: "来久车GO，买中国车",
-  sub: "整车出口 · 跨境物流 · 清关配套 一站式全链路服务",
+  tagline: "One-stop auto export, Connect global market.",
+  sub: "Full-Chain Services: Export, Logistics and Customs Clearance",
 }
 
 // ---------- 海外业务 ----------

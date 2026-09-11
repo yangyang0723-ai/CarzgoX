@@ -17,11 +17,11 @@ export function SiteHeader() {
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5 lg:px-8">
         <Link href="/" className="flex items-center gap-2.5">
           <span className="flex h-8 w-8 items-center justify-center bg-primary text-sm font-bold tracking-tight text-primary-foreground">
-            久
+            C
           </span>
           <span className="flex flex-col leading-none">
             <span className="text-base font-bold tracking-tight text-foreground">
-              久车GO
+              CarzgoX
             </span>
             <span className="mt-0.5 text-[10px] tracking-[0.18em] text-muted-foreground">
               OVERSEAS
