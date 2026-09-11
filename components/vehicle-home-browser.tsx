@@ -32,7 +32,7 @@ export function VehicleHomeBrowser({ catalog }: { catalog: Module[] }) {
   return (
     <div>
       {/* 分类标签 */}
-      <div className="flex flex-wrap items-center gap-2 border-b border-border pb-6">
+      <div className="flex flex-wrap items-center gap-10 border-b border-border">
         {catalog.map((group, i) => {
           const isActive = i === activeModule
           const count = group.brands.reduce((sum, b) => sum + b.models.length, 0)
@@ -41,22 +41,30 @@ export function VehicleHomeBrowser({ catalog }: { catalog: Module[] }) {
               key={group.module}
               type="button"
               onClick={() => handleModuleChange(i)}
-              className={cn(
-                "group relative flex items-center gap-2.5 px-5 py-3 text-sm font-bold tracking-tight transition-colors",
-                isActive
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary text-secondary-foreground hover:bg-muted",
-              )}
+              className="group relative flex items-center gap-2 pb-5 pt-1"
             >
-              {group.module.trim()}
               <span
                 className={cn(
-                  "text-xs font-medium tabular-nums",
-                  isActive ? "text-primary-foreground/70" : "text-muted-foreground",
+                  "text-base font-bold tracking-tight transition-colors",
+                  isActive ? "text-foreground" : "text-muted-foreground group-hover:text-foreground",
+                )}
+              >
+                {group.module.trim()}
+              </span>
+              <span
+                className={cn(
+                  "text-xs font-semibold tabular-nums transition-colors",
+                  isActive ? "text-primary" : "text-muted-foreground/70 group-hover:text-primary",
                 )}
               >
                 {count}
               </span>
+              <span
+                className={cn(
+                  "absolute inset-x-0 -bottom-px h-[2px] rounded-full bg-primary transition-transform duration-300 ease-out",
+                  isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-40",
+                )}
+              />
             </button>
           )
         })}
