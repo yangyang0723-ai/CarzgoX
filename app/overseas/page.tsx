@@ -169,7 +169,7 @@ export default function OverseasPage() {
           {achievements.highlights.map((item) => (
             <article
               key={item.label}
-              className="group tech-corners relative flex min-h-52 flex-col justify-between bg-primary p-6 text-primary-foreground text-accent/0 transition-all duration-500 ease-out hover:-translate-y-1 hover:text-accent/40 hover:shadow-[0_24px_60px_-28px_rgba(0,200,255,0.45)]"
+              className="group tech-corners relative flex min-h-52 flex-col justify-between bg-[#0f2a4a] p-6 text-primary-foreground text-accent/0 transition-all duration-500 ease-out hover:-translate-y-1 hover:text-accent/40 hover:shadow-[0_24px_60px_-28px_rgba(0,200,255,0.45)]"
             >
               <div>
                 <p className="text-4xl leading-none text-accent">
