@@ -91,6 +91,8 @@ const configSections = [
   },
 ]
 
+const isDot = (v: string) => v.startsWith("●")
+
 export async function generateStaticParams() {
   return vehicleCatalog.flatMap((group) =>
     group.brands.flatMap((brand) => brand.models.map((model) => ({ slug: getSlug(model.name) }))),
@@ -118,54 +120,157 @@ export default async function VehicleDetailPage({
     )
   }
 
+  const isZoomed = entry.name === "SONATA" || entry.name === "VS8"
+
   return (
-    <main>
-      <section className="border-b border-border bg-primary">
-        <div className="mx-auto max-w-6xl px-5 py-16 lg:px-8">
-          <Link href="/vehicles" className="inline-flex items-center gap-2 text-sm text-primary-foreground/80 hover:text-primary-foreground">
-            <ArrowLeft className="h-4 w-4" aria-hidden="true" /> 返回销售车型
+    <main className="bg-background">
+      {/* Cinematic hero */}
+      <section className="relative overflow-hidden bg-[#07182d]">
+        {/* ambient glows */}
+        <div aria-hidden="true" className="pointer-events-none absolute -left-24 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full bg-[#0867f2]/25 blur-[120px]" />
+        <div aria-hidden="true" className="pointer-events-none absolute -right-16 -top-24 h-80 w-80 rounded-full bg-[#22b8ff]/20 blur-[120px]" />
+        {/* grid texture */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-[0.15]"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, rgba(120,180,255,0.35) 1px, transparent 1px), linear-gradient(to bottom, rgba(120,180,255,0.35) 1px, transparent 1px)",
+            backgroundSize: "56px 56px",
+          }}
+        />
+
+        <div className="relative mx-auto max-w-6xl px-5 py-14 lg:px-8">
+          <Link
+            href="/vehicles"
+            className="group inline-flex items-center gap-2 text-sm font-medium text-white/70 transition-colors hover:text-white"
+          >
+            <ArrowLeft className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1" aria-hidden="true" /> 返回销售车型
           </Link>
-          <p className="mt-10 text-xs font-medium tracking-[0.24em] text-primary-foreground/70">VEHICLE CONFIGURATION</p>
-          <h1 className="mt-3 text-4xl font-bold tracking-tight text-primary-foreground">{entry.name}</h1>
-          <p className="mt-2 text-sm text-primary-foreground/75">{entry.brand} · {entry.module.trim()}</p>
+
+          <div className="mt-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+            <div>
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#22b8ff]/40 bg-[#22b8ff]/10 px-3 py-1 font-mono text-xs font-medium tracking-[0.22em] text-[#7fd4ff]">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#22b8ff] shadow-[0_0_10px_2px_rgba(34,184,255,0.9)]" />
+                VEHICLE CONFIGURATION
+              </span>
+              <h1 className="mt-5 text-balance text-5xl font-black leading-[1.05] tracking-tight text-white lg:text-6xl">
+                {entry.name}
+              </h1>
+              <p className="mt-4 text-base text-white/70">
+                {entry.brand} <span className="mx-2 text-white/30">/</span> {entry.module.trim()}
+              </p>
+              <div className="mt-8 h-px w-40 bg-gradient-to-r from-[#22b8ff] to-transparent" />
+              <p className="mt-6 max-w-md text-sm leading-relaxed text-white/60">
+                60自在版与125探索+版官方配置对比，覆盖动力、安全、智能与设计全维度参数。
+              </p>
+            </div>
+
+            <div className="group relative">
+              {/* glowing frame */}
+              <div aria-hidden="true" className="absolute -inset-px rounded-2xl bg-gradient-to-br from-[#22b8ff]/60 via-transparent to-[#0867f2]/60 opacity-70 blur-[2px]" />
+              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/10 bg-[#0f2a4a]">
+                <Image
+                  src={entry.image}
+                  alt={`${entry.brand} ${entry.name}车型`}
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 44vw, 100vw"
+                  className={`object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105 ${isZoomed ? "scale-[3] group-hover:scale-[3.15]" : ""}`}
+                />
+                <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#07182d] via-transparent to-transparent opacity-60" />
+                {/* corner ticks */}
+                <span aria-hidden="true" className="absolute left-3 top-3 h-4 w-4 border-l-2 border-t-2 border-[#22b8ff]" />
+                <span aria-hidden="true" className="absolute right-3 top-3 h-4 w-4 border-r-2 border-t-2 border-[#22b8ff]" />
+                <span aria-hidden="true" className="absolute bottom-3 left-3 h-4 w-4 border-b-2 border-l-2 border-[#22b8ff]" />
+                <span aria-hidden="true" className="absolute bottom-3 right-3 h-4 w-4 border-b-2 border-r-2 border-[#22b8ff]" />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-6xl gap-10 px-5 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-start lg:px-8">
-        <div className="relative aspect-[4/3] overflow-hidden border border-border bg-secondary">
-          <Image src={entry.image} alt={`${entry.brand} ${entry.name}车型`} fill priority sizes="(min-width: 1024px) 52vw, 100vw" className="object-cover" />
+      {/* Config table */}
+      <section className="mx-auto max-w-6xl px-5 py-16 lg:px-8">
+        <div className="flex items-baseline gap-4">
+          <h2 className="text-3xl font-black tracking-tight text-foreground">车型配置</h2>
+          <span className="font-mono text-xs font-medium tracking-[0.18em] text-primary">FULL SPEC</span>
+          <div className="h-px flex-1 bg-gradient-to-r from-primary/40 to-transparent" />
         </div>
-        <div>
-          <p className="text-xs font-medium tracking-[0.2em] text-primary">CONFIGURATION OVERVIEW</p>
-          <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground">车型配置</h2>
-          <p className="mt-4 text-sm leading-relaxed text-muted-foreground">以下为 60自在版与125探索+版的官方配置对比，黑色圆点表示有此配置，“-”表示无此配置。</p>
-          <div className="mt-8 overflow-x-auto border border-border">
+        <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+          以下为 60自在版与 125探索+版的官方配置对比，蓝色圆点表示配备该项，&ldquo;-&rdquo;表示无此配置。
+        </p>
+
+        <div className="mt-8 overflow-hidden rounded-2xl border border-[#0f2a4a]/20 shadow-[0_30px_70px_-40px_rgba(15,42,74,0.5)]">
+          <div className="overflow-x-auto">
             <div className="min-w-[760px] text-sm">
-              <div className="grid grid-cols-[minmax(12rem,1.35fr)_1fr_1fr] bg-accent font-bold text-accent-foreground">
-                <div className="px-4 py-3">配置项</div>
-                <div className="border-l border-accent-foreground/20 px-4 py-3 text-center">60自在版</div>
-                <div className="border-l border-accent-foreground/20 px-4 py-3 text-center">125探索+版</div>
+              <div className="grid grid-cols-[minmax(12rem,1.35fr)_1fr_1fr] bg-[#0f2a4a] font-bold text-white">
+                <div className="px-4 py-4">配置项</div>
+                <div className="border-l border-white/10 px-4 py-4 text-center">60自在版</div>
+                <div className="border-l border-white/10 px-4 py-4 text-center">
+                  <span className="inline-flex items-center gap-1.5">
+                    125探索+版
+                    <span className="rounded bg-[#22b8ff] px-1.5 py-0.5 text-[10px] font-bold text-[#07182d]">高配</span>
+                  </span>
+                </div>
               </div>
               {configSections.map((section) => (
                 <div key={section.category}>
-                  <div className="border-t border-border bg-secondary px-4 py-2 text-xs font-bold tracking-wide text-primary">{section.category}</div>
+                  <div className="flex items-center gap-2 border-t border-border bg-secondary px-4 py-2.5 text-xs font-bold tracking-wide text-primary">
+                    <span className="h-3 w-0.5 rounded-full bg-primary" />
+                    {section.category}
+                  </div>
                   {section.rows.map(([label, standard, premium]) => (
-                    <div key={label} className="grid grid-cols-[minmax(12rem,1.35fr)_1fr_1fr] border-t border-border">
+                    <div
+                      key={label}
+                      className="grid grid-cols-[minmax(12rem,1.35fr)_1fr_1fr] border-t border-border transition-colors duration-200 hover:bg-primary/[0.04]"
+                    >
                       <div className="px-4 py-3 text-foreground">{label}</div>
-                      <div className="border-l border-border px-4 py-3 text-center font-medium text-foreground">{standard}</div>
-                      <div className="border-l border-border px-4 py-3 text-center font-medium text-foreground">{premium}</div>
+                      <div className="border-l border-border px-4 py-3 text-center font-medium">
+                        {isDot(standard) ? (
+                          <span className="inline-flex items-center justify-center">
+                            <span className="h-2 w-2 rounded-full bg-[#0867f2] shadow-[0_0_8px_1px_rgba(8,103,242,0.6)]" />
+                            <span className="ml-1.5 text-xs text-muted-foreground">{standard.slice(1)}</span>
+                          </span>
+                        ) : standard === "-" ? (
+                          <span className="text-muted-foreground/40">—</span>
+                        ) : (
+                          <span className="text-foreground">{standard}</span>
+                        )}
+                      </div>
+                      <div className="border-l border-border px-4 py-3 text-center font-medium">
+                        {isDot(premium) ? (
+                          <span className="inline-flex items-center justify-center">
+                            <span className="h-2 w-2 rounded-full bg-[#22b8ff] shadow-[0_0_8px_1px_rgba(34,184,255,0.7)]" />
+                            <span className="ml-1.5 text-xs text-muted-foreground">{premium.slice(1)}</span>
+                          </span>
+                        ) : premium === "-" ? (
+                          <span className="text-muted-foreground/40">—</span>
+                        ) : (
+                          <span className="text-foreground">{premium}</span>
+                        )}
+                      </div>
                     </div>
                   ))}
                 </div>
               ))}
             </div>
           </div>
-          <ul className="mt-8 grid gap-3 text-sm text-muted-foreground sm:grid-cols-2">
-            {["配置参数清晰可查", "支持车型咨询", "专业出口服务", "一站式购车支持"].map((item) => (
-              <li key={item} className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" aria-hidden="true" />{item}</li>
-            ))}
-          </ul>
         </div>
+
+        <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {["配置参数清晰可查", "支持车型咨询", "专业出口服务", "一站式购车支持"].map((item) => (
+            <li
+              key={item}
+              className="group flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-4 transition-all duration-300 hover:-translate-y-1 hover:border-[#22b8ff] hover:shadow-[0_20px_40px_-28px_rgba(8,103,242,0.6)]"
+            >
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                <Check className="h-4 w-4" aria-hidden="true" />
+              </span>
+              <span className="text-sm font-medium text-foreground">{item}</span>
+            </li>
+          ))}
+        </ul>
       </section>
     </main>
   )
