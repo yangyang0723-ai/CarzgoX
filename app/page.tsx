@@ -39,7 +39,6 @@ const partnerBrands = [
 const modules = [
   {
     no: "01",
-    tag: "EXPORT",
     href: "/overseas#overview",
     title: "业务介绍",
     brief: overseasOverview.brief,
@@ -48,7 +47,6 @@ const modules = [
   },
   {
     no: "02",
-    tag: "SUPPLY",
     href: "/overseas#brands",
     title: brandsSection.title,
     brief: brandsSection.brief,
@@ -57,7 +55,6 @@ const modules = [
   },
   {
     no: "03",
-    tag: "RESULTS",
     href: "/overseas#achievements",
     title: achievements.title,
     brief: achievements.brief,
@@ -126,47 +123,33 @@ export default function HomePage() {
               <Link
                 key={m.href}
                 href={m.href}
-                className="group relative flex flex-col overflow-hidden rounded-2xl bg-[#07182d] shadow-md transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20"
+                className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-xl"
               >
-                <div className="relative h-72 w-full overflow-hidden">
+                <div className="relative h-48 w-full overflow-hidden">
                   <Image
                     src={m.image}
                     alt={m.alt}
                     fill
                     sizes="(min-width: 1024px) 33vw, 100vw"
-                    className="object-cover opacity-80 transition-all duration-700 ease-out group-hover:scale-115 group-hover:opacity-95"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                   />
-                  {/* 底部渐深遮罩，确保文字始终清晰 */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#07182d] via-[#07182d]/60 to-[#07182d]/10 transition-opacity duration-500 group-hover:from-[#07182d]/95" />
-
-                  {/* 巨幅编号背景，悬停时向上滑出视觉冲击 */}
-                  <span
-                    aria-hidden="true"
-                    className="absolute -right-3 -top-6 select-none text-[7.5rem] font-black leading-none tracking-tighter text-white/10 transition-all duration-500 ease-out group-hover:-translate-y-3 group-hover:text-[#00c8ff]/25"
-                  >
-                    {m.no}
-                  </span>
-
-                  <span className="absolute left-6 top-6 text-[0.6875rem] font-semibold uppercase tracking-[0.3em] text-[#00c8ff] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                    {m.tag}
-                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#07182d]/50 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 </div>
 
-                <div className="relative flex flex-1 flex-col p-6">
-                  <h3 className="text-xl font-bold tracking-tight text-white transition-colors group-hover:text-[#00c8ff]">
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="text-xl font-bold tracking-tight text-foreground transition-colors group-hover:text-primary">
                     {m.title}
                   </h3>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-white/60 text-pretty">
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground text-pretty">
                     {m.brief}
                   </p>
-                  <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-white transition-colors group-hover:text-[#00c8ff]">
+                  <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-primary">
                     查看更多
-                    <ArrowRight className="h-4 w-4 transition-transform duration-300 ease-out group-hover:translate-x-2" />
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
                   </span>
                 </div>
 
-                {/* 悬停时左侧竖线由上而下展开，强化“进入”动感 */}
-                <span className="absolute inset-y-0 left-0 w-1 origin-top scale-y-0 bg-gradient-to-b from-[#00c8ff] to-primary transition-transform duration-500 ease-out group-hover:scale-y-100" />
+                <span className="absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-primary transition-transform duration-300 group-hover:scale-x-100" />
               </Link>
             ))}
           </div>
