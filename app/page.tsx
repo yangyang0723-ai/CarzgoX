@@ -4,24 +4,14 @@ import { ArrowRight, ArrowDown } from "lucide-react"
 import { SectionHeading } from "@/components/section-heading"
 import { HeroText } from "@/components/hero-text"
 import { GlobeWireframe } from "@/components/globe-wireframe"
-import { VehicleShowcase } from "@/components/vehicle-showcase"
-
-const vehicleSlug = (name: string) => encodeURIComponent(name.toLowerCase().replace(/\s+/g, "-"))
+import { VehicleHomeBrowser } from "@/components/vehicle-home-browser"
 import {
   achievements,
   brandsSection,
   overseasOverview,
   portStores,
+  vehicleCatalog,
 } from "@/lib/content"
-
-const featuredVehicles = [
-  { module: "新车直出", brand: "北京现代", name: "ELANTRA", image: "/images/vehicles/elantra.jpg" },
-  { module: "新车直出", brand: "北京现代", name: "SANTA", image: "/images/vehicles/santa.jpg" },
-  { module: "外贸", brand: "一汽奔腾", name: "JOYEE S08", image: "/images/vehicles/joyee-s08.png" },
-  { module: "其他", brand: "吉利", name: "银河 E8", image: "/images/vehicles/galaxy-e8.png" },
-  { module: "其他", brand: "东风岚图", name: "FREE", image: "/images/vehicles/free.png" },
-  { module: "其他", brand: "一汽丰田", name: "卡罗拉 1.2T", image: "/images/vehicles/corolla.png" },
-].map((v) => ({ ...v, href: `/vehicles/${vehicleSlug(v.name)}` }))
 
 const partnerBrands = [
   { name: "北京现代", slug: "hyundai", svg: "default" },
@@ -170,11 +160,13 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <VehicleShowcase vehicles={featuredVehicles} />
+          <div className="mt-12">
+            <VehicleHomeBrowser catalog={vehicleCatalog} />
+          </div>
         </div>
       </section>
 
-      {/* 全球网络 / 口岸店 —— 深蓝大面积背景 + 物流路线元素 */}
+      {/* 全球网络 / 口岸店 ���— 深蓝大面积背景 + 物流路线元素 */}
       <section className="relative isolate overflow-hidden border-t border-white/10 bg-[#07182d]">
         <GlobeWireframe className="pointer-events-none absolute -left-32 top-1/2 -z-10 h-[520px] w-[520px] -translate-y-1/2 text-[#00c8ff]/10" />
         <div className="mx-auto grid max-w-6xl gap-12 px-5 py-24 lg:grid-cols-2 lg:items-center lg:px-8">
