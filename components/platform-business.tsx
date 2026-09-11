@@ -95,7 +95,7 @@ export function PlatformBusiness({ modules }: { modules: PlatformModule[] }) {
                 </p>
                 <Link
                   href={m.href}
-                  className="group/link mt-6 flex w-fit items-center gap-2 border border-background/30 bg-background/5 px-5 py-2.5 text-sm font-medium text-background backdrop-blur-sm transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
+                  className="cta-lift group/link mt-6 flex w-fit items-center gap-2 border border-background/30 bg-background/5 px-5 py-2.5 text-sm font-medium text-background backdrop-blur-sm transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
                 >
                   查看更多
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover/link:translate-x-1" />
