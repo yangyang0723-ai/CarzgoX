@@ -53,7 +53,7 @@ export default function OverseasPage() {
                   className={cn(
                     "group flex min-h-72 flex-col justify-between p-7 transition-all duration-500 ease-out hover:-translate-y-1",
                     isFeatured
-                      ? "bg-primary text-primary-foreground hover:shadow-[0_24px_60px_-28px_rgba(0,200,255,0.45)]"
+                      ? "bg-[#0f2a4a] text-primary-foreground hover:shadow-[0_24px_60px_-28px_rgba(0,200,255,0.45)]"
                       : "border border-border bg-card hover:border-primary/40 hover:shadow-[0_20px_50px_-24px_rgba(8,103,242,0.3)]",
                   )}
                 >
