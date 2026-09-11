@@ -31,7 +31,7 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 border-b transition-colors duration-300",
+        "fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300",
         transparent
           ? "border-white/10 bg-transparent"
           : "border-border bg-background/90 backdrop-blur-md",
