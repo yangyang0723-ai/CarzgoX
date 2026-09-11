@@ -1,8 +1,12 @@
 import Image from "next/image"
+import { Car, Globe, Truck } from "lucide-react"
 import { PageBanner } from "@/components/page-banner"
 import { SectionHeading } from "@/components/section-heading"
 import { CooperationModes } from "@/components/cooperation-modes"
 import { achievements, brandsSection, overseasOverview } from "@/lib/content"
+import { cn } from "@/lib/utils"
+
+const advantageIcons = { truck: Truck, globe: Globe, car: Car } as const
 
 export const metadata = {
   title: "平台业务 | 久车GO",
@@ -40,34 +44,65 @@ export default function OverseasPage() {
             {overseasOverview.advantagesTitle}
           </h2>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
-            {overseasOverview.cards.map((c, index) => (
-              <article
-                key={c.title}
-                className="group flex h-full flex-col border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-xl"
-              >
-                <p className="text-xs font-medium tracking-[0.16em] text-primary/65">
-                  {String(index + 1).padStart(2, "0")}
-                </p>
-                <h3 className="mt-4 text-lg font-bold tracking-tight text-primary">
-                  {c.title}
-                </h3>
-                <div className="mt-4 h-px bg-border" />
-                <ul className="mt-5 flex flex-col gap-3">
-                  {c.items.map((i) => (
-                    <li
-                      key={i}
-                      className="flex gap-3 text-sm leading-relaxed text-muted-foreground"
+            {overseasOverview.cards.map((c, index) => {
+              const Icon = advantageIcons[c.icon as keyof typeof advantageIcons]
+              const isFeatured = index === 0
+              return (
+                <article
+                  key={c.title}
+                  className={cn(
+                    "group flex min-h-72 flex-col justify-between p-7 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl",
+                    isFeatured
+                      ? "bg-primary text-primary-foreground hover:shadow-primary/25"
+                      : "border border-border bg-card hover:border-primary/40",
+                  )}
+                >
+                  <div className="flex items-center justify-between">
+                    <Icon
+                      aria-hidden="true"
+                      className={cn(
+                        "h-7 w-7 transition-colors duration-300",
+                        isFeatured ? "text-accent" : "text-primary group-hover:text-accent",
+                      )}
+                    />
+                    <span
+                      className={cn(
+                        "text-sm font-medium tracking-[0.16em]",
+                        isFeatured ? "text-primary-foreground/45" : "text-muted-foreground/50",
+                      )}
                     >
-                      <span
-                        aria-hidden="true"
-                        className="mt-2 h-1.5 w-1.5 shrink-0 bg-primary"
-                      />
-                      <span>{i}</span>
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            ))}
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <div>
+                    <p
+                      className={cn(
+                        "font-sans text-4xl font-bold leading-none lg:text-5xl",
+                        isFeatured ? "text-accent" : "text-primary",
+                      )}
+                    >
+                      {c.value}
+                    </p>
+                    <h3
+                      className={cn(
+                        "mt-5 text-lg font-bold tracking-tight",
+                        isFeatured ? "text-primary-foreground" : "text-card-foreground",
+                      )}
+                    >
+                      {c.title}
+                    </h3>
+                    <p
+                      className={cn(
+                        "mt-3 text-sm leading-relaxed text-pretty",
+                        isFeatured ? "text-primary-foreground/75" : "text-muted-foreground",
+                      )}
+                    >
+                      {c.desc}
+                    </p>
+                  </div>
+                </article>
+              )
+            })}
           </div>
         </div>
       </section>
