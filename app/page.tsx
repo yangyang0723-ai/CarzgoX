@@ -14,16 +14,16 @@ import {
 } from "@/lib/content"
 
 const partnerBrands = [
-  { name: "北京现代", slug: "hyundai", svg: "default" },
-  { name: "一汽奔腾", slug: "bestune" },
-  { name: "岚图汽车", slug: "voyah" },
-  { name: "吉利汽车", slug: "geely" },
-  { name: "一汽丰田", slug: "toyota" },
-  { name: "一汽大众", slug: "volkswagen", svg: "default" },
-  { name: "一汽奥迪", slug: "audi", svg: "default" },
-  { name: "捷达", slug: "jetta" },
-  { name: "东风汽车", slug: "dongfeng" },
-  { name: "起亚", slug: "kia", svg: "default" },
+  { name: "北京现代", slug: "hyundai", hasLogo: true },
+  { name: "一汽奔腾", slug: "bestune", hasLogo: false },
+  { name: "岚图汽车", slug: "voyah", hasLogo: false },
+  { name: "吉利汽车", slug: "geely", hasLogo: false },
+  { name: "一汽丰田", slug: "toyota", hasLogo: true },
+  { name: "一汽大众", slug: "volkswagen", hasLogo: true },
+  { name: "一汽奥迪", slug: "audi", hasLogo: true },
+  { name: "捷达", slug: "jetta", hasLogo: false },
+  { name: "东风汽车", slug: "dongfeng", hasLogo: false },
+  { name: "起亚", slug: "kia", hasLogo: true },
 ]
 
 const modules = [
@@ -210,19 +210,28 @@ export default function HomePage() {
             {partnerBrands.map((brand) => (
               <div
                 key={brand.name}
-                className="flex h-24 items-center justify-center rounded-xl border border-border bg-card px-5 py-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+                className="flex h-32 flex-col items-center justify-center gap-3 rounded-xl border border-border bg-card px-5 py-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-md"
               >
-                {brand.svg ? (
-                  <img
-                    src={`https://thesvg.org/icons/${brand.slug}/${brand.svg}.svg`}
-                    alt={`${brand.name} Logo`}
-                    className="h-10 w-full max-w-[9rem] object-contain"
-                  />
-                ) : (
-                  <span className="text-base font-bold tracking-tight text-card-foreground">
-                    {brand.name}
-                  </span>
-                )}
+                <div className="flex h-9 items-center justify-center">
+                  {brand.hasLogo ? (
+                    <img
+                      src={`https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/${brand.slug}/default.svg`}
+                      alt=""
+                      aria-hidden="true"
+                      className="h-9 w-auto max-w-[6rem] object-contain"
+                    />
+                  ) : (
+                    <div
+                      className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary"
+                      aria-hidden="true"
+                    >
+                      {brand.name.charAt(0)}
+                    </div>
+                  )}
+                </div>
+                <span className="text-center text-xs font-semibold leading-snug tracking-tight text-card-foreground">
+                  {brand.name}
+                </span>
               </div>
             ))}
           </div>
