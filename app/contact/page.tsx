@@ -89,73 +89,54 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact cards */}
-      <section className="mx-auto max-w-6xl px-5 py-16 lg:px-8 lg:py-20">
-        <div className="flex items-baseline gap-4">
-          <h2 className="text-3xl font-black tracking-tight text-foreground">联系方式</h2>
-          <span className="font-mono text-xs font-medium tracking-[0.18em] text-primary">GET IN TOUCH</span>
-          <div className="h-px flex-1 bg-gradient-to-r from-primary/40 to-transparent" />
-        </div>
+      {/* Contact content - split layout */}
+      <section className="mx-auto max-w-6xl px-5 py-16 lg:px-8 lg:py-24">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          {/* Left: info */}
+          <div>
+            <span className="inline-flex items-center rounded-lg bg-primary/10 px-4 py-2 font-mono text-sm font-bold tracking-[0.2em] text-primary">
+              GET IN TOUCH
+            </span>
+            <h2 className="mt-8 text-balance text-4xl font-black tracking-tight text-foreground lg:text-5xl">
+              北京 / 中国
+            </h2>
+            <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
+              告诉我们目标市场与采购需求，一起找到合适的车型和合作方式。
+            </p>
 
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {items.map((i, index) => {
-            const Wrapper = i.href ? "a" : "div"
-            return (
-              <Wrapper
-                key={i.label}
-                href={i.href}
-                className="group relative overflow-hidden rounded-2xl border border-[#0f2a4a]/20 bg-[#07182d] p-7 transition-all duration-500 ease-out hover:-translate-y-1.5 hover:border-[#22b8ff]/60 hover:shadow-[0_30px_60px_-30px_rgba(8,103,242,0.7)]"
-              >
-                {/* grid texture */}
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 opacity-[0.12] transition-opacity duration-500 group-hover:opacity-[0.22]"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(to right, rgba(120,180,255,0.35) 1px, transparent 1px), linear-gradient(to bottom, rgba(120,180,255,0.35) 1px, transparent 1px)",
-                    backgroundSize: "40px 40px",
-                  }}
-                />
-                {/* corner glow */}
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-[#22b8ff]/20 blur-[60px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                />
-                {/* sweep highlight */}
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute -left-full top-0 h-full w-1/2 -skew-x-12 bg-gradient-to-r from-transparent via-white/10 to-transparent transition-all duration-700 ease-out group-hover:left-full"
-                />
+            <ul className="mt-10 divide-y divide-border/70 border-y border-border/70">
+              {items.map((i) => {
+                const Wrapper = i.href ? "a" : "div"
+                return (
+                  <li key={i.label}>
+                    <Wrapper
+                      href={i.href}
+                      className="group flex items-center gap-5 py-6 transition-colors"
+                    >
+                      <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-border text-primary transition-all duration-300 group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-[0_10px_30px_-10px_rgba(8,103,242,0.7)]">
+                        <i.icon className="h-5 w-5" aria-hidden="true" />
+                      </span>
+                      <div className="min-w-0">
+                        <p className="text-sm tracking-wide text-muted-foreground">{i.label}</p>
+                        <p className="mt-1.5 break-words text-xl font-bold tracking-tight text-foreground transition-colors group-hover:text-primary">
+                          {i.value}
+                        </p>
+                      </div>
+                    </Wrapper>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
 
-                <div className="relative flex items-center justify-between">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#22b8ff]/30 bg-[#22b8ff]/10 text-[#7fd4ff] transition-all duration-500 ease-out group-hover:border-[#22b8ff] group-hover:bg-[#22b8ff] group-hover:text-[#07182d] group-hover:shadow-[0_0_20px_2px_rgba(34,184,255,0.5)]">
-                    <i.icon className="h-5 w-5" aria-hidden="true" />
-                  </span>
-                  <span className="font-mono text-xs font-medium tracking-[0.16em] text-white/25">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                </div>
-
-                <p className="relative mt-6 font-mono text-[11px] tracking-[0.2em] text-[#7fd4ff]/70">{i.en}</p>
-                <p className="relative mt-1 text-xs tracking-[0.16em] text-white/50">{i.label}</p>
-
-                <p className="relative mt-3 text-base font-semibold leading-relaxed text-white transition-colors duration-500 group-hover:text-[#7fd4ff]">
-                  {i.value}
-                </p>
-                <div className="relative mt-4 flex items-center justify-between">
-                  <span className="text-xs text-white/40">{i.hint}</span>
-                  {i.href ? (
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/15 text-white/60 transition-all duration-500 group-hover:border-[#22b8ff] group-hover:text-[#22b8ff]">
-                      <ArrowUpRight
-                        className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                        aria-hidden="true"
-                      />
-                    </span>
-                  ) : null}
-                </div>
-              </Wrapper>
-            )
-          })}
+          {/* Right: cinematic car image */}
+          <div className="relative overflow-hidden rounded-2xl border-b-4 border-primary shadow-[0_40px_80px_-40px_rgba(8,24,45,0.6)]">
+            <img
+              src="/images/contact-car.png"
+              alt="停放在地下车库中的银色轿车"
+              className="h-full min-h-[420px] w-full object-cover lg:min-h-[560px]"
+            />
+          </div>
         </div>
       </section>
 
