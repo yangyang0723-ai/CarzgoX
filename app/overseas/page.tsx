@@ -1,7 +1,7 @@
 import Image from "next/image"
-import { Check } from "lucide-react"
 import { PageBanner } from "@/components/page-banner"
 import { SectionHeading } from "@/components/section-heading"
+import { CooperationModes } from "@/components/cooperation-modes"
 import { achievements, brandsSection, overseasOverview } from "@/lib/content"
 
 export const metadata = {
@@ -118,46 +118,7 @@ export default function OverseasPage() {
             title={brandsSection.title}
             desc={brandsSection.summary}
           />
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {brandsSection.models.map((m) => (
-              <div
-                key={m.no}
-                className="group flex h-full flex-col border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-xl"
-              >
-                <div className="flex items-baseline gap-3">
-                  <span className="text-2xl font-bold tracking-tight text-primary">
-                    {m.no}
-                  </span>
-                  <h3 className="text-lg font-bold tracking-tight text-card-foreground">
-                    {m.title}
-                  </h3>
-                </div>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {m.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="bg-accent px-2.5 py-1 text-xs text-accent-foreground"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-                <p className="mt-6 text-xs font-medium tracking-[0.16em] text-muted-foreground">
-                  {m.label}
-                </p>
-                <ul className="mt-3 flex flex-col gap-2.5">
-                  {m.items.map((i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                      <span className="text-sm leading-relaxed text-muted-foreground text-pretty">
-                        {i}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+          <CooperationModes />
         </div>
       </section>
 
