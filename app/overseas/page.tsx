@@ -46,64 +46,32 @@ export default function OverseasPage() {
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {overseasOverview.cards.map((c, index) => {
               const Icon = advantageIcons[c.icon as keyof typeof advantageIcons]
-              const isFeatured = index === 0
               return (
                 <article
                   key={c.title}
-                  className={cn(
-                    "group flex min-h-72 flex-col justify-between p-7 transition-all duration-500 ease-out hover:-translate-y-1",
-                    isFeatured
-                      ? "bg-[#0f2a4a] text-primary-foreground hover:shadow-[0_24px_60px_-28px_rgba(0,200,255,0.45)]"
-                      : "border border-border bg-card hover:border-primary/40 hover:shadow-[0_20px_50px_-24px_rgba(8,103,242,0.3)]",
-                  )}
+                  className="group flex min-h-72 flex-col justify-between border border-border bg-card p-7 transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#0f2a4a] hover:bg-[#0f2a4a] hover:shadow-[0_24px_60px_-28px_rgba(15,42,74,0.45)]"
                 >
                   <div className="flex items-center justify-between">
                     <Icon
                       aria-hidden="true"
-                      className={cn(
-                        "h-7 w-7 transition-colors duration-500 ease-out",
-                        isFeatured ? "text-accent" : "text-primary group-hover:text-accent",
-                      )}
+                      className="h-7 w-7 text-primary transition-colors duration-500 ease-out group-hover:text-accent"
                     />
-                    <span
-                      className={cn(
-                        "font-mono text-sm font-medium tracking-[0.16em]",
-                        isFeatured ? "text-primary-foreground/45" : "text-muted-foreground/50",
-                      )}
-                    >
+                    <span className="font-mono text-sm font-medium tracking-[0.16em] text-muted-foreground/50 transition-colors duration-500 ease-out group-hover:text-primary-foreground/45">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                   </div>
                   <div>
-                    <p
-                      className={cn(
-                        "text-4xl font-bold leading-none tabular-nums lg:text-5xl",
-                        isFeatured ? "text-accent" : "text-primary",
-                      )}
-                    >
+                    <p className="text-4xl font-bold leading-none tabular-nums text-primary transition-colors duration-500 ease-out group-hover:text-accent lg:text-5xl">
                       {c.value}
                     </p>
                     <div
-                      className={cn(
-                        "mt-4 h-px w-10 transition-all duration-500 ease-out group-hover:w-16",
-                        isFeatured ? "bg-accent" : "bg-primary/30 group-hover:bg-primary",
-                      )}
+                      className="mt-4 h-px w-10 bg-primary/30 transition-all duration-500 ease-out group-hover:w-16 group-hover:bg-accent"
                       aria-hidden="true"
                     />
-                    <h3
-                      className={cn(
-                        "mt-4 text-lg font-bold tracking-tight",
-                        isFeatured ? "text-primary-foreground" : "text-card-foreground",
-                      )}
-                    >
+                    <h3 className="mt-4 text-lg font-bold tracking-tight text-card-foreground transition-colors duration-500 ease-out group-hover:text-primary-foreground">
                       {c.title}
                     </h3>
-                    <p
-                      className={cn(
-                        "mt-3 text-sm leading-relaxed text-pretty",
-                        isFeatured ? "text-primary-foreground/75" : "text-muted-foreground",
-                      )}
-                    >
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground text-pretty transition-colors duration-500 ease-out group-hover:text-primary-foreground/75">
                       {c.desc}
                     </p>
                   </div>
