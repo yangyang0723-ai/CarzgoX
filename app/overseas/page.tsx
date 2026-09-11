@@ -41,7 +41,10 @@ export default function OverseasPage() {
           </h2>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {overseasOverview.cards.map((c, index) => (
-              <article key={c.title} className="flex h-full flex-col border border-border bg-card p-7">
+              <article
+                key={c.title}
+                className="group flex h-full flex-col border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-xl"
+              >
                 <p className="text-xs font-medium tracking-[0.16em] text-primary/65">
                   {String(index + 1).padStart(2, "0")}
                 </p>
@@ -95,7 +98,7 @@ export default function OverseasPage() {
             ].map(([name, description], index) => (
               <article
                 key={name}
-                className={`group flex min-h-32 flex-col border border-border bg-card p-6 transition-colors hover:border-primary/30 hover:bg-background ${index < 3 ? "lg:col-span-2" : "lg:col-span-3"}`}
+                className={`group flex min-h-32 flex-col border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:bg-background hover:shadow-lg ${index < 3 ? "lg:col-span-2" : "lg:col-span-3"}`}
               >
                 <h3 className="text-base font-bold tracking-tight text-card-foreground">{name}</h3>
                 <p className="mt-auto pt-8 text-sm leading-relaxed text-muted-foreground">{description}</p>
@@ -119,7 +122,7 @@ export default function OverseasPage() {
             {brandsSection.models.map((m) => (
               <div
                 key={m.no}
-                className="flex h-full flex-col border border-border bg-card p-7"
+                className="group flex h-full flex-col border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-xl"
               >
                 <div className="flex items-baseline gap-3">
                   <span className="text-2xl font-bold tracking-tight text-primary">
@@ -169,7 +172,10 @@ export default function OverseasPage() {
         />
         <div className="mt-10 grid gap-px bg-border sm:grid-cols-2">
           {achievements.cards.map((c) => (
-            <div key={c.title} className="bg-card p-7">
+            <div
+              key={c.title}
+              className="bg-card p-7 transition-all duration-300 hover:z-10 hover:-translate-y-1 hover:shadow-xl"
+            >
               <h3 className="text-base font-bold tracking-tight text-card-foreground">
                 {c.title}
               </h3>
@@ -181,7 +187,10 @@ export default function OverseasPage() {
         </div>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {achievements.highlights.map((item) => (
-            <article key={item.label} className="flex min-h-52 flex-col justify-between rounded-2xl border border-primary/20 bg-primary p-6 text-primary-foreground">
+            <article
+              key={item.label}
+              className="group flex min-h-52 flex-col justify-between rounded-2xl border border-primary/20 bg-primary p-6 text-primary-foreground transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/50 hover:shadow-xl"
+            >
               <div>
                 <p className="font-serif text-4xl leading-none text-accent">
                   {item.value}<span className="ml-1 text-xl text-primary-foreground">{item.unit}</span>

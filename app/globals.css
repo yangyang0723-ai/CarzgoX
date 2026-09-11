@@ -162,3 +162,50 @@
 .marquee-row:hover .animate-marquee-right {
   animation-play-state: paused;
 }
+
+@keyframes banner-zoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes globe-spin {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+@keyframes banner-sweep {
+  0% {
+    transform: translateX(-120%) skewX(-12deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.15;
+  }
+  100% {
+    transform: translateX(220%) skewX(-12deg);
+    opacity: 0;
+  }
+}
+
+.animate-banner-zoom {
+  animation: banner-zoom 16s ease-in-out infinite alternate;
+}
+
+.animate-globe-spin {
+  animation: globe-spin 60s linear infinite;
+}
+
+.animate-banner-sweep {
+  animation: banner-sweep 6s ease-in-out infinite;
+}

@@ -26,8 +26,13 @@ export default function ContactPage() {
       <section className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
         <div className="grid gap-px bg-border md:grid-cols-3">
           {items.map((i) => (
-            <div key={i.label} className="bg-card p-8">
-              <i.icon className="h-5 w-5 text-primary" />
+            <div
+              key={i.label}
+              className="group bg-card p-8 transition-all duration-300 hover:z-10 hover:-translate-y-1.5 hover:shadow-xl"
+            >
+              <span className="flex h-11 w-11 items-center justify-center border border-border bg-secondary transition-all duration-300 group-hover:border-primary group-hover:bg-primary">
+                <i.icon className="h-5 w-5 text-primary transition-colors duration-300 group-hover:text-primary-foreground" />
+              </span>
               <p className="mt-5 text-xs tracking-[0.16em] text-muted-foreground">
                 {i.label}
               </p>

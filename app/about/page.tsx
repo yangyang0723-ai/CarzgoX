@@ -46,14 +46,17 @@ export default function AboutPage() {
             {groupHighlights.map((item) => (
               <article
                 key={item.label}
-                className="relative flex min-h-56 flex-col justify-between overflow-hidden rounded-[2rem] border border-primary/20 bg-primary p-7 text-primary-foreground shadow-sm"
+                className="group relative flex min-h-56 flex-col justify-between overflow-hidden rounded-[2rem] border border-primary/20 bg-primary p-7 text-primary-foreground shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/50 hover:shadow-xl"
               >
-                <div className="absolute -right-8 -top-10 h-32 w-32 rounded-full border border-primary-foreground/10" aria-hidden="true" />
+                <div
+                  className="absolute -right-8 -top-10 h-32 w-32 rounded-full border border-primary-foreground/10 transition-transform duration-500 group-hover:scale-110"
+                  aria-hidden="true"
+                />
                 <div className="relative">
-                  <p className="font-serif text-4xl leading-none tracking-tight text-accent">
+                  <p className="font-serif text-4xl leading-none tracking-tight text-accent transition-transform duration-300 group-hover:scale-105">
                     {item.value}<span className="ml-1 text-xl text-primary-foreground">{item.unit}</span>
                   </p>
-                  <div className="mt-4 h-px w-10 bg-accent" aria-hidden="true" />
+                  <div className="mt-4 h-px w-10 bg-accent transition-all duration-300 group-hover:w-16" aria-hidden="true" />
                   <h3 className="mt-4 text-base font-bold tracking-tight">{item.label}</h3>
                 </div>
                 <p className="relative mt-8 text-sm leading-relaxed text-primary-foreground/75 text-pretty">
@@ -75,7 +78,7 @@ export default function AboutPage() {
             {about.businesses.map((business, index) => (
               <article
                 key={business.name}
-                className="group flex flex-col overflow-hidden border border-border bg-card"
+                className="group flex flex-col overflow-hidden border border-border bg-card transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-xl"
               >
                 <div className="relative aspect-[16/9] overflow-hidden bg-secondary">
                   <Image
@@ -168,9 +171,12 @@ export default function AboutPage() {
               {about.changjiuShares.businesses.map(([title, description], index) => {
                 const Icon = changjiuBusinessIcons[index]
                 return (
-                  <div key={title} className="group relative flex flex-col gap-5 bg-primary p-7">
+                  <div
+                    key={title}
+                    className="group relative flex flex-col gap-5 bg-primary p-7 transition-colors duration-300 hover:bg-[#0f2a4a]"
+                  >
                     <div className="flex items-center justify-between">
-                      <Icon className="h-6 w-6 text-primary-foreground" aria-hidden="true" />
+                      <Icon className="h-6 w-6 text-primary-foreground transition-colors duration-300 group-hover:text-accent" aria-hidden="true" />
                       <span className="font-mono text-3xl font-bold leading-none text-primary-foreground/20">
                         {String(index + 1).padStart(2, "0")}
                       </span>
@@ -183,6 +189,7 @@ export default function AboutPage() {
                         {description}
                       </p>
                     </div>
+                    <span className="absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-accent transition-transform duration-300 group-hover:scale-x-100" />
                   </div>
                 )
               })}
@@ -202,11 +209,11 @@ export default function AboutPage() {
               return (
                 <article
                   key={title}
-                  className="border-t border-border py-9 last:border-b lg:grid lg:grid-cols-12 lg:gap-10"
+                  className="group border-t border-border py-9 transition-colors duration-300 last:border-b hover:bg-secondary/60 lg:grid lg:grid-cols-12 lg:gap-10 lg:px-4"
                 >
                   <div className="flex items-center gap-4 lg:col-span-4">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-border bg-secondary">
-                      <Icon className="h-5 w-5 text-primary" aria-hidden="true" />
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-border bg-secondary transition-all duration-300 group-hover:border-primary group-hover:bg-primary">
+                      <Icon className="h-5 w-5 text-primary transition-colors duration-300 group-hover:text-primary-foreground" aria-hidden="true" />
                     </span>
                     <div>
                       <p className="font-mono text-[0.6875rem] tracking-[0.14em] text-primary">
