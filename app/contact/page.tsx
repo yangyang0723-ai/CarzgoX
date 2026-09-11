@@ -94,17 +94,7 @@ export default function ContactPage() {
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           {/* Left: info */}
           <div>
-            <span className="inline-flex items-center rounded-lg bg-primary/10 px-4 py-2 font-mono text-sm font-bold tracking-[0.2em] text-primary">
-              GET IN TOUCH
-            </span>
-            <h2 className="mt-8 text-balance text-4xl font-black tracking-tight text-foreground lg:text-5xl">
-              北京 / 中国
-            </h2>
-            <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
-              告诉我们目标市场与采购需求，一起找到合适的车型和合作方式。
-            </p>
-
-            <ul className="mt-10 divide-y divide-border/70 border-y border-border/70">
+            <ul className="divide-y divide-border/70 border-y border-border/70">
               {items.map((i) => {
                 const Wrapper = i.href ? "a" : "div"
                 return (
