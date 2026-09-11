@@ -73,7 +73,7 @@ export default function HomePage() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#07182d]/80 via-[#07182d]/30 to-transparent" />
         <GlobeWireframe className="pointer-events-none absolute -right-24 top-1/2 -z-10 h-[560px] w-[560px] -translate-y-1/2 text-[#00c8ff]/15 lg:-right-10" />
 
-        <div className="mx-auto flex w-full max-w-6xl flex-col px-5 py-24 lg:px-8">
+        <div className="mx-auto flex w-full max-w-6xl flex-col items-center px-5 py-24 text-center lg:px-8">
           <p className="text-xs font-medium uppercase tracking-[0.32em] text-[#00c8ff]">
             CarzgoX · Global Auto Export
           </p>
@@ -94,16 +94,14 @@ export default function HomePage() {
       {/* 平台业务三大模块 —— 浅灰背景 + 编号卡片 */}
       <section className="bg-[#f4f7fb] py-24">
         <div className="mx-auto max-w-6xl px-5 lg:px-8">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
-                Platform Business
-              </p>
-              <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground text-balance lg:text-4xl">
-                平台业务
-              </h2>
-            </div>
-            <p className="max-w-sm text-sm leading-relaxed text-muted-foreground text-pretty">
+          <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+              Platform Business
+            </p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground text-balance lg:text-4xl">
+              平台业务
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground text-pretty">
               整合供应链与海外渠道资源，构建整车出海全链路服务体系。
             </p>
           </div>
@@ -149,9 +147,7 @@ export default function HomePage() {
       {/* 车型目录 —— 白色内容区承载统一的深色科技面板 */}
       <section className="relative isolate border-t border-border bg-background">
         <div className="relative mx-auto max-w-6xl px-5 py-24 lg:px-8">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <SectionHeading eyebrow="VEHICLE CATALOG" title="销售车型" />
-          </div>
+          <SectionHeading eyebrow="VEHICLE CATALOG" title="销售车型" align="center" />
 
           <div className="mt-10">
             <VehicleHomeBrowser catalog={vehicleCatalog} />
@@ -173,10 +169,10 @@ export default function HomePage() {
             />
           </div>
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00c8ff]">
+            <p className="text-center text-xs font-semibold uppercase tracking-[0.28em] text-[#00c8ff] lg:text-left">
               Global Network
             </p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-white lg:text-4xl">
+            <h2 className="mt-4 text-center text-3xl font-bold tracking-tight text-white lg:text-left lg:text-4xl">
               口岸店
             </h2>
             <div className="mt-10 rounded-xl border border-white/15 bg-white/5 p-6">
@@ -209,7 +205,7 @@ export default function HomePage() {
       {/* 合作品牌 —— 白色内容区 */}
       <section className="border-t border-border bg-background">
         <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
-          <SectionHeading eyebrow="PARTNER BRANDS" title="合作品牌" />
+          <SectionHeading eyebrow="PARTNER BRANDS" title="合作品牌" align="center" />
           <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
             {partnerBrands.map((brand) => (
               <div
