@@ -18,7 +18,7 @@ export function VehicleCatalogBrowser({ catalog }: { catalog: Module[] }) {
   return (
     <div>
       {/* Category tabs */}
-      <div className="flex flex-wrap items-center gap-2 px-0 py-0 sm:gap-5">
+      <div className="flex w-fit flex-wrap items-center gap-2 rounded-xl border border-[#0f2a4a] px-2 py-2 sm:gap-5 sm:px-3">
         {catalog.map((group, i) => {
           const isActive = i === activeModule
           const count = group.brands.reduce((sum, b) => sum + b.models.length, 0)
