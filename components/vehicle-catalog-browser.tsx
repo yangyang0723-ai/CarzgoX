@@ -18,7 +18,7 @@ export function VehicleCatalogBrowser({ catalog }: { catalog: Module[] }) {
   return (
     <div>
       {/* Category tabs */}
-      <div className="flex flex-wrap items-center gap-2 border-b border-border pb-6">
+      <div className="bg-tech-grid flex flex-wrap items-center gap-2 rounded-2xl border border-[#1d3b5c] bg-[#0a1a2c] px-4 py-4 text-white sm:gap-5 sm:px-8">
         {catalog.map((group, i) => {
           const isActive = i === activeModule
           const count = group.brands.reduce((sum, b) => sum + b.models.length, 0)
@@ -27,17 +27,19 @@ export function VehicleCatalogBrowser({ catalog }: { catalog: Module[] }) {
               key={group.module}
               onClick={() => setActiveModule(i)}
               className={cn(
-                "relative flex min-h-11 items-center gap-2 px-5 py-3 text-sm font-bold tracking-tight transition-colors duration-300",
+                "group relative flex min-h-10 items-center gap-2 rounded-full px-5 py-2 text-sm font-bold tracking-tight transition-all duration-300",
                 isActive
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary text-secondary-foreground hover:bg-muted",
+                  ? "bg-accent text-primary-foreground shadow-[0_8px_24px_-10px_rgba(0,200,255,0.8)]"
+                  : "text-[#91a4b8] hover:bg-[#153452] hover:text-white",
               )}
             >
               {group.module.trim()}
               <span
                 className={cn(
-                  "text-xs font-medium tabular-nums",
-                  isActive ? "text-primary-foreground/70" : "text-muted-foreground",
+                  "flex h-5 min-w-5 items-center justify-center rounded-full px-1 text-xs font-medium tabular-nums transition-colors duration-300",
+                  isActive
+                    ? "bg-primary-foreground/20 text-primary-foreground"
+                    : "bg-[#30445a] text-[#9aabba] group-hover:bg-[#46617c]",
                 )}
               >
                 {count}
