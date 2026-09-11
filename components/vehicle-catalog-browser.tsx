@@ -53,8 +53,8 @@ export function VehicleCatalogBrowser({ catalog }: { catalog: Module[] }) {
           <div key={b.brand}>
             <div className="flex items-baseline gap-4">
               <h3 className="text-lg font-bold tracking-tight text-foreground">{b.brand}</h3>
-              <span className="text-xs font-medium tracking-[0.18em] text-muted-foreground">
-                {b.models.length} MODELS
+              <span className="font-mono text-xs font-medium tracking-[0.18em] text-muted-foreground">
+                {String(b.models.length).padStart(2, "0")} MODELS
               </span>
               <div className="h-px flex-1 bg-border" />
             </div>
@@ -64,7 +64,7 @@ export function VehicleCatalogBrowser({ catalog }: { catalog: Module[] }) {
                 <Link
                   key={model.name}
                   href={`/vehicles/${vehicleSlug(model.name)}`}
-                  className="group flex flex-col overflow-hidden border border-border bg-card transition-all hover:-translate-y-1 hover:border-primary hover:shadow-lg"
+                  className="group relative flex flex-col overflow-hidden border border-border bg-card transition-all duration-500 ease-out hover:-translate-y-1 hover:border-primary hover:shadow-[0_20px_50px_-24px_rgba(8,103,242,0.35)]"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
                     <Image
@@ -73,17 +73,21 @@ export function VehicleCatalogBrowser({ catalog }: { catalog: Module[] }) {
                       fill
                       sizes="(min-width: 1024px) 22vw, (min-width: 640px) 30vw, 45vw"
                       className={cn(
-                        "object-cover transition-transform duration-500 group-hover:scale-105",
+                        "object-cover transition-transform duration-700 ease-out group-hover:scale-105",
                         model.name === "SONATA" || model.name === "VS8" ? "scale-[3] group-hover:scale-[3.08]" : "",
                       )}
                     />
-                    <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/25 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                    <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#07182d]/40 to-transparent opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100" />
                   </div>
+                  <span
+                    className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-primary transition-transform duration-500 ease-out group-hover:scale-x-100"
+                    aria-hidden="true"
+                  />
                   <div className="flex items-center justify-between px-3.5 py-3">
                     <span className="text-sm font-semibold tracking-tight text-card-foreground">
                       {model.name}
                     </span>
-                    <span className="text-primary opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:opacity-100">
+                    <span className="text-primary opacity-0 transition-all duration-500 ease-out group-hover:translate-x-0.5 group-hover:opacity-100">
                       &rarr;
                     </span>
                   </div>

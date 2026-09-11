@@ -51,23 +51,23 @@ export default function OverseasPage() {
                 <article
                   key={c.title}
                   className={cn(
-                    "group flex min-h-72 flex-col justify-between p-7 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl",
+                    "group flex min-h-72 flex-col justify-between p-7 transition-all duration-500 ease-out hover:-translate-y-1",
                     isFeatured
-                      ? "bg-primary text-primary-foreground hover:shadow-primary/25"
-                      : "border border-border bg-card hover:border-primary/40",
+                      ? "bg-primary text-primary-foreground hover:shadow-[0_24px_60px_-28px_rgba(0,200,255,0.45)]"
+                      : "border border-border bg-card hover:border-primary/40 hover:shadow-[0_20px_50px_-24px_rgba(8,103,242,0.3)]",
                   )}
                 >
                   <div className="flex items-center justify-between">
                     <Icon
                       aria-hidden="true"
                       className={cn(
-                        "h-7 w-7 transition-colors duration-300",
+                        "h-7 w-7 transition-colors duration-500 ease-out",
                         isFeatured ? "text-accent" : "text-primary group-hover:text-accent",
                       )}
                     />
                     <span
                       className={cn(
-                        "text-sm font-medium tracking-[0.16em]",
+                        "font-mono text-sm font-medium tracking-[0.16em]",
                         isFeatured ? "text-primary-foreground/45" : "text-muted-foreground/50",
                       )}
                     >
@@ -77,15 +77,22 @@ export default function OverseasPage() {
                   <div>
                     <p
                       className={cn(
-                        "font-sans text-4xl font-bold leading-none lg:text-5xl",
+                        "text-4xl font-bold leading-none tabular-nums lg:text-5xl",
                         isFeatured ? "text-accent" : "text-primary",
                       )}
                     >
                       {c.value}
                     </p>
+                    <div
+                      className={cn(
+                        "mt-4 h-px w-10 transition-all duration-500 ease-out group-hover:w-16",
+                        isFeatured ? "bg-accent" : "bg-primary/30 group-hover:bg-primary",
+                      )}
+                      aria-hidden="true"
+                    />
                     <h3
                       className={cn(
-                        "mt-5 text-lg font-bold tracking-tight",
+                        "mt-4 text-lg font-bold tracking-tight",
                         isFeatured ? "text-primary-foreground" : "text-card-foreground",
                       )}
                     >
@@ -133,8 +140,12 @@ export default function OverseasPage() {
             ].map(([name, description], index) => (
               <article
                 key={name}
-                className={`group flex min-h-32 flex-col border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:bg-background hover:shadow-lg ${index < 3 ? "lg:col-span-2" : "lg:col-span-3"}`}
+                className={`group relative flex min-h-32 flex-col overflow-hidden border border-border bg-card p-6 transition-all duration-500 ease-out hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_20px_50px_-24px_rgba(8,103,242,0.3)] ${index < 3 ? "lg:col-span-2" : "lg:col-span-3"}`}
               >
+                <span
+                  className="absolute left-0 top-0 h-px w-0 bg-primary transition-all duration-500 ease-out group-hover:w-full"
+                  aria-hidden="true"
+                />
                 <h3 className="text-base font-bold tracking-tight text-card-foreground">{name}</h3>
                 <p className="mt-auto pt-8 text-sm leading-relaxed text-muted-foreground">{description}</p>
               </article>
@@ -170,8 +181,12 @@ export default function OverseasPage() {
           {achievements.cards.map((c) => (
             <div
               key={c.title}
-              className="bg-card p-7 transition-all duration-300 hover:z-10 hover:-translate-y-1 hover:shadow-xl"
+              className="group relative bg-card p-7 transition-all duration-500 ease-out hover:z-10 hover:-translate-y-1 hover:shadow-[0_20px_50px_-24px_rgba(8,103,242,0.3)]"
             >
+              <span
+                className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-primary transition-transform duration-500 ease-out group-hover:scale-x-100"
+                aria-hidden="true"
+              />
               <h3 className="text-base font-bold tracking-tight text-card-foreground">
                 {c.title}
               </h3>
@@ -185,13 +200,15 @@ export default function OverseasPage() {
           {achievements.highlights.map((item) => (
             <article
               key={item.label}
-              className="group flex min-h-52 flex-col justify-between rounded-2xl border border-primary/20 bg-primary p-6 text-primary-foreground transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/50 hover:shadow-xl"
+              className="group tech-corners relative flex min-h-52 flex-col justify-between bg-primary p-6 text-primary-foreground text-accent/0 transition-all duration-500 ease-out hover:-translate-y-1 hover:text-accent/40 hover:shadow-[0_24px_60px_-28px_rgba(0,200,255,0.45)]"
             >
               <div>
-                <p className="font-serif text-4xl leading-none text-accent">
-                  {item.value}<span className="ml-1 text-xl text-primary-foreground">{item.unit}</span>
+                <p className="text-4xl leading-none text-accent">
+                  <span className="font-mono tabular-nums">{item.value}</span>
+                  <span className="ml-1 font-sans text-xl text-primary-foreground">{item.unit}</span>
                 </p>
-                <h3 className="mt-6 text-base font-bold">{item.label}</h3>
+                <div className="mt-4 h-px w-10 bg-accent/50 transition-all duration-500 ease-out group-hover:w-16 group-hover:bg-accent" aria-hidden="true" />
+                <h3 className="mt-4 text-base font-bold">{item.label}</h3>
               </div>
               <p className="mt-8 text-sm leading-relaxed text-primary-foreground/80 text-pretty">{item.detail}</p>
             </article>

@@ -25,21 +25,30 @@ export default function ContactPage() {
 
       <section className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
         <div className="grid gap-px bg-border md:grid-cols-3">
-          {items.map((i) => (
+          {items.map((i, index) => (
             <div
               key={i.label}
-              className="group bg-card p-8 transition-all duration-300 hover:z-10 hover:-translate-y-1.5 hover:shadow-xl"
+              className="group relative bg-card p-8 transition-all duration-500 ease-out hover:z-10 hover:-translate-y-1 hover:shadow-[0_20px_50px_-24px_rgba(8,103,242,0.3)]"
             >
-              <span className="flex h-11 w-11 items-center justify-center border border-border bg-secondary transition-all duration-300 group-hover:border-primary group-hover:bg-primary">
-                <i.icon className="h-5 w-5 text-primary transition-colors duration-300 group-hover:text-primary-foreground" />
-              </span>
+              <span
+                className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-primary transition-transform duration-500 ease-out group-hover:scale-x-100"
+                aria-hidden="true"
+              />
+              <div className="flex items-center justify-between">
+                <span className="flex h-11 w-11 items-center justify-center border border-border bg-secondary transition-all duration-500 ease-out group-hover:border-primary group-hover:bg-primary">
+                  <i.icon className="h-5 w-5 text-primary transition-colors duration-500 ease-out group-hover:text-primary-foreground" />
+                </span>
+                <span className="font-mono text-xs font-medium tracking-[0.16em] text-muted-foreground/50">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+              </div>
               <p className="mt-5 text-xs tracking-[0.16em] text-muted-foreground">
                 {i.label}
               </p>
               {i.href ? (
                 <a
                   href={i.href}
-                  className="mt-2 block text-sm leading-relaxed text-card-foreground transition-colors hover:text-primary"
+                  className="mt-2 block text-sm leading-relaxed text-card-foreground transition-colors duration-500 ease-out hover:text-primary"
                 >
                   {i.value}
                 </a>

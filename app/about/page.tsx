@@ -46,17 +46,18 @@ export default function AboutPage() {
             {groupHighlights.map((item) => (
               <article
                 key={item.label}
-                className="group relative flex min-h-56 flex-col justify-between overflow-hidden rounded-[2rem] border border-primary/20 bg-primary p-7 text-primary-foreground shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/50 hover:shadow-xl"
+                className="group tech-corners relative flex min-h-56 flex-col justify-between overflow-hidden bg-primary p-7 text-primary-foreground text-accent/0 transition-all duration-500 ease-out hover:-translate-y-1 hover:text-accent/40 hover:shadow-[0_24px_60px_-28px_rgba(0,200,255,0.45)]"
               >
                 <div
                   className="absolute -right-8 -top-10 h-32 w-32 rounded-full border border-primary-foreground/10 transition-transform duration-500 group-hover:scale-110"
                   aria-hidden="true"
                 />
                 <div className="relative">
-                  <p className="font-serif text-4xl leading-none tracking-tight text-accent transition-transform duration-300 group-hover:scale-105">
-                    {item.value}<span className="ml-1 text-xl text-primary-foreground">{item.unit}</span>
+                  <p className="text-4xl leading-none tracking-tight text-accent">
+                    <span className="font-mono tabular-nums">{item.value}</span>
+                    <span className="ml-1 font-sans text-xl text-primary-foreground">{item.unit}</span>
                   </p>
-                  <div className="mt-4 h-px w-10 bg-accent transition-all duration-300 group-hover:w-16" aria-hidden="true" />
+                  <div className="mt-4 h-px w-10 bg-accent transition-all duration-500 ease-out group-hover:w-16" aria-hidden="true" />
                   <h3 className="mt-4 text-base font-bold tracking-tight">{item.label}</h3>
                 </div>
                 <p className="relative mt-8 text-sm leading-relaxed text-primary-foreground/75 text-pretty">
@@ -78,7 +79,7 @@ export default function AboutPage() {
             {about.businesses.map((business, index) => (
               <article
                 key={business.name}
-                className="group flex flex-col overflow-hidden border border-border bg-card transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-xl"
+                className="group flex flex-col overflow-hidden border border-border bg-card transition-all duration-500 ease-out hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_20px_50px_-24px_rgba(8,103,242,0.35)]"
               >
                 <div className="relative aspect-[16/9] overflow-hidden bg-secondary">
                   <Image
@@ -86,8 +87,9 @@ export default function AboutPage() {
                     alt={`${business.name}业务场景`}
                     fill
                     sizes="(min-width: 768px) 19vw, (min-width: 640px) 48vw, 92vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#07182d]/50 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                   <span className="absolute left-0 top-0 bg-primary px-2 py-1 font-mono text-[0.6875rem] text-primary-foreground">
                     {String(index + 1).padStart(2, "0")}
                   </span>
@@ -106,6 +108,7 @@ export default function AboutPage() {
                   <p className="mt-3 text-[0.8125rem] leading-relaxed text-muted-foreground text-pretty">
                     {business.description}
                   </p>
+                  <div className="mt-4 h-px w-8 bg-primary/30 transition-all duration-500 ease-out group-hover:w-14 group-hover:bg-primary" aria-hidden="true" />
                 </div>
               </article>
             ))}
@@ -173,11 +176,11 @@ export default function AboutPage() {
                 return (
                   <div
                     key={title}
-                    className="group relative flex flex-col gap-5 bg-primary p-7 transition-colors duration-300 hover:bg-[#0f2a4a]"
+                    className="group relative flex flex-col gap-5 bg-primary p-7 transition-colors duration-500 ease-out hover:bg-[#0f2a4a]"
                   >
                     <div className="flex items-center justify-between">
-                      <Icon className="h-6 w-6 text-primary-foreground transition-colors duration-300 group-hover:text-accent" aria-hidden="true" />
-                      <span className="font-mono text-3xl font-bold leading-none text-primary-foreground/20">
+                      <Icon className="h-6 w-6 text-primary-foreground transition-colors duration-500 ease-out group-hover:text-accent" aria-hidden="true" />
+                      <span className="font-mono text-3xl font-bold leading-none text-primary-foreground/20 transition-colors duration-500 ease-out group-hover:text-accent/25">
                         {String(index + 1).padStart(2, "0")}
                       </span>
                     </div>
