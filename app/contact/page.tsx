@@ -15,7 +15,7 @@ const items = [
 export default function ContactPage() {
   return (
     <>
-      <section className="border-b border-border bg-primary">
+      <section className="border-b border-border bg-primary pt-16">
         <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
           <p className="text-xs font-medium tracking-[0.24em] text-primary-foreground/80">
             CONTACT US

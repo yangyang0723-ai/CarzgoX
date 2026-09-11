@@ -21,7 +21,7 @@ export default function OverseasPage() {
           className="-z-10 object-cover"
         />
         <div className="absolute inset-0 -z-10 bg-primary/85" />
-        <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
+        <div className="mx-auto max-w-6xl px-5 py-20 pt-36 lg:px-8">
           <p className="text-xs font-medium tracking-[0.24em] text-primary-foreground/80">
             OVERSEAS BUSINESS
           </p>

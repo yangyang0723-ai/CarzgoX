@@ -4,6 +4,7 @@ import { Noto_Sans_SC } from 'next/font/google'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import { ContactFloat } from '@/components/contact-float'
+import { LanguageProvider } from '@/lib/language-context'
 import './globals.css'
 
 const _notoSansSC = Noto_Sans_SC({
@@ -51,10 +52,12 @@ export default function RootLayout({
         className="flex min-h-screen flex-col font-sans antialiased"
         suppressHydrationWarning
       >
-        <SiteHeader />
-        <main className="flex-1">{children}</main>
-        <SiteFooter />
-        <ContactFloat />
+        <LanguageProvider>
+          <SiteHeader />
+          <main className="flex-1">{children}</main>
+          <SiteFooter />
+          <ContactFloat />
+        </LanguageProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
