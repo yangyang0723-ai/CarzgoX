@@ -2,12 +2,12 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, ArrowDown } from "lucide-react"
 import { SectionHeading } from "@/components/section-heading"
+import { HeroText } from "@/components/hero-text"
 
 const vehicleSlug = (name: string) => encodeURIComponent(name.toLowerCase().replace(/\s+/g, "-"))
 import {
   achievements,
   brandsSection,
-  hero,
   overseasOverview,
   portStores,
   vehicleCatalog,
@@ -75,12 +75,7 @@ export default function HomePage() {
           <p className="text-xs font-medium tracking-[0.3em] text-white/70">
             CHANGJIU OVERSEAS
           </p>
-          <h1 className="mt-6 max-w-3xl text-4xl font-bold leading-[1.15] tracking-tight text-white text-balance lg:text-7xl">
-            {hero.tagline}
-          </h1>
-          <p className="mt-6 max-w-lg text-sm leading-relaxed text-white/75 text-pretty lg:text-base">
-            {hero.sub}
-          </p>
+          <HeroText />
         </div>
 
         <div className="absolute inset-x-0 bottom-0 hidden items-center justify-between border-t border-white/15 px-5 py-5 lg:flex lg:px-8">

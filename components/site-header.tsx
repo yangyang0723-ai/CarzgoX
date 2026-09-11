@@ -6,11 +6,12 @@ import { useState } from "react"
 import { ChevronDown, Globe, Menu, X } from "lucide-react"
 import { nav, languages } from "@/lib/content"
 import { cn } from "@/lib/utils"
+import { useLanguage } from "@/lib/language-context"
 
 export function SiteHeader() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
-  const [lang, setLang] = useState(languages[0])
+  const { lang, setLang } = useLanguage()
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-md">

@@ -13,11 +13,23 @@ export const nav = [
   { label: "联系我们", href: "/contact" },
 ]
 
-export const languages = ["中文", "Русский", "English"]
+export const languages = ["中文", "Русский", "English"] as const
 
-export const hero = {
-  tagline: "One-stop auto export, Connect global market.",
-  sub: "Full-Chain Services: Export, Logistics and Customs Clearance",
+export type Language = (typeof languages)[number]
+
+export const heroByLanguage: Record<Language, { tagline: string; sub: string }> = {
+  中文: {
+    tagline: "一站式汽车出海，联通全球贸易伙伴",
+    sub: "整车出口 · 跨境物流 · 清关交付一站式服务",
+  },
+  English: {
+    tagline: "One-stop auto export, Connect global market.",
+    sub: "Full-Chain Services: Export, Logistics and Customs Clearance",
+  },
+  Русский: {
+    tagline: "Экспорт автомобилей под ключ, связь с мировым рынком.",
+    sub: "Полный цикл услуг: экспорт, логистика и таможенное оформление",
+  },
 }
 
 // ---------- 海外业务 ----------
