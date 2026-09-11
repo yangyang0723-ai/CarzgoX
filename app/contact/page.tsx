@@ -1,4 +1,4 @@
-import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react"
+import { ArrowUpRight, Mail, MapPin, MessageCircle, Phone, Share2 } from "lucide-react"
 import { contact } from "@/lib/content"
 
 export const metadata = {
@@ -22,6 +22,22 @@ const items = [
     value: contact.email,
     href: `mailto:${contact.email}`,
     hint: "商务合作与咨询",
+  },
+  {
+    icon: MessageCircle,
+    label: "WhatsApp",
+    en: "WHATSAPP",
+    value: contact.whatsapp,
+    href: `https://wa.me/${contact.whatsapp.replace(/[^\d]/g, "")}`,
+    hint: "海外客户即时沟通",
+  },
+  {
+    icon: Share2,
+    label: "VK",
+    en: "VK",
+    value: contact.vk,
+    href: `https://${contact.vk}`,
+    hint: "俄语区社媒关注",
   },
   {
     icon: MapPin,

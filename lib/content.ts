@@ -294,7 +294,7 @@ export const about = {
     {
       name: "国际铁路",
       english: "CR Express · Oversea Resources",
-      description: "中欧班列资源 · 境外段优质资源",
+      description: "中欧班��资源 · 境外段优质资源",
       icon: "rail",
     },
     {
@@ -334,4 +334,6 @@ export const contact = {
   phone: "+86 010-65732999-3736",
   email: "ir@99digtech.com",
   address: "北京市朝阳区石各庄99号长久大厦",
+  whatsapp: "+86 138 0000 0000",
+  vk: "vk.com/jiuchego",
 }
