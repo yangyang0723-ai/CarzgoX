@@ -56,8 +56,8 @@ const modules = [
 export default function HomePage() {
   return (
     <>
-      {/* 首屏 Banner —— 深色背景 + 真实摄影 + 地球线框元素 */}
-      <section className="relative isolate flex min-h-[640px] items-center overflow-hidden bg-[#07182d] lg:min-h-[760px]">
+      {/* 首屏 Banner —— 明亮真实摄影 + 轻量渐变 + 地球线框元素 */}
+      <section className="relative isolate flex min-h-[640px] items-center overflow-hidden bg-[#0f2a4a] lg:min-h-[760px]">
         <video
           autoPlay
           muted
@@ -69,9 +69,9 @@ export default function HomePage() {
         >
           <source src="/videos/home-banner-sample.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#07182d] via-[#07182d]/75 to-[#07182d]/45" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#07182d]/80 via-[#07182d]/30 to-transparent" />
-        <GlobeWireframe className="pointer-events-none absolute -right-24 top-1/2 -z-10 h-[560px] w-[560px] -translate-y-1/2 text-[#00c8ff]/15 lg:-right-10" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#07182d]/85 via-[#0f2a4a]/35 to-transparent" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#07182d]/65 via-[#0f2a4a]/20 to-transparent" />
+        <GlobeWireframe className="pointer-events-none absolute -right-24 top-1/2 -z-10 h-[560px] w-[560px] -translate-y-1/2 text-[#00c8ff]/20 lg:-right-10" />
 
         <div className="mx-auto flex w-full max-w-6xl flex-col items-center px-5 py-24 text-center lg:px-8">
           <p className="text-xs font-medium uppercase tracking-[0.32em] text-[#00c8ff]">
@@ -80,12 +80,12 @@ export default function HomePage() {
           <HeroText />
         </div>
 
-        <div className="absolute inset-x-0 bottom-0 hidden items-center justify-between border-t border-white/15 px-5 py-5 lg:flex lg:px-8">
-          <span className="text-[0.6875rem] font-medium uppercase tracking-[0.28em] text-white/60">
+        <div className="absolute inset-x-0 bottom-0 hidden items-center justify-between border-t border-white/20 bg-gradient-to-t from-[#07182d]/50 to-transparent px-5 py-5 lg:flex lg:px-8">
+          <span className="text-[0.6875rem] font-medium uppercase tracking-[0.28em] text-white/70">
             Scroll
           </span>
-          <ArrowDown className="h-4 w-4 animate-bounce text-white/60" aria-hidden="true" />
-          <span className="text-[0.6875rem] font-medium uppercase tracking-[0.28em] text-white/60">
+          <ArrowDown className="h-4 w-4 animate-bounce text-white/70" aria-hidden="true" />
+          <span className="text-[0.6875rem] font-medium uppercase tracking-[0.28em] text-white/70">
             CarzgoX · One-Stop Auto Export Platform
           </span>
         </div>
