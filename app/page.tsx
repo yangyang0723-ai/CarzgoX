@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { SectionHeading } from "@/components/section-heading"
+import { PlatformBusiness } from "@/components/platform-business"
 
 const vehicleSlug = (name: string) => encodeURIComponent(name.toLowerCase().replace(/\s+/g, "-"))
 import {
@@ -33,6 +34,7 @@ const modules = [
     brief: overseasOverview.brief,
     image: "/images/logistics.png",
     alt: "轿运车队运输新车",
+    label: "OVERVIEW",
   },
   {
     href: "/overseas#brands",
@@ -40,6 +42,7 @@ const modules = [
     brief: brandsSection.brief,
     image: "/images/kd-plant.png",
     alt: "KD 汽车组装工厂生产线",
+    label: "BRANDS",
   },
   {
     href: "/overseas#achievements",
@@ -47,6 +50,7 @@ const modules = [
     brief: achievements.brief,
     image: "/images/port-store.png",
     alt: "口岸国际汽车市场",
+    label: "ACHIEVEMENTS",
   },
 ]
 
@@ -88,40 +92,7 @@ export default function HomePage() {
       <section className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
         <SectionHeading eyebrow="PLATFORM BUSINESS" title="平台业务" />
 
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {modules.map((m) => (
-            <article
-              key={m.href}
-              className="group relative flex flex-col border border-border bg-card transition-colors hover:border-primary"
-            >
-              <span className="absolute inset-x-0 top-0 z-10 h-0.5 origin-left scale-x-0 bg-primary transition-transform duration-300 group-hover:scale-x-100" aria-hidden="true" />
-              <div className="relative h-44 overflow-hidden">
-                <Image
-                  src={m.image}
-                  alt={m.alt}
-                  fill
-                  sizes="(min-width: 768px) 33vw, 100vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div className="flex flex-1 flex-col gap-3 p-6">
-                <h3 className="text-lg font-bold tracking-tight text-card-foreground">
-                  {m.title}
-                </h3>
-                <p className="flex-1 text-sm leading-relaxed text-muted-foreground text-pretty">
-                  {m.brief}
-                </p>
-                <Link
-                  href={m.href}
-                  className="mt-2 flex items-center gap-1.5 text-sm font-medium text-primary"
-                >
-                  查看更多
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </div>
-            </article>
-          ))}
-        </div>
+        <PlatformBusiness modules={modules} />
       </section>
 
       {/* 车型目录 */}
