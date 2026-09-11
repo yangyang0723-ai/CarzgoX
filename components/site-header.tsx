@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { ChevronDown, Globe, Menu, X } from "lucide-react"
 import { nav, languages } from "@/lib/content"
 import { cn } from "@/lib/utils"
@@ -11,56 +11,19 @@ export function SiteHeader() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
   const [lang, setLang] = useState(languages[0])
-  const isHome = pathname === "/"
-  const [scrolled, setScrolled] = useState(!isHome)
-
-  useEffect(() => {
-    if (!isHome) {
-      setScrolled(true)
-      return
-    }
-    const onScroll = () => setScrolled(window.scrollY > 48)
-    onScroll()
-    window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
-  }, [isHome])
-
-  const transparent = isHome && !scrolled
 
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-50 border-b transition-all duration-500",
-        transparent
-          ? "border-transparent bg-transparent"
-          : "border-border bg-background/90 backdrop-blur-md",
-      )}
-    >
+    <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-md">
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5 lg:px-8">
         <Link href="/" className="flex items-center gap-2.5">
-          <span
-            className={cn(
-              "flex h-8 w-8 items-center justify-center text-sm font-bold tracking-tight transition-colors duration-500",
-              transparent ? "bg-primary text-primary-foreground" : "bg-primary text-primary-foreground",
-            )}
-          >
+          <span className="flex h-8 w-8 items-center justify-center bg-primary text-sm font-bold tracking-tight text-primary-foreground">
             久
           </span>
           <span className="flex flex-col leading-none">
-            <span
-              className={cn(
-                "text-base font-bold tracking-tight transition-colors duration-500",
-                transparent ? "text-background" : "text-foreground",
-              )}
-            >
+            <span className="text-base font-bold tracking-tight text-foreground">
               久车GO
             </span>
-            <span
-              className={cn(
-                "mt-0.5 text-[10px] tracking-[0.18em] transition-colors duration-500",
-                transparent ? "text-background/70" : "text-muted-foreground",
-              )}
-            >
+            <span className="mt-0.5 text-[10px] tracking-[0.18em] text-muted-foreground">
               OVERSEAS
             </span>
           </span>
@@ -74,20 +37,16 @@ export function SiteHeader() {
               <div key={item.href} className="group relative">
                 <Link
                   href={item.href}
-                  data-active={active}
                   className={cn(
-                    "relative inline-flex items-center gap-1 px-3.5 py-2 text-sm transition-colors duration-500",
-                    isHome && "nav-underline",
+                    "relative inline-flex items-center gap-1 px-3.5 py-2 text-sm transition-colors",
                     active
-                      ? cn("font-medium", transparent ? "text-background" : "text-primary")
-                      : transparent
-                        ? "text-background/75 hover:text-background"
-                        : "text-muted-foreground hover:text-foreground",
+                      ? "font-medium text-primary"
+                      : "text-muted-foreground hover:text-foreground",
                   )}
                 >
                   {item.label}
                   {hasChildren && <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />}
-                  {active && !isHome && <span className="absolute inset-x-3.5 -bottom-px h-0.5 bg-primary" />}
+                  {active && <span className="absolute inset-x-3.5 -bottom-px h-0.5 bg-primary" />}
                 </Link>
                 {hasChildren && (
                   <div className="invisible absolute left-1/2 top-full z-50 min-w-44 -translate-x-1/2 translate-y-1 opacity-0 transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
@@ -110,30 +69,18 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <div
-            className={cn(
-              "hidden items-center gap-1 border px-1 py-1 transition-colors duration-500 md:flex",
-              transparent ? "border-background/30" : "border-border",
-            )}
-          >
-            <Globe
-              className={cn(
-                "mx-1 h-3.5 w-3.5 transition-colors duration-500",
-                transparent ? "text-background/70" : "text-muted-foreground",
-              )}
-            />
+          <div className="hidden items-center gap-1 border border-border px-1 py-1 md:flex">
+            <Globe className="mx-1 h-3.5 w-3.5 text-muted-foreground" />
             {languages.map((l) => (
               <button
                 key={l}
                 type="button"
                 onClick={() => setLang(l)}
                 className={cn(
-                  "px-2 py-0.5 text-xs transition-colors duration-500",
+                  "px-2 py-0.5 text-xs transition-colors",
                   lang === l
                     ? "bg-primary text-primary-foreground"
-                    : transparent
-                      ? "text-background/70 hover:text-background"
-                      : "text-muted-foreground hover:text-foreground",
+                    : "text-muted-foreground hover:text-foreground",
                 )}
               >
                 {l}
@@ -145,10 +92,7 @@ export function SiteHeader() {
             type="button"
             onClick={() => setOpen(!open)}
             aria-label={open ? "关闭菜单" : "打开菜单"}
-            className={cn(
-              "flex h-9 w-9 items-center justify-center border transition-colors duration-500 md:hidden",
-              transparent ? "border-background/30 text-background" : "border-border text-foreground",
-            )}
+            className="flex h-9 w-9 items-center justify-center border border-border md:hidden"
           >
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>

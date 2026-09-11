@@ -1,6 +1,5 @@
 import Image from "next/image"
 import Link from "next/link"
-import { PageHero } from "@/components/page-hero"
 import { vehicleCatalog } from "@/lib/content"
 
 const vehicleSlug = (name: string) => encodeURIComponent(name.toLowerCase().replace(/\s+/g, "-"))
@@ -13,7 +12,16 @@ export const metadata = {
 export default function VehiclesPage() {
   return (
     <>
-      <PageHero eyebrow="VEHICLE CATALOG" title="销售车型" />
+      <section className="border-b border-border bg-primary">
+        <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
+          <p className="text-xs font-medium tracking-[0.24em] text-primary-foreground/80">
+            VEHICLE CATALOG
+          </p>
+          <h1 className="mt-4 text-3xl font-bold tracking-tight text-primary-foreground lg:text-4xl">
+            销售车型
+          </h1>
+        </div>
+      </section>
 
       <section className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
         <div className="flex flex-col gap-14">

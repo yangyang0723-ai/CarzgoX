@@ -1,5 +1,3 @@
-import { cn } from "@/lib/utils"
-
 export function SectionHeading({
   eyebrow,
   title,
@@ -14,19 +12,11 @@ export function SectionHeading({
   return (
     <div className={align === "center" ? "text-center" : ""}>
       {eyebrow && (
-        <div
-          className={cn(
-            "flex items-center gap-3",
-            align === "center" && "justify-center",
-          )}
-        >
-          <span className="h-px w-8 bg-primary" aria-hidden="true" />
-          <p className="text-xs font-medium tracking-[0.24em] text-primary">
-            {eyebrow}
-          </p>
-        </div>
+        <p className="text-xs font-medium tracking-[0.2em] text-primary">
+          {eyebrow}
+        </p>
       )}
-      <h2 className="mt-4 text-2xl font-bold tracking-tight text-foreground text-balance lg:text-[2rem] lg:leading-tight">
+      <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground text-balance lg:text-3xl">
         {title}
       </h2>
       {desc && (

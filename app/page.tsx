@@ -1,17 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Inter } from "next/font/google"
 import { ArrowRight } from "lucide-react"
 import { SectionHeading } from "@/components/section-heading"
-import { PlatformBusiness } from "@/components/platform-business"
-import { ScrollReveal } from "@/components/scroll-reveal"
-import { HeroParallax } from "@/components/hero-parallax"
-
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-cinematic",
-})
 
 const vehicleSlug = (name: string) => encodeURIComponent(name.toLowerCase().replace(/\s+/g, "-"))
 import {
@@ -43,7 +33,6 @@ const modules = [
     brief: overseasOverview.brief,
     image: "/images/logistics.png",
     alt: "轿运车队运输新车",
-    label: "OVERVIEW",
   },
   {
     href: "/overseas#brands",
@@ -51,7 +40,6 @@ const modules = [
     brief: brandsSection.brief,
     image: "/images/kd-plant.png",
     alt: "KD 汽车组装工厂生产线",
-    label: "BRANDS",
   },
   {
     href: "/overseas#achievements",
@@ -59,80 +47,83 @@ const modules = [
     brief: achievements.brief,
     image: "/images/port-store.png",
     alt: "口岸国际汽车市场",
-    label: "ACHIEVEMENTS",
   },
 ]
 
 export default function HomePage() {
   return (
-    <div className={`home-cinematic font-cinematic ${inter.variable}`}>
-      {/* 轮播图 / 视频位：首屏轻微视差，深色叠加，禁用粒子特效 */}
-      <section className="relative isolate flex min-h-[560px] items-center overflow-hidden lg:min-h-[680px]">
-        <HeroParallax>
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster="/images/banner-sample.png"
-            aria-label="汽车物流港口运输视频"
-            className="h-full w-full object-cover"
-          >
-            <source src="/videos/home-banner-sample.mp4" type="video/mp4" />
-          </video>
-        </HeroParallax>
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#111111]/96 via-[#111111]/82 to-[#111111]/40" />
+    <>
+      {/* 轮播图 / 视频位 */}
+      <section className="relative isolate flex min-h-[520px] items-center overflow-hidden lg:min-h-[620px]">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/images/banner-sample.png"
+          aria-label="汽车物流港口运输视频"
+          className="absolute inset-0 -z-10 h-full w-full object-cover"
+        >
+          <source src="/videos/home-banner-sample.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/25" />
 
         <div className="mx-auto w-full max-w-6xl px-5 py-20 lg:px-8">
-          <div
-            data-reveal
-            className="flex items-center gap-3 opacity-0 [animation:cinematic-in_0.9s_cubic-bezier(0.16,1,0.3,1)_0.1s_forwards]"
-          >
-            <span className="h-px w-10 bg-primary" aria-hidden="true" />
-            <p className="font-display text-xs font-medium tracking-[0.32em] text-background/70">
-              OVERSEAS BUSINESS
-            </p>
-          </div>
-          <h1
-            data-reveal
-            className="mt-6 max-w-3xl text-4xl font-bold leading-tight tracking-[-0.02em] text-background text-balance opacity-0 [animation:cinematic-in_1s_cubic-bezier(0.16,1,0.3,1)_0.25s_forwards] lg:text-6xl"
-          >
+          <h1 className="mt-5 text-4xl font-bold leading-tight tracking-tight text-primary-foreground text-balance lg:text-6xl">
             {hero.tagline}
           </h1>
-          <p
-            data-reveal
-            className="mt-6 max-w-xl text-sm leading-relaxed tracking-wide text-background/80 text-pretty opacity-0 [animation:cinematic-in_1s_cubic-bezier(0.16,1,0.3,1)_0.4s_forwards] lg:text-base"
-          >
+          <p className="mt-5 max-w-xl text-sm leading-relaxed text-primary-foreground/85 text-pretty lg:text-base">
             {hero.sub}
           </p>
-          <div
-            data-reveal
-            className="mt-10 opacity-0 [animation:cinematic-in_1s_cubic-bezier(0.16,1,0.3,1)_0.55s_forwards]"
-          >
-            <Link
-              href="/contact"
-              className="cta-lift inline-flex items-center gap-2.5 bg-primary px-7 py-3.5 text-sm font-semibold tracking-wide text-primary-foreground"
-            >
-              立即询盘
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
         </div>
       </section>
 
       {/* 平台业务三大模块 */}
-      <ScrollReveal as="section" className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
+      <section className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
         <SectionHeading eyebrow="PLATFORM BUSINESS" title="平台业务" />
-        <PlatformBusiness modules={modules} />
-      </ScrollReveal>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {modules.map((m) => (
+            <article
+              key={m.href}
+              className="group flex flex-col border border-border bg-card transition-colors hover:border-primary"
+            >
+              <div className="relative h-44 overflow-hidden">
+                <Image
+                  src={m.image}
+                  alt={m.alt}
+                  fill
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="flex flex-1 flex-col gap-3 p-6">
+                <h3 className="text-lg font-bold tracking-tight text-card-foreground">
+                  {m.title}
+                </h3>
+                <p className="flex-1 text-sm leading-relaxed text-muted-foreground text-pretty">
+                  {m.brief}
+                </p>
+                <Link
+                  href={m.href}
+                  className="mt-2 flex items-center gap-1.5 text-sm font-medium text-primary"
+                >
+                  查看更多
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
 
       {/* 车型目录 */}
-      <ScrollReveal as="section" className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
+      <section className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <SectionHeading eyebrow="VEHICLE CATALOG" title="销售车型" />
           <Link
             href="/vehicles"
-            className="cta-lift flex items-center gap-1.5 text-sm font-medium text-primary"
+            className="flex items-center gap-1.5 text-sm font-medium text-primary"
           >
             查看更多
             <ArrowRight className="h-3.5 w-3.5" />
@@ -157,27 +148,27 @@ export default function HomePage() {
                     </h3>
                     <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
                       {brand.models.map((model) => (
-                        <Link
-                          key={model.name}
-                          href={`/vehicles/${vehicleSlug(model.name)}`}
-                          className="vehicle-card group overflow-hidden border border-border bg-card"
-                        >
+                  <Link
+                    key={model.name}
+                    href={`/vehicles/${vehicleSlug(model.name)}`}
+                    className="group overflow-hidden border border-border bg-card"
+                  >
                           <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
                             <Image
                               src={model.image}
                               alt={`${brand.brand} ${model.name} 车型`}
                               fill
                               sizes="(min-width: 1024px) 16vw, (min-width: 640px) 28vw, 45vw"
-                              className={`object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110 ${
-                                model.name === "SONATA" || model.name === "VS8" ? "scale-[3] group-hover:scale-[3.15]" : ""
+                              className={`object-cover transition-transform duration-500 group-hover:scale-105 ${
+                                model.name === "SONATA" || model.name === "VS8" ? "scale-[3] group-hover:scale-[3.1]" : ""
                               }`}
                             />
                           </div>
                           <figcaption className="border-t border-border px-3 py-2.5 text-sm font-medium text-card-foreground">
                             {model.name}
                           </figcaption>
-                        </Link>
-                      ))}
+                  </Link>
+                ))}
                     </div>
                   </div>
                 ))}
@@ -185,66 +176,63 @@ export default function HomePage() {
             </div>
           ))}
         </div>
-      </ScrollReveal>
+      </section>
 
       {/* 口岸店 */}
-      <ScrollReveal as="section" className="border-t border-border bg-foreground">
+      <section className="border-t border-border bg-primary">
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-20 lg:grid-cols-2 lg:items-center lg:px-8">
-          <div className="vehicle-card relative aspect-[4/3] overflow-hidden border border-background/15">
+          <div className="relative aspect-[4/3] overflow-hidden border border-primary-foreground/20">
             <Image
               src="/images/port-store.png"
               alt="霍尔果斯口岸国际汽车市场"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-105"
+              className="object-cover"
             />
           </div>
           <div>
-            <div className="flex items-center gap-3">
-              <span className="h-px w-8 bg-primary" aria-hidden="true" />
-              <p className="text-xs font-medium tracking-[0.24em] text-background/70">
-                PORT STORES
-              </p>
-            </div>
-            <h2 className="mt-4 text-2xl font-bold tracking-tight text-background">
+            <p className="text-xs font-medium tracking-[0.2em] text-primary-foreground/70">
+              PORT STORES
+            </p>
+            <h2 className="mt-3 text-2xl font-bold tracking-tight text-primary-foreground">
               口岸店
             </h2>
-            <div className="mt-8 border-t border-background/15 pt-6">
-              <p className="text-xs tracking-[0.16em] text-background/55">
+            <div className="mt-8 border-t border-primary-foreground/20 pt-6">
+              <p className="text-xs tracking-[0.16em] text-primary-foreground/60">
                 现有口岸店
               </p>
-              <p className="mt-2 text-base font-medium text-background">
+              <p className="mt-2 text-base font-medium text-primary-foreground">
                 {portStores.current}
               </p>
             </div>
-            <div className="mt-6 border-t border-background/15 pt-6">
-              <p className="text-xs tracking-[0.16em] text-background/55">
+            <div className="mt-6 border-t border-primary-foreground/20 pt-6">
+              <p className="text-xs tracking-[0.16em] text-primary-foreground/60">
                 战略规划
               </p>
-              <p className="mt-2 text-sm leading-relaxed text-background/75 text-pretty">
+              <p className="mt-2 text-sm leading-relaxed text-primary-foreground/80 text-pretty">
                 {portStores.plan}
               </p>
             </div>
             <Link
               href="/vehicles#port-stores"
-              className="cta-lift mt-8 flex w-fit items-center gap-1.5 text-sm font-medium text-primary"
+              className="mt-8 flex w-fit items-center gap-1.5 text-sm font-medium text-primary-foreground"
             >
               查看更多
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
         </div>
-      </ScrollReveal>
+      </section>
 
       {/* 合作品牌 */}
-      <ScrollReveal as="section" className="border-t border-border bg-secondary">
+      <section className="border-t border-border bg-secondary">
         <div className="mx-auto max-w-6xl px-5 py-16 lg:px-8">
           <SectionHeading eyebrow="PARTNER BRANDS" title="合作品牌" />
           <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5">
             {partnerBrands.map((brand) => (
               <div
                 key={brand.name}
-                className="vehicle-card flex h-24 items-center justify-center border border-border bg-card px-5 py-4"
+                className="flex h-24 items-center justify-center border border-border bg-card px-5 py-4"
               >
                 {brand.svg ? (
                   <img
@@ -261,7 +249,8 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </ScrollReveal>
-    </div>
+      </section>
+
+    </>
   )
 }

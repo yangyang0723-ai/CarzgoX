@@ -1,7 +1,6 @@
 import Image from "next/image"
 import { Car, Flame, Gauge, HeartHandshake, Lightbulb, ShieldCheck, Users } from "lucide-react"
 import { SectionHeading } from "@/components/section-heading"
-import { PageHero } from "@/components/page-hero"
 import { about } from "@/lib/content"
 
 const changjiuBusinessIcons = [ShieldCheck, Car, Gauge]
@@ -23,7 +22,16 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <>
-      <PageHero eyebrow="ABOUT US" title="关于我们" />
+      <section className="border-b border-border bg-primary">
+        <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
+          <p className="text-xs font-medium tracking-[0.24em] text-primary-foreground/80">
+            ABOUT US
+          </p>
+          <h1 className="mt-4 text-3xl font-bold tracking-tight text-primary-foreground lg:text-4xl">
+            关于我们
+          </h1>
+        </div>
+      </section>
 
       {/* 集团介绍 */}
       <section id="group-profile" className="scroll-mt-24 mx-auto max-w-6xl px-5 py-20 lg:px-8">

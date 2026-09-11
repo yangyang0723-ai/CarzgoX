@@ -91,26 +91,6 @@ const configSections = [
   },
 ]
 
-function ConfigValue({ value }: { value: string }) {
-  if (value === "-") {
-    return (
-      <span className="text-base text-muted-foreground/40" aria-label="无此配置">
-        —
-      </span>
-    )
-  }
-  if (value.startsWith("●")) {
-    const note = value.slice(1).replace(/^（|）$/g, "")
-    return (
-      <span className="inline-flex items-center justify-center gap-1.5">
-        <Check className="h-4 w-4 text-primary" aria-label="有此配置" />
-        {note && <span className="text-xs leading-tight text-muted-foreground">{note}</span>}
-      </span>
-    )
-  }
-  return <span className="text-foreground">{value}</span>
-}
-
 export async function generateStaticParams() {
   return vehicleCatalog.flatMap((group) =>
     group.brands.flatMap((brand) => brand.models.map((model) => ({ slug: getSlug(model.name) }))),
@@ -139,109 +119,52 @@ export default async function VehicleDetailPage({
   }
 
   return (
-    <main className="bg-background">
-      {/* Hero: 深色沉稳的汽车主视觉 */}
-      <section className="relative overflow-hidden bg-foreground">
-        <div className="absolute inset-0" aria-hidden="true">
-          <Image src={entry.image} alt="" fill priority sizes="100vw" className="object-cover opacity-25" />
-          <div className="absolute inset-0 bg-gradient-to-r from-foreground via-foreground/95 to-foreground/60" />
-        </div>
-        <div className="relative mx-auto max-w-6xl px-5 py-14 lg:px-8 lg:py-20">
-          <Link
-            href="/vehicles"
-            className="inline-flex items-center gap-2 text-sm text-background/70 transition-colors hover:text-background"
-          >
+    <main>
+      <section className="border-b border-border bg-primary">
+        <div className="mx-auto max-w-6xl px-5 py-16 lg:px-8">
+          <Link href="/vehicles" className="inline-flex items-center gap-2 text-sm text-primary-foreground/80 hover:text-primary-foreground">
             <ArrowLeft className="h-4 w-4" aria-hidden="true" /> 返回销售车型
           </Link>
-          <div className="mt-10 flex items-center gap-3">
-            <span className="h-px w-8 bg-primary" aria-hidden="true" />
-            <p className="text-xs font-medium tracking-[0.28em] text-background/60">VEHICLE CONFIGURATION</p>
-          </div>
-          <h1 className="mt-4 text-4xl font-bold tracking-tight text-background text-balance lg:text-5xl">{entry.name}</h1>
-          <p className="mt-3 text-sm text-background/70">
-            {entry.brand} · {entry.module.trim()}
-          </p>
+          <p className="mt-10 text-xs font-medium tracking-[0.24em] text-primary-foreground/70">VEHICLE CONFIGURATION</p>
+          <h1 className="mt-3 text-4xl font-bold tracking-tight text-primary-foreground">{entry.name}</h1>
+          <p className="mt-2 text-sm text-primary-foreground/75">{entry.brand} · {entry.module.trim()}</p>
         </div>
       </section>
 
-      {/* 车型图片 + 概览 */}
-      <section className="mx-auto max-w-6xl px-5 py-14 lg:px-8 lg:py-20">
-        <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-          <div className="relative aspect-[16/10] overflow-hidden rounded-lg border border-border bg-secondary shadow-sm">
-            <Image
-              src={entry.image}
-              alt={`${entry.brand} ${entry.name}车型`}
-              fill
-              sizes="(min-width: 1024px) 52vw, 100vw"
-              className="object-cover"
-            />
-          </div>
-          <div>
-            <div className="flex items-center gap-3">
-              <span className="h-px w-8 bg-primary" aria-hidden="true" />
-              <p className="text-xs font-medium tracking-[0.24em] text-primary">CONFIGURATION OVERVIEW</p>
-            </div>
-            <h2 className="mt-4 text-2xl font-bold tracking-tight text-foreground lg:text-3xl">车型配置</h2>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              以下为 60自在版与125探索+版的官方配置对比，黑色圆点表示有此配置，“-”表示无此配置。
-            </p>
-            <ul className="mt-8 grid gap-3 text-sm text-muted-foreground sm:grid-cols-2">
-              {["配置参数清晰可查", "支持车型咨询", "专业出口服务", "一站式购车支持"].map((item) => (
-                <li key={item} className="flex items-center gap-2.5 rounded-md border border-border bg-card px-4 py-3">
-                  <Check className="h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+      <section className="mx-auto grid max-w-6xl gap-10 px-5 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-start lg:px-8">
+        <div className="relative aspect-[4/3] overflow-hidden border border-border bg-secondary">
+          <Image src={entry.image} alt={`${entry.brand} ${entry.name}车型`} fill priority sizes="(min-width: 1024px) 52vw, 100vw" className="object-cover" />
         </div>
-      </section>
-
-      {/* 配置对比表 */}
-      <section className="border-t border-border bg-secondary/40">
-        <div className="mx-auto max-w-6xl px-5 py-14 lg:px-8 lg:py-20">
-          <div className="overflow-x-auto rounded-lg border border-border bg-card shadow-sm">
+        <div>
+          <p className="text-xs font-medium tracking-[0.2em] text-primary">CONFIGURATION OVERVIEW</p>
+          <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground">车型配置</h2>
+          <p className="mt-4 text-sm leading-relaxed text-muted-foreground">以下为 60自在版与125探索+版的官方配置对比，黑色圆点表示有此配置，“-”表示无此配置。</p>
+          <div className="mt-8 overflow-x-auto border border-border">
             <div className="min-w-[760px] text-sm">
-              {/* 表头 */}
-              <div className="sticky top-0 z-10 grid grid-cols-[minmax(13rem,1.4fr)_1fr_1fr] bg-foreground text-background">
-                <div className="px-5 py-4 text-xs font-medium tracking-[0.2em] text-background/60">配置项</div>
-                <div className="border-l border-background/15 px-5 py-4 text-center">
-                  <span className="text-base font-bold">60自在版</span>
-                </div>
-                <div className="border-l border-background/15 bg-primary px-5 py-4 text-center text-primary-foreground">
-                  <span className="text-base font-bold">125探索+版</span>
-                </div>
+              <div className="grid grid-cols-[minmax(12rem,1.35fr)_1fr_1fr] bg-accent font-bold text-accent-foreground">
+                <div className="px-4 py-3">配置项</div>
+                <div className="border-l border-accent-foreground/20 px-4 py-3 text-center">60自在版</div>
+                <div className="border-l border-accent-foreground/20 px-4 py-3 text-center">125探索+版</div>
               </div>
               {configSections.map((section) => (
                 <div key={section.category}>
-                  <div className="grid grid-cols-[minmax(13rem,1.4fr)_1fr_1fr] border-t border-border bg-accent">
-                    <div className="flex items-center gap-2 px-5 py-2.5 text-xs font-bold tracking-wide text-accent-foreground">
-                      <span className="h-3 w-1 rounded-full bg-primary" aria-hidden="true" />
-                      {section.category}
-                    </div>
-                    <div className="border-l border-border/60" aria-hidden="true" />
-                    <div className="border-l border-border/60 bg-primary/5" aria-hidden="true" />
-                  </div>
-                  {section.rows.map(([label, standard, premium], index) => (
-                    <div
-                      key={label}
-                      className={`grid grid-cols-[minmax(13rem,1.4fr)_1fr_1fr] border-t border-border ${
-                        index % 2 === 1 ? "bg-secondary/30" : "bg-card"
-                      }`}
-                    >
-                      <div className="px-5 py-3.5 text-muted-foreground">{label}</div>
-                      <div className="flex items-center justify-center border-l border-border px-4 py-3.5 text-center font-medium">
-                        <ConfigValue value={standard} />
-                      </div>
-                      <div className="flex items-center justify-center border-l border-border bg-primary/5 px-4 py-3.5 text-center font-medium">
-                        <ConfigValue value={premium} />
-                      </div>
+                  <div className="border-t border-border bg-secondary px-4 py-2 text-xs font-bold tracking-wide text-primary">{section.category}</div>
+                  {section.rows.map(([label, standard, premium]) => (
+                    <div key={label} className="grid grid-cols-[minmax(12rem,1.35fr)_1fr_1fr] border-t border-border">
+                      <div className="px-4 py-3 text-foreground">{label}</div>
+                      <div className="border-l border-border px-4 py-3 text-center font-medium text-foreground">{standard}</div>
+                      <div className="border-l border-border px-4 py-3 text-center font-medium text-foreground">{premium}</div>
                     </div>
                   ))}
                 </div>
               ))}
             </div>
           </div>
+          <ul className="mt-8 grid gap-3 text-sm text-muted-foreground sm:grid-cols-2">
+            {["配置参数清晰可查", "支持车型咨询", "专业出口服务", "一站式购车支持"].map((item) => (
+              <li key={item} className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" aria-hidden="true" />{item}</li>
+            ))}
+          </ul>
         </div>
       </section>
     </main>
