@@ -12,11 +12,11 @@ export function SiteFooter() {
               久
             </span>
             <span className="text-base font-bold tracking-tight text-white">
-              久车GO
+              CarzgoX
             </span>
           </div>
           <p className="mt-4 text-sm leading-relaxed text-white/60">
-            来久车GO，买中国车。整车出口、跨境物流、清关配套一站式全链路服务。
+            来CarzgoX，买中国车。整车出口、跨境物流、清关配套一站式全链路服务。
           </p>
         </div>
 
