@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, ArrowDown } from "lucide-react"
+import { ArrowRight, Mouse } from "lucide-react"
 import { SectionHeading } from "@/components/section-heading"
 import { HeroText } from "@/components/hero-text"
 import { GlobeWireframe } from "@/components/globe-wireframe"
@@ -80,14 +80,13 @@ export default function HomePage() {
           <HeroText />
         </div>
 
-        <div className="absolute inset-x-0 bottom-0 hidden items-center justify-between border-t border-white/20 bg-gradient-to-t from-[#07182d]/50 to-transparent px-5 py-5 lg:flex lg:px-8">
-          <span className="text-[0.6875rem] font-medium uppercase tracking-[0.28em] text-white/70">
-            Scroll
-          </span>
-          <ArrowDown className="h-4 w-4 animate-bounce text-white/70" aria-hidden="true" />
-          <span className="text-[0.6875rem] font-medium uppercase tracking-[0.28em] text-white/70">
-            CarzgoX · One-Stop Auto Export Platform
-          </span>
+        <div className="absolute inset-x-0 bottom-0 flex justify-center bg-gradient-to-t from-[#07182d]/50 to-transparent pb-6 pt-10">
+          <div className="flex flex-col items-center gap-2">
+            <Mouse className="h-5 w-5 animate-bounce text-white/70" aria-hidden="true" />
+            <span className="text-[0.6875rem] font-medium uppercase tracking-[0.28em] text-white/70">
+              Scroll
+            </span>
+          </div>
         </div>
       </section>
 
