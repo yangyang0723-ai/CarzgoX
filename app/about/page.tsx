@@ -28,7 +28,7 @@ export default function AboutPage() {
             ABOUT US
           </p>
           <h1 className="mt-4 text-3xl font-bold tracking-tight text-primary-foreground lg:text-4xl">
-            关于我们
+            企业背景
           </h1>
         </div>
       </section>
