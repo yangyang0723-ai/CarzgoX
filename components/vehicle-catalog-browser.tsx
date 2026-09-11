@@ -27,7 +27,7 @@ export function VehicleCatalogBrowser({ catalog }: { catalog: Module[] }) {
               key={group.module}
               onClick={() => setActiveModule(i)}
               className={cn(
-                "group relative flex items-center gap-2.5 px-5 py-3 text-sm font-bold tracking-tight transition-colors",
+                "relative flex min-h-11 items-center gap-2 px-5 py-3 text-sm font-bold tracking-tight transition-colors duration-300",
                 isActive
                   ? "bg-primary text-primary-foreground"
                   : "bg-secondary text-secondary-foreground hover:bg-muted",
