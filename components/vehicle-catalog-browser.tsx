@@ -18,7 +18,7 @@ export function VehicleCatalogBrowser({ catalog }: { catalog: Module[] }) {
   return (
     <div>
       {/* Category tabs */}
-      <div className="flex w-fit flex-wrap items-center gap-2 rounded-xl border border-[#0f2a4a] px-2 py-2 sm:gap-5 sm:px-3">
+      <div className="flex w-full flex-wrap items-center gap-x-8 gap-y-2 border-b border-border">
         {catalog.map((group, i) => {
           const isActive = i === activeModule
           const count = group.brands.reduce((sum, b) => sum + b.models.length, 0)
@@ -27,23 +27,27 @@ export function VehicleCatalogBrowser({ catalog }: { catalog: Module[] }) {
               key={group.module}
               onClick={() => setActiveModule(i)}
               className={cn(
-                "group relative flex min-h-10 items-center gap-2 rounded-full px-5 py-2 text-sm font-bold tracking-tight transition-all duration-300",
-                isActive
-                  ? "bg-accent text-primary-foreground shadow-[0_8px_24px_-10px_rgba(0,200,255,0.8)]"
-                  : "text-[#91a4b8] hover:bg-[#153452] hover:text-white",
+                "group relative flex items-center gap-2 pb-3 pt-1 text-base font-bold tracking-tight transition-colors duration-200",
+                isActive ? "text-primary" : "text-muted-foreground hover:text-foreground",
               )}
             >
               {group.module.trim()}
               <span
                 className={cn(
-                  "flex h-5 min-w-5 items-center justify-center rounded-full px-1 text-xs font-medium tabular-nums transition-colors duration-300",
+                  "flex h-5 min-w-5 items-center justify-center rounded-full px-1.5 text-xs font-semibold tabular-nums transition-colors duration-200",
                   isActive
-                    ? "bg-primary-foreground/20 text-primary-foreground"
-                    : "bg-[#30445a] text-[#9aabba] group-hover:bg-[#46617c]",
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-secondary text-muted-foreground group-hover:bg-border",
                 )}
               >
                 {count}
               </span>
+              <span
+                className={cn(
+                  "absolute inset-x-0 -bottom-px h-0.5 rounded-full bg-primary transition-transform duration-300 origin-left",
+                  isActive ? "scale-x-100" : "scale-x-0",
+                )}
+              />
             </button>
           )
         })}
