@@ -180,7 +180,7 @@ export default function AboutPage() {
                 return (
                   <div
                     key={title}
-                    className="group relative flex flex-col gap-5 bg-primary p-7 transition-colors duration-500 ease-out hover:bg-[#0f2a4a]"
+                    className="group relative flex flex-col gap-5 bg-[#0f2a4a] p-7 transition-colors duration-500 ease-out hover:bg-primary"
                   >
                     <div className="flex items-center justify-between">
                       <Icon className="h-6 w-6 text-primary-foreground transition-colors duration-500 ease-out group-hover:text-accent" aria-hidden="true" />
