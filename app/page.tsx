@@ -70,7 +70,8 @@ export default function HomePage() {
         >
           <source src="/videos/home-banner-sample.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#07182d] via-[#07182d]/70 to-[#07182d]/20" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#07182d] via-[#07182d]/75 to-[#07182d]/45" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#07182d]/80 via-[#07182d]/30 to-transparent" />
         <GlobeWireframe className="pointer-events-none absolute -right-24 top-1/2 -z-10 h-[560px] w-[560px] -translate-y-1/2 text-[#00c8ff]/15 lg:-right-10" />
 
         <div className="mx-auto flex w-full max-w-6xl flex-col px-5 py-24 lg:px-8">
