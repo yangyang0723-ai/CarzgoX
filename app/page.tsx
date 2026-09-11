@@ -206,11 +206,11 @@ export default function HomePage() {
 
       {/* 合作品牌 —— 白色内容区，双行反向动态滚动 */}
       <section className="border-t border-border bg-background">
-        <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
+        <div className="mx-auto max-w-6xl px-5 pt-24 lg:px-8">
           <SectionHeading eyebrow="PARTNER BRANDS" title="合作品牌" align="center" />
         </div>
 
-        <div className="mt-12 flex flex-col gap-5">
+        <div className="mt-10 flex flex-col gap-5 pb-24">
           <div
             className="marquee-row relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]"
             aria-hidden="true"
