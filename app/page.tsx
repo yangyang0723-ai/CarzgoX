@@ -4,6 +4,7 @@ import { ArrowRight, ArrowDown } from "lucide-react"
 import { SectionHeading } from "@/components/section-heading"
 import { HeroText } from "@/components/hero-text"
 import { GlobeWireframe } from "@/components/globe-wireframe"
+import { VehicleShowcase } from "@/components/vehicle-showcase"
 
 const vehicleSlug = (name: string) => encodeURIComponent(name.toLowerCase().replace(/\s+/g, "-"))
 import {
@@ -11,8 +12,16 @@ import {
   brandsSection,
   overseasOverview,
   portStores,
-  vehicleCatalog,
 } from "@/lib/content"
+
+const featuredVehicles = [
+  { module: "新车直出", brand: "北京现代", name: "ELANTRA", image: "/images/vehicles/elantra.jpg" },
+  { module: "新车直出", brand: "北京现代", name: "SANTA", image: "/images/vehicles/santa.jpg" },
+  { module: "外贸", brand: "一汽奔腾", name: "JOYEE S08", image: "/images/vehicles/joyee-s08.png" },
+  { module: "其他", brand: "吉利", name: "银河 E8", image: "/images/vehicles/galaxy-e8.png" },
+  { module: "其他", brand: "东风岚图", name: "FREE", image: "/images/vehicles/free.png" },
+  { module: "其他", brand: "一汽丰田", name: "卡罗拉 1.2T", image: "/images/vehicles/corolla.png" },
+].map((v) => ({ ...v, href: `/vehicles/${vehicleSlug(v.name)}` }))
 
 const partnerBrands = [
   { name: "北京现代", slug: "hyundai", svg: "default" },
@@ -161,52 +170,7 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="mt-12 flex flex-col gap-10">
-            {vehicleCatalog.map((group) => (
-              <div key={group.module} className="border-t border-border pt-6">
-                <div className="flex items-center gap-4">
-                  <p className="shrink-0 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-                    {group.module}
-                  </p>
-                  <div className="h-px flex-1 bg-border" />
-                </div>
-
-                <div className="mt-6 flex flex-col gap-8">
-                  {group.brands.map((brand) => (
-                    <div key={brand.brand} className="grid gap-4 md:grid-cols-[7rem_1fr]">
-                      <h3 className="pt-1 text-base font-bold tracking-tight text-card-foreground">
-                        {brand.brand}
-                      </h3>
-                      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-                        {brand.models.map((model) => (
-                          <Link
-                            key={model.name}
-                            href={`/vehicles/${vehicleSlug(model.name)}`}
-                            className="group overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
-                          >
-                            <div className="relative aspect-[4/3] overflow-hidden bg-[#f4f7fb]">
-                              <Image
-                                src={model.image}
-                                alt={`${brand.brand} ${model.name} 车型`}
-                                fill
-                                sizes="(min-width: 1024px) 16vw, (min-width: 640px) 28vw, 45vw"
-                                className={`object-cover transition-transform duration-500 group-hover:scale-105 ${
-                                  model.name === "SONATA" || model.name === "VS8" ? "scale-[3] group-hover:scale-[3.1]" : ""
-                                }`}
-                              />
-                            </div>
-                            <figcaption className="border-t border-border px-3 py-2.5 text-sm font-medium text-card-foreground transition-colors group-hover:text-primary">
-                              {model.name}
-                            </figcaption>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
+          <VehicleShowcase vehicles={featuredVehicles} />
         </div>
       </section>
 
