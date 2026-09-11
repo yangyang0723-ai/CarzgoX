@@ -1,4 +1,5 @@
 import { Mail, MapPin, Phone } from "lucide-react"
+import { PageBanner } from "@/components/page-banner"
 import { contact } from "@/lib/content"
 
 export const metadata = {
@@ -15,16 +16,12 @@ const items = [
 export default function ContactPage() {
   return (
     <>
-      <section className="border-b border-border bg-primary pt-16">
-        <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
-          <p className="text-xs font-medium tracking-[0.24em] text-primary-foreground/80">
-            CONTACT US
-          </p>
-          <h1 className="mt-4 text-3xl font-bold tracking-tight text-primary-foreground lg:text-4xl">
-            联系我们
-          </h1>
-        </div>
-      </section>
+      <PageBanner
+        eyebrow="CONTACT US"
+        title="联系我们"
+        image="/images/banners/contact-banner.png"
+        alt="现代企业办公环境"
+      />
 
       <section className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
         <div className="grid gap-px bg-border md:grid-cols-3">
