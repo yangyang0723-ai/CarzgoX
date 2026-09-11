@@ -49,32 +49,33 @@ export default function OverseasPage() {
               return (
                 <article
                   key={c.title}
-                  className="group flex min-h-72 flex-col justify-between border border-border bg-card p-7 transition-all duration-500 ease-out hover:-translate-y-1 hover:border-[#0f2a4a] hover:bg-[#0f2a4a] hover:shadow-[0_24px_60px_-28px_rgba(15,42,74,0.45)]"
+                  className="group relative flex min-h-72 flex-col justify-between bg-[#0f2a4a] p-7 transition-colors duration-500 ease-out hover:bg-primary"
                 >
                   <div className="flex items-center justify-between">
                     <Icon
                       aria-hidden="true"
-                      className="h-7 w-7 text-primary transition-colors duration-500 ease-out group-hover:text-accent"
+                      className="h-7 w-7 text-primary-foreground transition-colors duration-500 ease-out group-hover:text-accent"
                     />
-                    <span className="font-mono text-sm font-medium tracking-[0.16em] text-muted-foreground/50 transition-colors duration-500 ease-out group-hover:text-primary-foreground/45">
+                    <span className="font-mono text-3xl font-bold leading-none text-primary-foreground/20 transition-colors duration-500 ease-out group-hover:text-accent/25">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                   </div>
                   <div>
-                    <p className="text-4xl font-bold leading-none tabular-nums text-primary transition-colors duration-500 ease-out group-hover:text-accent lg:text-5xl">
+                    <p className="text-4xl font-bold leading-none tabular-nums text-accent lg:text-5xl">
                       {c.value}
                     </p>
                     <div
-                      className="mt-4 h-px w-10 bg-primary/30 transition-all duration-500 ease-out group-hover:w-16 group-hover:bg-accent"
+                      className="mt-4 h-px w-10 bg-accent transition-all duration-500 ease-out group-hover:w-16"
                       aria-hidden="true"
                     />
-                    <h3 className="mt-4 text-lg font-bold tracking-tight text-card-foreground transition-colors duration-500 ease-out group-hover:text-primary-foreground">
+                    <h3 className="mt-4 text-lg font-bold tracking-tight text-primary-foreground">
                       {c.title}
                     </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground text-pretty transition-colors duration-500 ease-out group-hover:text-primary-foreground/75">
+                    <p className="mt-3 text-sm leading-relaxed text-primary-foreground/70 text-pretty">
                       {c.desc}
                     </p>
                   </div>
+                  <span className="absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-accent transition-transform duration-300 group-hover:scale-x-100" aria-hidden="true" />
                 </article>
               )
             })}
