@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { Car, Flame, Gauge, HeartHandshake, Lightbulb, ShieldCheck, Users } from "lucide-react"
+import { PageBanner } from "@/components/page-banner"
 import { SectionHeading } from "@/components/section-heading"
 import { about } from "@/lib/content"
 
@@ -22,16 +23,12 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <>
-      <section className="border-b border-border bg-primary pt-16">
-        <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
-          <p className="text-xs font-medium tracking-[0.24em] text-primary-foreground/80">
-            ABOUT US
-          </p>
-          <h1 className="mt-4 text-3xl font-bold tracking-tight text-primary-foreground lg:text-4xl">
-            企业背景
-          </h1>
-        </div>
-      </section>
+      <PageBanner
+        eyebrow="ABOUT US"
+        title="企业背景"
+        image="/images/banners/about-banner.png"
+        alt="长久集团企业总部建筑"
+      />
 
       {/* 集团介绍 */}
       <section id="group-profile" className="scroll-mt-24 mx-auto max-w-6xl px-5 py-20 lg:px-8">

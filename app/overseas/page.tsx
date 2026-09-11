@@ -1,35 +1,23 @@
 import Image from "next/image"
 import { Check } from "lucide-react"
+import { PageBanner } from "@/components/page-banner"
 import { SectionHeading } from "@/components/section-heading"
 import { achievements, brandsSection, overseasOverview } from "@/lib/content"
 
 export const metadata = {
-  title: "海外业务 | 久车GO",
+  title: "平台业务 | 久车GO",
   description: overseasOverview.brief,
 }
 
 export default function OverseasPage() {
   return (
     <>
-      <section className="relative isolate overflow-hidden border-b border-border">
-        <Image
-          src="/images/logistics.png"
-          alt="轿运车队运输新车"
-          fill
-          priority
-          sizes="100vw"
-          className="-z-10 object-cover"
-        />
-        <div className="absolute inset-0 -z-10 bg-primary/85" />
-        <div className="mx-auto max-w-6xl px-5 py-20 pt-36 lg:px-8">
-          <p className="text-xs font-medium tracking-[0.24em] text-primary-foreground/80">
-            OVERSEAS BUSINESS
-          </p>
-          <h1 className="mt-4 text-3xl font-bold tracking-tight text-primary-foreground lg:text-4xl">
-            海外业务
-          </h1>
-        </div>
-      </section>
+      <PageBanner
+        eyebrow="PLATFORM BUSINESS"
+        title="平台业务"
+        image="/images/logistics.png"
+        alt="轿运车队运输新车"
+      />
 
       {/* 业务概况 */}
       <section

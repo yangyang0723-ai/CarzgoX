@@ -1,4 +1,5 @@
 import { vehicleCatalog } from "@/lib/content"
+import { PageBanner } from "@/components/page-banner"
 import { VehicleCatalogBrowser } from "@/components/vehicle-catalog-browser"
 
 export const metadata = {
@@ -9,16 +10,12 @@ export const metadata = {
 export default function VehiclesPage() {
   return (
     <>
-      <section className="border-b border-border bg-primary pt-16">
-        <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
-          <p className="text-xs font-medium tracking-[0.24em] text-primary-foreground/80">
-            VEHICLE CATALOG
-          </p>
-          <h1 className="mt-4 text-3xl font-bold tracking-tight text-primary-foreground lg:text-4xl">
-            销售车型
-          </h1>
-        </div>
-      </section>
+      <PageBanner
+        eyebrow="VEHICLE CATALOG"
+        title="销售车型"
+        image="/images/banners/vehicles-banner.png"
+        alt="待出口车辆整齐停靠港口"
+      />
 
       <section className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
         <VehicleCatalogBrowser catalog={vehicleCatalog} />
