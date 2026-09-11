@@ -114,7 +114,7 @@ export default function HomePage() {
               <Link
                 key={m.href}
                 href={m.href}
-                className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg"
+                className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-xl"
               >
                 <div className="relative h-48 w-full overflow-hidden">
                   <Image
@@ -122,11 +122,9 @@ export default function HomePage() {
                     alt={m.alt}
                     fill
                     sizes="(min-width: 1024px) 33vw, 100vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                   />
-                  <span className="absolute left-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 font-mono text-sm font-semibold tracking-[0.05em] text-primary shadow-sm">
-                    {m.no}
-                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#07182d]/50 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 </div>
 
                 <div className="flex flex-1 flex-col p-6">
@@ -138,9 +136,11 @@ export default function HomePage() {
                   </p>
                   <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-primary">
                     查看更多
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
                   </span>
                 </div>
+
+                <span className="absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-primary transition-transform duration-300 group-hover:scale-x-100" />
               </Link>
             ))}
           </div>
