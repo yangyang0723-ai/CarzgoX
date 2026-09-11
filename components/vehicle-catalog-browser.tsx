@@ -88,11 +88,6 @@ export function VehicleCatalogBrowser({ catalog }: { catalog: Module[] }) {
                       aria-hidden="true"
                       className="pointer-events-none absolute -left-full top-0 h-full w-1/2 -skew-x-12 bg-gradient-to-r from-transparent via-white/25 to-transparent transition-all duration-700 ease-out group-hover:left-[150%]"
                     />
-                    {/* explore chip revealed on hover */}
-                    <div className="absolute bottom-3 left-3 flex translate-y-3 items-center gap-1.5 rounded-full bg-[#22b8ff] px-3 py-1 text-xs font-bold text-white opacity-0 shadow-[0_0_18px_-2px_rgba(34,184,255,0.8)] transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100">
-                      查看详情
-                      <span className="transition-transform duration-300 group-hover:translate-x-0.5">&rarr;</span>
-                    </div>
                   </div>
                   {/* top accent line */}
                   <span
