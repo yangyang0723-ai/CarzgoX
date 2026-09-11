@@ -146,12 +146,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 车型目录 —— 白色内容区 + 干净浅色底图，底部渐变融合至下方深色区块 */}
-      <section className="relative isolate overflow-hidden border-t border-border bg-background">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-gradient-to-b from-transparent to-[#07182d]"
-        />
+      {/* 车型目录 —— 白色内容区承载统一的深色科技面板 */}
+      <section className="relative isolate border-t border-border bg-background">
         <div className="relative mx-auto max-w-6xl px-5 py-24 lg:px-8">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <SectionHeading eyebrow="VEHICLE CATALOG" title="销售车型" />
