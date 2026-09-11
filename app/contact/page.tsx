@@ -1,4 +1,5 @@
 import { Mail, MapPin, Phone } from "lucide-react"
+import { PageHero } from "@/components/page-hero"
 import { contact } from "@/lib/content"
 
 export const metadata = {
@@ -15,23 +16,19 @@ const items = [
 export default function ContactPage() {
   return (
     <>
-      <section className="border-b border-border bg-primary">
-        <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
-          <p className="text-xs font-medium tracking-[0.24em] text-primary-foreground/80">
-            CONTACT US
-          </p>
-          <h1 className="mt-4 text-3xl font-bold tracking-tight text-primary-foreground lg:text-4xl">
-            联系我们
-          </h1>
-        </div>
-      </section>
+      <PageHero eyebrow="CONTACT US" title="联系我们" />
 
       <section className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
-        <div className="grid gap-px bg-border md:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-3">
           {items.map((i) => (
-            <div key={i.label} className="bg-card p-8">
-              <i.icon className="h-5 w-5 text-primary" />
-              <p className="mt-5 text-xs tracking-[0.16em] text-muted-foreground">
+            <div
+              key={i.label}
+              className="group flex flex-col border border-border bg-card p-8 transition-colors hover:border-primary"
+            >
+              <span className="flex h-12 w-12 items-center justify-center border border-border bg-secondary transition-colors group-hover:border-primary/40">
+                <i.icon className="h-5 w-5 text-primary" />
+              </span>
+              <p className="mt-6 text-xs tracking-[0.2em] text-muted-foreground">
                 {i.label}
               </p>
               {i.href ? (

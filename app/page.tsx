@@ -66,13 +66,19 @@ export default function HomePage() {
         >
           <source src="/videos/home-banner-sample.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/25" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-foreground/95 via-foreground/80 to-foreground/35" />
 
         <div className="mx-auto w-full max-w-6xl px-5 py-20 lg:px-8">
-          <h1 className="mt-5 text-4xl font-bold leading-tight tracking-tight text-primary-foreground text-balance lg:text-6xl">
+          <div className="flex items-center gap-3">
+            <span className="h-px w-10 bg-primary" aria-hidden="true" />
+            <p className="text-xs font-medium tracking-[0.28em] text-background/70">
+              OVERSEAS BUSINESS
+            </p>
+          </div>
+          <h1 className="mt-6 text-4xl font-bold leading-tight tracking-tight text-background text-balance lg:text-6xl">
             {hero.tagline}
           </h1>
-          <p className="mt-5 max-w-xl text-sm leading-relaxed text-primary-foreground/85 text-pretty lg:text-base">
+          <p className="mt-6 max-w-xl text-sm leading-relaxed text-background/80 text-pretty lg:text-base">
             {hero.sub}
           </p>
         </div>
@@ -86,8 +92,9 @@ export default function HomePage() {
           {modules.map((m) => (
             <article
               key={m.href}
-              className="group flex flex-col border border-border bg-card transition-colors hover:border-primary"
+              className="group relative flex flex-col border border-border bg-card transition-colors hover:border-primary"
             >
+              <span className="absolute inset-x-0 top-0 z-10 h-0.5 origin-left scale-x-0 bg-primary transition-transform duration-300 group-hover:scale-x-100" aria-hidden="true" />
               <div className="relative h-44 overflow-hidden">
                 <Image
                   src={m.image}
@@ -179,9 +186,9 @@ export default function HomePage() {
       </section>
 
       {/* 口岸店 */}
-      <section className="border-t border-border bg-primary">
+      <section className="border-t border-border bg-foreground">
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-20 lg:grid-cols-2 lg:items-center lg:px-8">
-          <div className="relative aspect-[4/3] overflow-hidden border border-primary-foreground/20">
+          <div className="relative aspect-[4/3] overflow-hidden border border-background/15">
             <Image
               src="/images/port-store.png"
               alt="霍尔果斯口岸国际汽车市场"
@@ -191,31 +198,34 @@ export default function HomePage() {
             />
           </div>
           <div>
-            <p className="text-xs font-medium tracking-[0.2em] text-primary-foreground/70">
-              PORT STORES
-            </p>
-            <h2 className="mt-3 text-2xl font-bold tracking-tight text-primary-foreground">
+            <div className="flex items-center gap-3">
+              <span className="h-px w-8 bg-primary" aria-hidden="true" />
+              <p className="text-xs font-medium tracking-[0.24em] text-background/70">
+                PORT STORES
+              </p>
+            </div>
+            <h2 className="mt-4 text-2xl font-bold tracking-tight text-background">
               口岸店
             </h2>
-            <div className="mt-8 border-t border-primary-foreground/20 pt-6">
-              <p className="text-xs tracking-[0.16em] text-primary-foreground/60">
+            <div className="mt-8 border-t border-background/15 pt-6">
+              <p className="text-xs tracking-[0.16em] text-background/55">
                 现有口岸店
               </p>
-              <p className="mt-2 text-base font-medium text-primary-foreground">
+              <p className="mt-2 text-base font-medium text-background">
                 {portStores.current}
               </p>
             </div>
-            <div className="mt-6 border-t border-primary-foreground/20 pt-6">
-              <p className="text-xs tracking-[0.16em] text-primary-foreground/60">
+            <div className="mt-6 border-t border-background/15 pt-6">
+              <p className="text-xs tracking-[0.16em] text-background/55">
                 战略规划
               </p>
-              <p className="mt-2 text-sm leading-relaxed text-primary-foreground/80 text-pretty">
+              <p className="mt-2 text-sm leading-relaxed text-background/75 text-pretty">
                 {portStores.plan}
               </p>
             </div>
             <Link
               href="/vehicles#port-stores"
-              className="mt-8 flex w-fit items-center gap-1.5 text-sm font-medium text-primary-foreground"
+              className="mt-8 flex w-fit items-center gap-1.5 text-sm font-medium text-primary"
             >
               查看更多
               <ArrowRight className="h-3.5 w-3.5" />
