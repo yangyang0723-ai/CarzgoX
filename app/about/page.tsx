@@ -46,7 +46,7 @@ export default function AboutPage() {
             {groupHighlights.map((item) => (
               <article
                 key={item.label}
-                className="group tech-corners relative flex min-h-56 flex-col justify-between overflow-hidden bg-primary p-7 text-primary-foreground text-accent/0 transition-all duration-500 ease-out hover:-translate-y-1 hover:text-accent/40 hover:shadow-[0_24px_60px_-28px_rgba(0,200,255,0.45)]"
+                className="group tech-corners relative flex min-h-56 flex-col justify-between overflow-hidden bg-[#0a1a2c] p-7 text-primary-foreground text-accent/0 transition-all duration-500 ease-out hover:-translate-y-1 hover:text-accent/40 hover:shadow-[0_24px_60px_-28px_rgba(0,200,255,0.45)]"
               >
                 <div
                   className="absolute -right-8 -top-10 h-32 w-32 rounded-full border border-primary-foreground/10 transition-transform duration-500 group-hover:scale-110"
