@@ -31,8 +31,21 @@ export function VehicleHomeBrowser({ catalog }: { catalog: Module[] }) {
 
   return (
     <div>
-      {/* 分类标签 */}
-      <div className="flex flex-wrap items-center gap-10 border-b border-border">
+      {/* 分类标签 —— 深色科技胶囊 */}
+      <div className="relative inline-flex flex-wrap items-center gap-1 overflow-hidden rounded-2xl border border-white/10 bg-[#07182d] p-1.5 shadow-[0_20px_45px_-20px_rgba(8,24,45,0.55)]">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-40"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(0,200,255,0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(0,200,255,0.12) 1px, transparent 1px)",
+            backgroundSize: "18px 18px",
+          }}
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-10 -top-10 h-32 w-32 rounded-full bg-[#00c8ff]/20 blur-3xl"
+        />
         {catalog.map((group, i) => {
           const isActive = i === activeModule
           const count = group.brands.reduce((sum, b) => sum + b.models.length, 0)
@@ -41,42 +54,34 @@ export function VehicleHomeBrowser({ catalog }: { catalog: Module[] }) {
               key={group.module}
               type="button"
               onClick={() => handleModuleChange(i)}
-              className="group relative flex items-center gap-2 pb-5 pt-1"
+              className={cn(
+                "relative z-10 flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold tracking-tight transition-all duration-300",
+                isActive
+                  ? "bg-white text-[#07182d] shadow-[0_0_0_1px_rgba(0,200,255,0.45),0_10px_24px_-8px_rgba(0,0,0,0.35)]"
+                  : "text-white/55 hover:text-white",
+              )}
             >
+              <span>{group.module.trim()}</span>
               <span
                 className={cn(
-                  "text-base font-bold tracking-tight transition-colors",
-                  isActive ? "text-foreground" : "text-muted-foreground group-hover:text-foreground",
-                )}
-              >
-                {group.module.trim()}
-              </span>
-              <span
-                className={cn(
-                  "text-xs font-semibold tabular-nums transition-colors",
-                  isActive ? "text-primary" : "text-muted-foreground/70 group-hover:text-primary",
+                  "rounded-full px-1.5 py-0.5 text-[0.6875rem] font-semibold tabular-nums transition-colors",
+                  isActive ? "bg-[#0867f2]/10 text-[#0867f2]" : "bg-white/10 text-white/45",
                 )}
               >
                 {count}
               </span>
-              <span
-                className={cn(
-                  "absolute inset-x-0 -bottom-px h-[2px] rounded-full bg-primary transition-transform duration-300 ease-out",
-                  isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-40",
-                )}
-              />
             </button>
           )
         })}
       </div>
 
       {/* 焦点展示 + 品牌车型列表 */}
-      <div className="mt-10 grid gap-6 lg:grid-cols-[1.3fr_1fr]">
+      <div className="mt-8 grid gap-6 lg:grid-cols-[1.3fr_1fr]">
         {/* 左侧：焦点大图 */}
         <Link
           key={`${activeModule}-${spotlight?.name}`}
           href={`/vehicles/${vehicleSlug(spotlight?.name ?? "")}`}
-          className="group relative flex aspect-[4/3] flex-col justify-end overflow-hidden bg-[#07182d] lg:aspect-auto lg:min-h-[440px]"
+          className="group relative flex aspect-[4/3] flex-col justify-end overflow-hidden rounded-2xl bg-[#07182d] shadow-[0_30px_60px_-25px_rgba(8,24,45,0.45)] lg:aspect-auto lg:min-h-[440px]"
         >
           <Image
             src={spotlight?.image ?? "/placeholder.svg"}
@@ -89,6 +94,13 @@ export function VehicleHomeBrowser({ catalog }: { catalog: Module[] }) {
             )}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#07182d] via-[#07182d]/25 to-transparent" />
+
+          {/* HUD 角标装饰 */}
+          <span className="pointer-events-none absolute left-4 top-4 h-8 w-8 border-l-2 border-t-2 border-[#00c8ff]/0 transition-colors duration-500 group-hover:border-[#00c8ff]/80" />
+          <span className="pointer-events-none absolute right-4 top-4 h-8 w-8 border-r-2 border-t-2 border-[#00c8ff]/0 transition-colors duration-500 group-hover:border-[#00c8ff]/80" />
+          <span className="pointer-events-none absolute bottom-24 left-4 h-8 w-8 border-b-2 border-l-2 border-[#00c8ff]/0 transition-colors delay-75 duration-500 group-hover:border-[#00c8ff]/80 lg:bottom-28" />
+          <span className="pointer-events-none absolute bottom-24 right-4 h-8 w-8 border-b-2 border-r-2 border-[#00c8ff]/0 transition-colors delay-75 duration-500 group-hover:border-[#00c8ff]/80 lg:bottom-28" />
+
           <div className="relative z-10 flex items-end justify-between gap-4 p-7 lg:p-9">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00c8ff]">
@@ -105,7 +117,7 @@ export function VehicleHomeBrowser({ catalog }: { catalog: Module[] }) {
         </Link>
 
         {/* 右侧：品牌车型列表 */}
-        <div className="flex max-h-[440px] flex-col gap-6 overflow-y-auto pr-1 lg:max-h-none">
+        <div className="flex max-h-[440px] flex-col gap-6 overflow-y-auto rounded-2xl border border-border bg-card p-5 pr-4 shadow-sm lg:max-h-none">
           {current.brands.map((b) => (
             <div key={b.brand}>
               <div className="flex items-baseline gap-4">
@@ -124,13 +136,13 @@ export function VehicleHomeBrowser({ catalog }: { catalog: Module[] }) {
                       type="button"
                       onClick={() => setActiveModel(flatIndex)}
                       className={cn(
-                        "group flex items-center gap-3 border-l-2 px-3 py-2.5 text-left transition-all",
+                        "group flex items-center gap-3 rounded-xl border-l-2 px-3 py-2.5 text-left transition-all",
                         isActive
-                          ? "border-primary bg-secondary"
+                          ? "border-[#00c8ff] bg-gradient-to-r from-primary/10 via-secondary to-secondary shadow-[inset_0_0_0_1px_rgba(8,103,242,0.12)]"
                           : "border-transparent hover:border-border hover:bg-secondary/60",
                       )}
                     >
-                      <span className="relative h-11 w-14 flex-shrink-0 overflow-hidden bg-muted">
+                      <span className="relative h-11 w-14 flex-shrink-0 overflow-hidden rounded-lg bg-muted">
                         <Image
                           src={model.image}
                           alt=""
@@ -164,7 +176,6 @@ export function VehicleHomeBrowser({ catalog }: { catalog: Module[] }) {
           ))}
         </div>
       </div>
-
     </div>
   )
 }
