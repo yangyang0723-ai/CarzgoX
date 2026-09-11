@@ -117,7 +117,11 @@ export default function AboutPage() {
       </section>
 
       {/* 长久股份介绍 */}
-      <section id="changjiu-shares" className="scroll-mt-24 border-t border-border bg-primary text-primary-foreground">
+      <section
+        id="changjiu-shares"
+        className="scroll-mt-24 border-t border-border text-primary-foreground"
+        style={{ backgroundColor: "#0a1a2c" }}
+      >
         <div className="mx-auto max-w-6xl px-5 py-24 lg:px-8">
           {/* 标题区：以股票代码作为视觉主体 */}
           <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
