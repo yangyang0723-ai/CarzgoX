@@ -26,6 +26,9 @@ const partnerBrands = [
   { name: "起亚", slug: "kia", hasLogo: true },
 ]
 
+const marqueeRowA = partnerBrands.slice(0, 5)
+const marqueeRowB = partnerBrands.slice(5)
+
 const modules = [
   {
     no: "01",
@@ -201,41 +204,68 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 合作品牌 —— 白色内容区 */}
+      {/* 合作品牌 —— 白色内容区，双行反向动态滚动 */}
       <section className="border-t border-border bg-background">
-        <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8">
+        <div className="mx-auto max-w-6xl px-5 pt-24 lg:px-8">
           <SectionHeading eyebrow="PARTNER BRANDS" title="合作品牌" align="center" />
-          <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
-            {partnerBrands.map((brand) => (
-              <div
-                key={brand.name}
-                className="flex h-32 flex-col items-center justify-center gap-3 rounded-xl border border-border bg-card px-5 py-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-md"
-              >
-                <div className="flex h-9 items-center justify-center">
-                  {brand.hasLogo ? (
-                    <img
-                      src={`https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/${brand.slug}/default.svg`}
-                      alt=""
-                      aria-hidden="true"
-                      className="h-9 w-auto max-w-[6rem] object-contain"
-                    />
-                  ) : (
-                    <div
-                      className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary"
-                      aria-hidden="true"
-                    >
-                      {brand.name.charAt(0)}
-                    </div>
-                  )}
-                </div>
-                <span className="text-center text-xs font-semibold leading-snug tracking-tight text-card-foreground">
-                  {brand.name}
-                </span>
-              </div>
-            ))}
+        </div>
+
+        <div className="mt-10 flex flex-col gap-5 pb-24">
+          <div
+            className="marquee-row relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]"
+            aria-hidden="true"
+          >
+            <div className="flex w-max gap-4 animate-marquee-left">
+              {[...marqueeRowA, ...marqueeRowA].map((brand, i) => (
+                <PartnerBrandCard key={`${brand.name}-a-${i}`} brand={brand} />
+              ))}
+            </div>
+          </div>
+          <div
+            className="marquee-row relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]"
+            aria-hidden="true"
+          >
+            <div className="flex w-max gap-4 animate-marquee-right">
+              {[...marqueeRowB, ...marqueeRowB].map((brand, i) => (
+                <PartnerBrandCard key={`${brand.name}-b-${i}`} brand={brand} />
+              ))}
+            </div>
           </div>
         </div>
+
+        <ul className="sr-only">
+          {partnerBrands.map((brand) => (
+            <li key={brand.name}>{brand.name}</li>
+          ))}
+        </ul>
       </section>
     </>
+  )
+}
+
+function PartnerBrandCard({ brand }: { brand: (typeof partnerBrands)[number] }) {
+  return (
+    <div className="flex h-32 w-40 flex-shrink-0 flex-col items-center justify-center gap-3 rounded-xl border border-border bg-card px-5 py-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-md">
+      <div className="flex h-9 items-center justify-center">
+        {brand.hasLogo ? (
+          <img
+            src={`https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/${brand.slug}/default.svg`}
+            alt=""
+            aria-hidden="true"
+            className="h-9 w-auto max-w-[6rem] object-contain"
+          />
+        ) : (
+          <div
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary"
+            aria-hidden="true"
+          >
+            {brand.name.charAt(0)}
+          </div>
+        )}
+      </div>
+      <span className="text-center text-xs font-semibold leading-snug tracking-tight text-card-foreground">
+        {brand.name}
+      </span>
+    </div>
   )
 }
