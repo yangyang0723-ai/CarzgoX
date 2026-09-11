@@ -50,8 +50,8 @@ export function VehicleHomeBrowser({ catalog }: { catalog: Module[] }) {
         className="pointer-events-none absolute -right-20 bottom-0 h-72 w-72 rounded-full bg-[#00c8ff]/10 blur-3xl"
       />
 
-      {/* 分类标签 —— 与内容同一底色，下划线式 */}
-      <div className="relative z-10 flex flex-wrap items-center gap-6 border-b border-white/10 px-6 pt-6 lg:px-8">
+      {/* 分类标签 —— 高对比胶囊式，突出当前选中项 */}
+      <div className="relative z-10 flex flex-wrap items-center gap-3 border-b border-white/10 px-6 py-5 lg:px-8">
         {catalog.map((group, i) => {
           const isActive = i === activeModule
           const count = group.brands.reduce((sum, b) => sum + b.models.length, 0)
@@ -60,25 +60,22 @@ export function VehicleHomeBrowser({ catalog }: { catalog: Module[] }) {
               key={group.module}
               type="button"
               onClick={() => handleModuleChange(i)}
-              className="group relative flex items-center gap-2 pb-4 text-sm font-bold tracking-tight transition-colors"
+              className={cn(
+                "group relative flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-bold tracking-tight transition-all duration-300",
+                isActive
+                  ? "bg-gradient-to-r from-[#0867f2] to-[#00c8ff] text-white shadow-[0_8px_24px_-8px_rgba(0,200,255,0.55)]"
+                  : "text-white/50 hover:bg-white/[0.06] hover:text-white/90",
+              )}
             >
-              <span className={cn("transition-colors", isActive ? "text-white" : "text-white/45 group-hover:text-white/80")}>
-                {group.module.trim()}
-              </span>
+              <span>{group.module.trim()}</span>
               <span
                 className={cn(
                   "rounded-full px-1.5 py-0.5 text-[0.6875rem] font-semibold tabular-nums transition-colors",
-                  isActive ? "bg-[#00c8ff]/15 text-[#00c8ff]" : "bg-white/10 text-white/40",
+                  isActive ? "bg-white/20 text-white" : "bg-white/10 text-white/40",
                 )}
               >
                 {count}
               </span>
-              <span
-                className={cn(
-                  "absolute inset-x-0 -bottom-px h-[2px] rounded-full bg-gradient-to-r from-[#0867f2] to-[#00c8ff] transition-transform duration-300 origin-left",
-                  isActive ? "scale-x-100" : "scale-x-0",
-                )}
-              />
             </button>
           )
         })}
@@ -90,7 +87,7 @@ export function VehicleHomeBrowser({ catalog }: { catalog: Module[] }) {
         <Link
           key={`${activeModule}-${spotlight?.name}`}
           href={`/vehicles/${vehicleSlug(spotlight?.name ?? "")}`}
-          className="group relative flex aspect-[4/3] flex-col justify-end overflow-hidden lg:aspect-auto lg:min-h-[460px]"
+          className="group relative flex aspect-[4/3] flex-col justify-end overflow-hidden lg:aspect-auto lg:h-[520px]"
         >
           <Image
             src={spotlight?.image ?? "/placeholder.svg"}
@@ -127,7 +124,7 @@ export function VehicleHomeBrowser({ catalog }: { catalog: Module[] }) {
         </Link>
 
         {/* 右侧：品牌车型列表 —— 玻璃质感面板，融入同一深色背景 */}
-        <div className="flex max-h-[460px] flex-col gap-6 overflow-y-auto bg-white/[0.03] p-5 pr-4 backdrop-blur-sm lg:max-h-none lg:border-l lg:border-white/10">
+        <div className="flex max-h-[460px] flex-col gap-6 overflow-y-auto bg-white/[0.03] p-5 pr-4 backdrop-blur-sm lg:h-[520px] lg:max-h-[520px] lg:border-l lg:border-white/10">
           {current.brands.map((b) => (
             <div key={b.brand}>
               <div className="flex items-baseline gap-4">
