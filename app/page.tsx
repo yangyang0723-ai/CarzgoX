@@ -14,16 +14,16 @@ import {
 } from "@/lib/content"
 
 const partnerBrands = [
-  { name: "北京现代", slug: "hyundai", svg: "default" },
-  { name: "一汽奔腾", slug: "bestune" },
-  { name: "岚图汽车", slug: "voyah" },
-  { name: "吉利汽车", slug: "geely" },
-  { name: "一汽丰田", slug: "toyota" },
-  { name: "一汽大众", slug: "volkswagen", svg: "default" },
-  { name: "一汽奥迪", slug: "audi", svg: "default" },
-  { name: "捷达", slug: "jetta" },
-  { name: "东风汽车", slug: "dongfeng" },
-  { name: "起亚", slug: "kia", svg: "default" },
+  { name: "北京现代", slug: "hyundai", hasLogo: true },
+  { name: "一汽奔腾", slug: "bestune", hasLogo: false },
+  { name: "岚图汽车", slug: "voyah", hasLogo: false },
+  { name: "吉利汽车", slug: "geely", hasLogo: false },
+  { name: "一汽丰田", slug: "toyota", hasLogo: true },
+  { name: "一汽大众", slug: "volkswagen", hasLogo: true },
+  { name: "一汽奥迪", slug: "audi", hasLogo: true },
+  { name: "捷达", slug: "jetta", hasLogo: false },
+  { name: "东风汽车", slug: "dongfeng", hasLogo: false },
+  { name: "起亚", slug: "kia", hasLogo: true },
 ]
 
 const modules = [
@@ -56,8 +56,8 @@ const modules = [
 export default function HomePage() {
   return (
     <>
-      {/* 首屏 Banner —— 深色背景 + 真实摄影 + 地球线框元素 */}
-      <section className="relative isolate flex min-h-[640px] items-center overflow-hidden bg-[#07182d] lg:min-h-[760px]">
+      {/* 首屏 Banner —— 明亮真实摄影 + 轻量渐变 + 地球线框元素 */}
+      <section className="relative isolate flex min-h-[640px] items-center overflow-hidden bg-[#0f2a4a] lg:min-h-[760px]">
         <video
           autoPlay
           muted
@@ -69,9 +69,9 @@ export default function HomePage() {
         >
           <source src="/videos/home-banner-sample.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#07182d] via-[#07182d]/75 to-[#07182d]/45" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#07182d]/80 via-[#07182d]/30 to-transparent" />
-        <GlobeWireframe className="pointer-events-none absolute -right-24 top-1/2 -z-10 h-[560px] w-[560px] -translate-y-1/2 text-[#00c8ff]/15 lg:-right-10" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#07182d]/85 via-[#0f2a4a]/35 to-transparent" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#07182d]/65 via-[#0f2a4a]/20 to-transparent" />
+        <GlobeWireframe className="pointer-events-none absolute -right-24 top-1/2 -z-10 h-[560px] w-[560px] -translate-y-1/2 text-[#00c8ff]/20 lg:-right-10" />
 
         <div className="mx-auto flex w-full max-w-6xl flex-col items-center px-5 py-24 text-center lg:px-8">
           <p className="text-xs font-medium uppercase tracking-[0.32em] text-[#00c8ff]">
@@ -80,12 +80,12 @@ export default function HomePage() {
           <HeroText />
         </div>
 
-        <div className="absolute inset-x-0 bottom-0 hidden items-center justify-between border-t border-white/15 px-5 py-5 lg:flex lg:px-8">
-          <span className="text-[0.6875rem] font-medium uppercase tracking-[0.28em] text-white/60">
+        <div className="absolute inset-x-0 bottom-0 hidden items-center justify-between border-t border-white/20 bg-gradient-to-t from-[#07182d]/50 to-transparent px-5 py-5 lg:flex lg:px-8">
+          <span className="text-[0.6875rem] font-medium uppercase tracking-[0.28em] text-white/70">
             Scroll
           </span>
-          <ArrowDown className="h-4 w-4 animate-bounce text-white/60" aria-hidden="true" />
-          <span className="text-[0.6875rem] font-medium uppercase tracking-[0.28em] text-white/60">
+          <ArrowDown className="h-4 w-4 animate-bounce text-white/70" aria-hidden="true" />
+          <span className="text-[0.6875rem] font-medium uppercase tracking-[0.28em] text-white/70">
             CarzgoX · One-Stop Auto Export Platform
           </span>
         </div>
@@ -210,19 +210,28 @@ export default function HomePage() {
             {partnerBrands.map((brand) => (
               <div
                 key={brand.name}
-                className="flex h-24 items-center justify-center rounded-xl border border-border bg-card px-5 py-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+                className="flex h-32 flex-col items-center justify-center gap-3 rounded-xl border border-border bg-card px-5 py-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-md"
               >
-                {brand.svg ? (
-                  <img
-                    src={`https://thesvg.org/icons/${brand.slug}/${brand.svg}.svg`}
-                    alt={`${brand.name} Logo`}
-                    className="h-10 w-full max-w-[9rem] object-contain"
-                  />
-                ) : (
-                  <span className="text-base font-bold tracking-tight text-card-foreground">
-                    {brand.name}
-                  </span>
-                )}
+                <div className="flex h-9 items-center justify-center">
+                  {brand.hasLogo ? (
+                    <img
+                      src={`https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/${brand.slug}/default.svg`}
+                      alt=""
+                      aria-hidden="true"
+                      className="h-9 w-auto max-w-[6rem] object-contain"
+                    />
+                  ) : (
+                    <div
+                      className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary"
+                      aria-hidden="true"
+                    >
+                      {brand.name.charAt(0)}
+                    </div>
+                  )}
+                </div>
+                <span className="text-center text-xs font-semibold leading-snug tracking-tight text-card-foreground">
+                  {brand.name}
+                </span>
               </div>
             ))}
           </div>
