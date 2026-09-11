@@ -162,3 +162,96 @@
 .marquee-row:hover .animate-marquee-right {
   animation-play-state: paused;
 }
+
+@keyframes banner-zoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes globe-spin {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+@keyframes banner-sweep {
+  0% {
+    transform: translateX(-120%) skewX(-12deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.08;
+  }
+  100% {
+    transform: translateX(220%) skewX(-12deg);
+    opacity: 0;
+  }
+}
+
+.animate-banner-zoom {
+  animation: banner-zoom 16s ease-in-out infinite alternate;
+}
+
+.animate-globe-spin {
+  animation: globe-spin 60s linear infinite;
+}
+
+.animate-banner-sweep {
+  animation: banner-sweep 9s ease-in-out infinite;
+}
+
+/* Restrained tech-grid overlay for dark, high-tech surfaces */
+.bg-tech-grid {
+  background-image:
+    linear-gradient(to right, currentColor 1px, transparent 1px),
+    linear-gradient(to bottom, currentColor 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* Minimal HUD-style corner brackets — restrained, no glow/blur */
+.tech-corners {
+  position: relative;
+}
+.tech-corners::before,
+.tech-corners::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+}
+.tech-corners::before {
+  top: 0;
+  left: 0;
+  border-top: 1px solid currentColor;
+  border-left: 1px solid currentColor;
+}
+.tech-corners::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+}
+
+@keyframes data-pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.animate-data-pulse {
+  animation: data-pulse 2.4s ease-in-out infinite;
+}
