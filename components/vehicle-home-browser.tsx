@@ -165,13 +165,6 @@ export function VehicleHomeBrowser({ catalog }: { catalog: Module[] }) {
         </div>
       </div>
 
-      <Link
-        href="/vehicles"
-        className="mt-12 flex w-fit items-center gap-1.5 text-sm font-bold text-primary transition-transform hover:-translate-y-0.5"
-      >
-        查看全部车型
-        <ArrowRight className="h-3.5 w-3.5" />
-      </Link>
     </div>
   )
 }
