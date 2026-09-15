@@ -159,6 +159,7 @@ export const vehicleCatalog = [
           { name: "SANTA", image: "/images/vehicles/santa.jpg" },
           { name: "TUCSON", image: "/images/vehicles/tucson.jpg" },
           { name: "SONATA", image: "/images/vehicles/sonata.jpg" },
+          { name: "MUFASA", image: "/images/vehicles/mufasa.png" },
         ],
       },
       {
@@ -168,6 +169,14 @@ export const vehicleCatalog = [
           { name: "VS5", image: "/images/vehicles/tucson.jpg" },
           { name: "VS7", image: "/images/vehicles/santa.jpg" },
           { name: "VS8", image: "/images/vehicles/sonata.jpg" },
+        ],
+      },
+      {
+        brand: "郑州日产",
+        models: [
+          { name: "锋坦ICE", image: "/images/vehicles/fengtan-ice.png" },
+          { name: "锋坦PHEV", image: "/images/vehicles/fengtan-phev.png" },
+          { name: "纳瓦拉", image: "/images/vehicles/navara.png" },
         ],
       },
     ],
@@ -205,6 +214,7 @@ export const vehicleCatalog = [
           { name: "梦想家", image: "/images/vehicles/dreamer.png" },
           { name: "FREE", image: "/images/vehicles/free.png" },
           { name: "泰山", image: "/images/vehicles/taishan.png" },
+          { name: "奕派008", image: "/images/vehicles/epai-008.png" },
         ],
       },
     ],
@@ -294,7 +304,7 @@ export const about = {
     {
       name: "国际铁路",
       english: "CR Express · Oversea Resources",
-      description: "中欧班��资源 · 境外段优质资源",
+      description: "中欧班���资源 · 境外段优质资源",
       icon: "rail",
     },
     {

@@ -57,9 +57,6 @@ export function VehicleCatalogBrowser({ catalog }: { catalog: Module[] }) {
           <div key={b.brand}>
             <div className="flex items-baseline gap-4">
               <h3 className="text-xl font-black tracking-tight text-foreground">{b.brand}</h3>
-              <span className="font-mono text-xs font-medium tracking-[0.18em] text-primary">
-                {String(b.models.length).padStart(2, "0")} MODELS
-              </span>
               <div className="h-px flex-1 bg-gradient-to-r from-primary/40 to-transparent" />
             </div>
 
