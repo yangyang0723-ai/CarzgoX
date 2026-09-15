@@ -171,6 +171,14 @@ export const vehicleCatalog = [
           { name: "VS8", image: "/images/vehicles/sonata.jpg" },
         ],
       },
+      {
+        brand: "郑州日产",
+        models: [
+          { name: "锋坦ICE", image: "/images/vehicles/fengtan-ice.png" },
+          { name: "锋坦PHEV", image: "/images/vehicles/fengtan-phev.png" },
+          { name: "纳瓦拉", image: "/images/vehicles/navara.png" },
+        ],
+      },
     ],
   },
   {
