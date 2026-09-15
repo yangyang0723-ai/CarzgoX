@@ -7,8 +7,8 @@ const getSlug = (name: string) => encodeURIComponent(name.toLowerCase().replace(
 
 type ConfigSection = { category: string; rows: string[][] }
 type VehicleConfig = {
-  columns: [string, string]
-  premiumBadge: string
+  columns: string[]
+  premiumBadge?: string
   intro: string
   sections: ConfigSection[]
   footnotes?: string[]
@@ -165,7 +165,7 @@ const configByVehicle: Record<string, VehicleConfig> = {
           ["DAW 驾驶员注意力警告", "●", "●"],
           ["LVDA 前车出发提醒", "●", "●"],
           ["LFA 车道居中保持", "●", "●"],
-          ["HBA 远近光自动切换", "●", "●"],
+          ["HBA 远近���自动切换", "●", "●"],
           ["SCC 自适应巡航控制（带停走功能）", "-", "●"],
           ["NSCC 基于导航的自适应巡航", "-", "●"],
           ["HDA 高速公路驾驶辅助", "-", "●"],
@@ -266,6 +266,222 @@ const configByVehicle: Record<string, VehicleConfig> = {
       "[3] 智能家居便利包：12.3 英寸智慧双联屏 + SVM360 全景影像 + BVM 盲区显示系统 + 感应开启式电动尾门。",
     ],
   },
+  SANTA: {
+    columns: ["2.0T TOP 4WD 鉴赏家 Ultra"],
+    intro: "2.0T TOP 4WD 鉴赏家 Ultra 官方配置详情，覆盖动力、安全、智能网联与设计全维度参数。",
+    sections: [
+      {
+        category: "",
+        rows: [
+          ["上市时间", "2026.01"],
+          ["能源类型", "汽油"],
+          ["环保标准", "国VI"],
+          ["长×宽×高（mm）", "4830×1900×1780"],
+          ["轴距（mm）", "2815"],
+          ["发动机", "涡轮增压 缸内直喷"],
+          ["发动机排量（ml）", "1975"],
+          ["最大功率（kW）", "182"],
+          ["最大扭矩（N·m）", "353"],
+          ["变速箱", "8 速自动"],
+          ["转向系统", "电动助力"],
+          ["燃油箱容积（L）", "67"],
+          ["悬架系统（前/后）", "麦弗逊式独立悬架/多连杆式独立悬架"],
+          ["最高车速（km/h）", "210"],
+          ["WLTC 综合油耗（L/100km）", "9.38（WLTC）"],
+          ["轮胎规格", "245/45 R21"],
+          ["驱动方式", "四轮驱动"],
+          ["整备质量（kg）", "1995"],
+          ["最大满载质量（kg）", "2580"],
+          ["座位数（个）", "6/7 ○"],
+          ["多路况驾驶模式", "雪地/泥地/沙地"],
+          ["ISG 发动机自动启停", "●"],
+        ],
+      },
+      {
+        category: "安全",
+        rows: [
+          ["HOD 感应式方向盘", "●"],
+          ["MCB 多重被动防护辅助系统", "●"],
+          ["ESC 车身电子稳定系统", "●"],
+          ["HAC 上坡辅助系统", "●"],
+          ["DBC 下坡辅助系统", "●"],
+          ["TPMS 独立数显胎压监测", "●"],
+          ["方向盘震动警告", "●"],
+          ["发动机防盗", "●"],
+          ["前排双气囊", "●"],
+          ["前排侧气囊", "●"],
+          ["侧气帘", "●"],
+          ["驾驶席膝部气囊", "●"],
+          ["前排中央气囊", "●"],
+          ["电子儿童门锁", "●"],
+          ["二排侧气囊", "●"],
+        ],
+      },
+      {
+        category: "Hyundai Smart Sense 安全系统",
+        rows: [
+          ["FCW 前方碰撞预警", "●"],
+          ["FCWA 前方防碰撞辅助（识别车辆/行人/二轮车）", "●"],
+          ["FCA 1.5 前方防碰撞辅助（交叉路及对向车）", "●"],
+          ["FCA 2.0 前方防碰撞辅助（逆向对向车/十字路侧向车）", "●"],
+          ["ESA 回转倾偏辅助", "●"],
+          ["LDW 车道偏离预警", "●"],
+          ["LKA 车道防偏离辅助", "●"],
+          ["DAW 驾驶员注意力警告", "●"],
+          ["ISLW 限速预警", "●"],
+          ["ISLA 限速辅助", "●"],
+          ["LFA 车道居中保持", "●"],
+          ["LVDA 前车出发提醒", "●"],
+          ["HBA 远近光自动切换", "●"],
+          ["RVM 倒车影像", "●"],
+          ["PDW-R 后泊车雷达", "●"],
+          ["PDW-F 前泊车雷达", "●"],
+          ["PDW-S 侧方泊车距离警告", "●"],
+          ["PCA-R 自适应巡航控制（带停走功能）", "●"],
+          ["NSCC 基于导航的自适应巡航", "●"],
+          ["HDA 高速公路驾驶辅助", "●"],
+          ["HDA2.0 高速公路驾驶辅助（辅助变道）", "●"],
+          ["BCA 盲区防撞预警", "●"],
+          ["BCA 盲区防撞辅助", "●（限侧方位出车）"],
+          ["RCCW 后方交叉碰撞警告", "●"],
+          ["RCCA 后方交叉碰撞辅助", "●"],
+          ["SEW 安全下车警报", "●"],
+          ["SVM 360° 高清全影像", "●"],
+          ["BVM 盲区显示系统", "●"],
+          ["RSPA 遥控泊车辅助", "●"],
+        ],
+      },
+      {
+        category: "外观设计",
+        rows: [
+          ["H 造型前 LED 灯组", "●"],
+          ["贯穿式 LED 格栅灯", "●"],
+          ["LED 日间行车灯", "●"],
+          ["光影流动迎宾灯", "●"],
+          ["LED 前大灯", "●"],
+          ["透镜式 LED 前大灯", "●"],
+          ["LED 转向灯（前/后）", "●"],
+          ["LED 组合尾灯", "●"],
+          ["豪华双天窗", "●"],
+          ["车顶行李架", "●"],
+          ["鲨鱼鳍天线", "●"],
+          ["主动进气格栅", "●"],
+        ],
+      },
+      {
+        category: "鉴赏家专属",
+        rows: [
+          ["高亮黑装饰（车窗装饰/前后保险杠下装饰）", "●"],
+          ["麦穗式 H 型前格栅", "●"],
+          ["浅灰色装饰条", "●"],
+          ["D 柱镶嵌式暗把手", "●"],
+          ["金属门迎宾踏板（第一排/第二排）", "●"],
+          ["专属轮毂造型", "●"],
+        ],
+      },
+      {
+        category: "内部配置",
+        rows: [
+          ["旋转式电子挡杆", "●"],
+          ["摩斯密码真皮多功能方向盘（带换挡拨片）", "●"],
+          ["方向盘 4 向调节", "●"],
+          ["方向盘加热", "●"],
+          ["NAPPA 高级真皮座椅", "●（第一排,第二排）"],
+          ["舒享按摩主驾座椅", "●"],
+          ["第一排一键舒享零重力座椅", "●"],
+          ["第一排电动腿托", "●"],
+          ["驾驶席座椅电动 18 向调节", "●"],
+          ["副驾驶席座椅电动 10 向调节", "●"],
+          ["副驾驶席座椅背面可调", "●"],
+          ["第二排座椅一键收起（方便进出第三排）", "●"],
+          ["第二排座椅电动调节（靠背和坐垫角度）", "●"],
+          ["第二排座椅电动折叠/回位（后备箱）", "●"],
+          ["第一排座椅加热", "●"],
+          ["第二排座椅加热", "●"],
+          ["第一排通风座椅", "●"],
+          ["IMS 记忆功能（驾驶席座椅 & 外后视镜）", "●"],
+          ["双层降噪隔音前风挡玻璃", "●"],
+          ["双层降噪隔音前侧窗玻璃", "●"],
+          ["后排隐私玻璃", "●"],
+          ["自动控制前大灯", "●"],
+          ["四门车窗一键升降夹（带车窗遥控）", "●"],
+          ["电动调节外后视镜", "●"],
+          ["电动折叠外后视镜", "●"],
+          ["电加热外后视镜", "●"],
+          ["感应式电尾门", "●"],
+          ["车拖挡 H 型氛围灯", "●"],
+          ["智能钥匙 + 一键启动", "●"],
+          ["数字钥匙2（近程控制/接触控制/其他功能[1]）", "●"],
+          ["指纹识别认证", "●"],
+          ["前排双无线充电（带下车遗漏提醒）", "●"],
+          ["电子手刹（带自动驻车）", "●"],
+          ["UV 杀菌副储物箱", "●"],
+          ["双区自动空调", "●"],
+          ["第三排空调出风口", "●"],
+          ["二排空调出风口", "●"],
+          ["车内 PM2.5 空气质量监测（带主动空气净化功能）", "●"],
+          ["空调空气净化系统（带空调自洁功能）", "●"],
+          ["隐道模式（带空调内循环功能）", "●"],
+          ["防玻璃水空调风送内循环功能", "●"],
+          ["雨量感应雨刷", "●"],
+          ["后备箱隔物板", "●"],
+          ["第二排手动遮阳帘", "●"],
+          ["220V 后备箱电源", "●"],
+          ["ECM 电子防眩目内视镜", "●"],
+        ],
+      },
+      {
+        category: "多媒体",
+        rows: [
+          ["双 12.3 英寸交融曲面屏", "●"],
+          ["数字仪表盘", "●12.3英寸全液晶"],
+          ["12.3 英寸中控显示屏", "●"],
+          ["收音机", "●"],
+          ["蓝牙（带同时双机连接功能）", "●"],
+          ["USB 接口（Type-C）", "6"],
+          ["扬声器", "12"],
+          ["BOSE 环绕式音响", "●"],
+          ["HUD 抬头显示", "●"],
+        ],
+      },
+      {
+        category: "智能网联及蓝牙服务[2]",
+        rows: [
+          ["DMS 摄像头", "●"],
+          ["分心疲劳监测", "●"],
+          ["后排幼儿感知[3]", "●"],
+          ["DuerOS 智能语音交互功能（自然语言识别 & 场景应对）", "●"],
+          ["车载实时导航系统", "●"],
+          ["WiFi", "●"],
+          ["微信", "●"],
+          ["爱趣听（QQ音乐/播客/新闻等）", "●"],
+          ["腾讯小场景（生活/游戏/音乐/视频/车服等）", "●"],
+          ["CarPlay 无线手机互联", "●"],
+          ["CarLife 手机互联（支持 Android + iOS）", "●"],
+          ["远程车辆控制（启动/关闭引擎 & 车门解锁/上锁 & 闪灯 & 鸣笛 & 车辆状态查询等）", "●"],
+          ["紧急救援服务（气囊弹出自动报警/SOS）", "●"],
+          ["车辆关怀服务（车辆诊断/客户通知信息）", "●"],
+          ["个性化账户（Bluelink账户联动）", "●"],
+          ["OTA 远程升级", "●"],
+          ["后排静音模式", "●"],
+        ],
+      },
+      {
+        category: "选装包",
+        rows: [
+          ["选装包#1（1500元）自动泊车系统 + 后视镜带ETC车载装置", "○"],
+          ["选装包#2（0元）7 座 不带第二排座椅电调（靠背和坐垫角度）功能，不带第二排座椅折叠/回位（后备箱）功能", "○"],
+          ["选装包#3（2000元）曜黑烧光泽外饰颜色", "○"],
+          ["选装包#3（2000元）大地棱纹泽外饰颜色", "○"],
+        ],
+      },
+    ],
+    footnotes: [
+      "[1] 数字钥匙需通过蓝牙连接后视镜带ETC车载装置解锁后即可解锁。",
+      "[2] Bluelink 相关服务 5 年免费（含无限流量），仅限新车自购车日起一年内首次开通服务。",
+      "[3] 后排幼儿感知：需通过 Babyfirst「宝贝第一」品牌旗下智能安全座椅，通过车机接口实现该功能。",
+    ],
+  },
 }
 
 const isDot = (v: string) => v.startsWith("●")
@@ -329,7 +545,11 @@ export default async function VehicleDetailPage({
 
   const isZoomed = entry.name === "SONATA" || entry.name === "VS8"
   const config = configByVehicle[entry.name] ?? defaultConfig
-  const hasOptional = config.sections.some((s) => s.rows.some((r) => isOptional(r[1]) || isOptional(r[2])))
+  const hasOptional = config.sections.some((s) => s.rows.some((r) => r.slice(1).some(isOptional)))
+  const multiColumn = config.columns.length > 1
+  const gridColsDynamic = multiColumn
+    ? "grid grid-cols-[minmax(14rem,1.5fr)_1fr_1fr]"
+    : "grid grid-cols-[minmax(14rem,1.5fr)_1fr]"
 
   return (
     <main className="bg-background">
@@ -407,22 +627,38 @@ export default async function VehicleDetailPage({
           <div className="h-px flex-1 bg-gradient-to-r from-primary/40 to-transparent" />
         </div>
         <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-          以下为 {config.columns[0]} 与 {config.columns[1]} 的官方配置对比，蓝色圆点表示配备该项
-          {hasOptional ? "，空心圆点表示可选装" : ""}，&ldquo;—&rdquo;表示无此配置。
+          {multiColumn ? (
+            <>
+              以下为 {config.columns[0]} 与 {config.columns[1]} 的官方配置对比，蓝色圆点表示配备该项
+              {hasOptional ? "，空心圆点表示可选装" : ""}，&ldquo;—&rdquo;表示无此配置。
+            </>
+          ) : (
+            <>
+              以下为 {config.columns[0]} 的官方配置详情，蓝色圆点表示配备该项
+              {hasOptional ? "，空心圆点表示可选装" : ""}，&ldquo;—&rdquo;表示无此配置。
+            </>
+          )}
         </p>
 
         <div className="mt-8 overflow-hidden rounded-2xl border border-[#0f2a4a]/20 shadow-[0_30px_70px_-40px_rgba(15,42,74,0.5)]">
           <div className="overflow-x-auto">
             <div className="min-w-[820px] text-sm">
-              <div className={`${gridCols} bg-[#0f2a4a] font-bold text-white`}>
+              <div className={`${gridColsDynamic} bg-[#0f2a4a] font-bold text-white`}>
                 <div className="px-4 py-4">配置项</div>
-                <div className="border-l border-white/10 px-4 py-4 text-center">{config.columns[0]}</div>
-                <div className="border-l border-white/10 px-4 py-4 text-center">
-                  <span className="inline-flex items-center gap-1.5">
-                    {config.columns[1]}
-                    <span className="rounded bg-[#22b8ff] px-1.5 py-0.5 text-[10px] font-bold text-[#07182d]">{config.premiumBadge}</span>
-                  </span>
-                </div>
+                {config.columns.map((col, i) => (
+                  <div key={col} className="border-l border-white/10 px-4 py-4 text-center">
+                    {multiColumn && i === config.columns.length - 1 && config.premiumBadge ? (
+                      <span className="inline-flex items-center gap-1.5">
+                        {col}
+                        <span className="rounded bg-[#22b8ff] px-1.5 py-0.5 text-[10px] font-bold text-[#07182d]">
+                          {config.premiumBadge}
+                        </span>
+                      </span>
+                    ) : (
+                      col
+                    )}
+                  </div>
+                ))}
               </div>
               {config.sections.map((section) => (
                 <div key={section.category}>
@@ -430,18 +666,17 @@ export default async function VehicleDetailPage({
                     <span className="h-3 w-0.5 rounded-full bg-primary" />
                     {section.category}
                   </div>
-                  {section.rows.map(([label, standard, premium]) => (
+                  {section.rows.map(([label, ...values]) => (
                     <div
                       key={label}
-                      className={`${gridCols} border-t border-border transition-colors duration-200 hover:bg-primary/[0.04]`}
+                      className={`${gridColsDynamic} border-t border-border transition-colors duration-200 hover:bg-primary/[0.04]`}
                     >
                       <div className="px-4 py-3 text-foreground">{label}</div>
-                      <div className="border-l border-border px-4 py-3 text-center font-medium">
-                        <ConfigValue value={standard} />
-                      </div>
-                      <div className="border-l border-border px-4 py-3 text-center font-medium">
-                        <ConfigValue value={premium} premium />
-                      </div>
+                      {values.map((value, i) => (
+                        <div key={i} className="border-l border-border px-4 py-3 text-center font-medium">
+                          <ConfigValue value={value} premium={multiColumn && i === values.length - 1} />
+                        </div>
+                      ))}
                     </div>
                   ))}
                 </div>
