@@ -206,6 +206,7 @@ export const vehicleCatalog = [
           { name: "梦想家", image: "/images/vehicles/dreamer.png" },
           { name: "FREE", image: "/images/vehicles/free.png" },
           { name: "泰山", image: "/images/vehicles/taishan.png" },
+          { name: "奕派008", image: "/images/vehicles/epai-008.png" },
         ],
       },
     ],
