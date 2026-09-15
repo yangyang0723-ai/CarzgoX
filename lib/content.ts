@@ -159,6 +159,7 @@ export const vehicleCatalog = [
           { name: "SANTA", image: "/images/vehicles/santa.jpg" },
           { name: "TUCSON", image: "/images/vehicles/tucson.jpg" },
           { name: "SONATA", image: "/images/vehicles/sonata.jpg" },
+          { name: "MUFASA", image: "/images/vehicles/mufasa.png" },
         ],
       },
       {
@@ -294,7 +295,7 @@ export const about = {
     {
       name: "国际铁路",
       english: "CR Express · Oversea Resources",
-      description: "中欧班��资源 · 境外段优质资源",
+      description: "中欧班���资源 · 境外段优质资源",
       icon: "rail",
     },
     {
